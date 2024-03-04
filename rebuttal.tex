@@ -1,0 +1,286 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                          AUTHOR: BIBEKANANDA DATTA                         %%
+%%                             (C) SEPTEMBER 2023                             %%
+%%                      PHD STUDENT, MECHANICAL ENGINEERING                   %%
+%%                           JOHNS HOPKINS UNIVERSITY                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt]{article}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}	    %input
+\DeclareUnicodeCharacter{2212}{-}
+\usepackage[pagewise,mathlines]{lineno}
+
+% math packages
+\usepackage{amsfonts,amssymb,amsmath,amsthm,dsfont,mathtools,mathbbol,siunitx,upgreek,mathrsfs,cancel}
+\allowdisplaybreaks[1]
+
+\usepackage[ruled]{algorithm2e} % algorithm package
+\usepackage[title,titletoc]{appendix}
+\usepackage{autobreak}
+\usepackage[english]{babel}		% for other languages
+
+
+% bibliographic package
+%% make sure your bib file is in BibLaTeX format
+\usepackage[backend=biber, style=apa, doi=true]{biblatex}
+
+\usepackage{caption}
+\usepackage{color}
+\usepackage{csquotes}           % for quote envionrment
+\usepackage{enumitem}			% list environment
+\usepackage{float}              % for image floating
+\usepackage[T1]{fontenc}		% output
+\usepackage{geometry} %margin
+
+\usepackage{fancyhdr}
+\usepackage[bottom]{footmisc}
+\usepackage{graphicx,wrapfig}           %for image  
+\usepackage{hyperref}
+
+% table related packages
+\usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
+%\usepackage[protrusion]{microtype}
+\usepackage{textcomp}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{seqsplit}
+\usepackage[rightcaption]{sidecap}
+\usepackage{soul}
+\usepackage{tocbasic,parskip}
+\usepackage{parskip}
+\usepackage{titlesec}
+%\usepackage{tocbibind}
+\usepackage{subfig}    % Individual panel captions
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% margin settings
+\geometry{left=1in, right=1.0in, top=1.25in, bottom=1.25in}
+
+%% authblk title, author, and affiliation font size
+%% use symbols up to the same number of authors
+%% otherwise it will start showing up in the footnotes
+\renewcommand*{\Authfont}{\normalsize}
+\DefineFNsymbolsTM{otherfnsymbols}{%
+  \textdagger    \dagger
+  \textdaggerdbl \ddagger
+  \textsection   \mathsection
+}%
+\setfnsymbol{otherfnsymbols}
+\renewcommand\Affilfont{\itshape\small}
+\setlength{\affilsep}{1em}
+
+
+%% section, subsection, subsubsection, and paragraph
+\setcounter{secnumdepth}{4}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\itshape}
+\titleformat{\paragraph}
+{\normalfont\normalsize\itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+%% no indent with single paragraph spacing
+\setlength{\parindent}{0px}
+\setlength{\parskip}{\baselineskip}
+\setlength{\footnotesep}{\baselineskip}
+\setlength{\marginparwidth}{2.5cm} 
+\def\arraystretch{1.25}
+
+
+%% settings for figure captions
+\captionsetup{font=small,labelfont=bf,labelsep=period,belowskip=0pt}
+
+
+%% bibliography settings
+\DeclareFieldFormat{titlecase}{#1}
+\AtBeginBibliography{\urlstyle{rm}}
+
+%% settings for hyperref
+\hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+
+
+%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Define math symbols and macros
+\numberwithin{equation}{section}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\divg}{div}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\skw}{skw}
+\newcommand{\dC}{$^{\circ}$C}
+
+%% these are just some examples. add more macros as you need
+
+%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% SIMPLE COMMENT SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%
+%% color used for questions by committee members
+\newcommand{\question}{\textcolor{RoyalBlue}}
+
+%% for personal comments
+\newcommand{\COMMENT}{\textcolor{red}}
+\newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
+\newcommand{\ADDFIGURE}{\COMMENT{(ADD FIGURE)}}
+\newcommand{\ADDTABLE}{\COMMENT{(ADD TABLE)}}
+
+%% you can use other packages for more complicated review and comment section
+
+%%%%%%%%%%%%%%%%%%%% END SIMPLE COMMENT SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% BASIC SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% choice a font form (or add something else) for your thesis.
+\usepackage{lmodern}            % latin modern
+%\usepackage[sc]{mathpazo}
+%\usepackage{times}             % times new roman
+
+
+%% may be useful during drafting
+%\linenumbers
+
+
+%% this file has to be in BibLaTeX format. Use Zotero or another citation manager to generate the .bib file in BibLaTeX format.
+\addbibresource{references.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% END BASIC SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% title and authors
+\title{\vspace{-0.75in}\large{Response to the comments of thesis proposal committee members}}
+\author[]{Author name\footnote{Contact: Author name \texttt{(email)}}} 
+\affil[]{Affiliation goes here}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% END TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\date{}
+\maketitle 
+\vspace{-0.5cm} \hrule
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESPONSE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Prof. X's questions and comments}
+
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin= 0.75 cm, itemsep=10pt,parsep=6pt]
+
+\item \question{Question goes here}
+
+The response goes here.
+
+%% add more questions and responses here with \item
+
+
+\end{enumerate}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESPONSE 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Prof. Y's questions and comments}
+
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin= 0.75 cm, itemsep=10pt,parsep=6pt]
+
+\item \question{Question goes here}
+
+The response goes here.
+
+%% add more questions and responses here with \item
+
+\end{enumerate}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESPONSE 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Prof. Z's questions and comments}
+
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin= 0.75 cm, itemsep=10pt,parsep=6pt]
+
+\item \question{Question goes here}
+
+The response goes here
+
+%% add more questions and responses here with \item
+
+
+\end{enumerate}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Bibliographic references}
+\addcontentsline{toc}{section}{Bibliographic references}
+\printbibliography[notcategory=fullcited,heading=none]
+
+
+
+
+\end{document}
