@@ -1,10 +1,10 @@
 # JHU Mechanical Engineering Dissertation Proposal Template
 
-This is an unofficial LaTeX template for dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, but only provides some general guidelines on the sections to be included in the proposal.
+This is an unofficial LaTeX template for dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, but only provides some general guidelines on the sections with a tentative page limit to be included in the proposal. This template is created based on those general guidelines. The repository is also available as [Overleaf template](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx).
 
-**It is user's responsibility to discuss with their advisor and committee members about the formatting.**
+**It is user's responsibility to discuss with their advisor(s) and committee members about the formatting. The author of this repository bears no responsibility regarding this.**
 
-This repository is also available as [Overleaf template](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx).
+
 
 
 ## Description of the repository
@@ -13,6 +13,9 @@ This repository is also available as [Overleaf template](https://www.overleaf.co
 - `rebuttal.tex`: This is a plain article class file which you can use to prepare your response to committee members in case they make suggestions to your proposal. I hope you do not have to do this. Anyway, this is a general-purposed article class based .tex file which can be used for writing small report or even reponse to journal or conference artlce peer review.
 - `references.bib`: This is a biblatex file which contains all the bibliographic item. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I recommend adding all the citation files (for main proposal and subsequent rebuttal) to one single file that means update the same file when writing rebuttal to avoid clutter.
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
+
+I suggest going though both of the .tex files to see what packages have been included and what options are invoked to obtain the current formatting. You can the tweak the options or add more packages to format it your preference or domain-specific requirement.
+
 
 
 ## How to use the template on Overleaf
@@ -31,11 +34,26 @@ Once the project is opened, for main proposal, compile `proposal.tex` and rebutt
 **PS:** I stopped using local LaTeX compiler for a while now. If you would like to do it locally, you should a have LaTeX compiler installed and configured with multiple packages with a decent text editor. Unfortunately I did not try compiling this project locally, so will not be able to help out!
 
 
-## Some useful suggestions for using the template
+
+## Current formatting and suggestions
+
+- The title page is customized to my preference inspired by Johns Hopkins dissertation template. If you have more than two committee members besides your advisor or have multiple advisors, you may need to use `minipage` environment to fit the full committee in the title page.
+
+- Tha main text of both of the documents are single-spaced with listed front matter being one-half-spaced for the main.tex because of the page limitation. But you can space out the content if you want or prefer by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text.
+
+- Margin used in both documents are 1.0in in all sides with no header and footer except pagination at bottom center.
+
+- For main proposal, the pagination counter starts from the abstract page with Roman numeral ii. For main text, the pagination reset in Arabic. For response document, the pagination is always is in Arabic from the beginning.
+
+- Table of contents, List of figures, List of tables are considered to be unnumbered sections. `tocbasic` package was used to manage this formatting. Every numbered or unnumbered section is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting.
+
+- Currently, the biblatex package is used with `nature` citation style. You may need to change it based on your research field.
+
+- For response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference.
 
 
 
 
 ## Contributing to the project
 
-This template was kept sufficiently general purpose for  with some customization examples for special packages or macros for demonstration purpose. Since there exists any specific requirements related to dissertation proposal, I do not plan on updating this repository frequently. But if any package becomes obsolete or you have better ideas to implement something, you can create a fork and make a `pull request`, or just let me know.
+This template was kept sufficiently general purpose for with some customization examples for special packages or macros for demonstration purpose. Since there is no specific formatting requirements available, I do not plan on actively maintaining this repository. But if you have questions, I would be happy to help! Also, if any package becomes obsolete or you have better ideas to implement something, you can create a fork and make a `pull request`, or just let me know.
