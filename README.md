@@ -49,7 +49,7 @@ Once the project is opened, for main proposal, compile `proposal.tex` and rebutt
 
 - Currently, the biblatex package is used with `nature` citation style. You may need to change it based on your research field.
 
-- For response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference.
+- For the response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference.
 
 
 
