@@ -15,78 +15,75 @@
 %% tweaking original settings down below which could be little more involved.
 
 \baselineskip=12pt
-\def\NoTocLevel{3}                  % no of levels showed in the table of contents
-\def\NoSectionLevel{4}              % no of levels for sections ... to subsubsection
+\def\NoTocLevel{3}                              % no of levels showed in the table of contents
+\def\NoSectionLevel{4}                          % no of levels for sections ... to subsubsection
 
-\def\SectionFont{\bfseries\large}   % font for section heading
-\def\SubsectionFont{\bfseries\normalsize}        % font for subsection heading
-\def\SubsubsectionFont{\itshape\normalsize}      % font for subsubsection heading
+\def\SectionFont{\bfseries\large}               % font for section heading
+\def\SubsectionFont{\bfseries\normalsize}       % font for subsection heading
+\def\SubsubsectionFont{\itshape\normalsize}     % font for subsubsection heading
 
-\def\GlobalTableSpacing{1.2}        % global spacing parameter for table (double spaced)
+\def\GlobalTableSpacing{1.2}                    % global spacing parameter for table (double spaced)
 
-\def\ParagraphSpacing{\baselineskip}% spacing between paragraph
-\def\ParagraphIndent{0}             % indentation at the beginning of the paragraph
-\def\BibItemSpacing{\baselineskip}  % spacing between bibliographic items in reference
+\def\ParagraphSpacing{\baselineskip}    % spacing between paragraph
+\def\ParagraphIndent{0}                 % indentation at the beginning of the paragraph
+\def\BibItemSpacing{\baselineskip}      % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.75\baselineskip} % spacing between footnotes
-\def\CaptionSpacing{0}              % spacing between the figure and the caption (unit: pt)
+\def\CaptionSpacing{0}                  % spacing between the figure and the caption (unit: pt)
 
-\def\CaptionFontSize{small}         % size of caption font
-\def\CaptionFontType{bf}            % boldface caption tag
-\def\CaptionSeparator{period}       % you can change it to 'colon' as well
+\def\CaptionFontSize{small}             % size of caption font
+\def\CaptionFontType{bf}                % boldface caption tag
+\def\CaptionSeparator{period}           % you can change it to 'colon' as well
 
-\def\FontPackage{lmodern}           % latin modern font (you can also change it to times)
-\def\BibFileName{references.bib}    % name of BibLaTeX file with all the bibliography
+\def\FontPackage{lmodern}               % latin modern font (you can also change it to times)
+\def\BibFileName{references.bib}        % name of BibLaTeX file with all the bibliography
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[utf8]{inputenc}	    %input
-\usepackage[pagewise,mathlines]{lineno}
+\usepackage[utf8]{inputenc}	            % input character encoding
+\usepackage[pagewise,mathlines]{lineno} % line no during drafting process
 
-% math packages
-\usepackage{amsfonts,amssymb,amsmath,amsthm,dsfont,mathtools,mathbbol,siunitx,upgreek,mathrsfs,cancel}
-\usepackage{authblk}
-\usepackage[ruled]{algorithm2e} % algorithm package
-\usepackage[title,titletoc]{appendix}
-\usepackage{autobreak}
-\usepackage[english]{babel}		% for other languages
-\usepackage{blindtext}
+%% math packages
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
+\usepackage{authblk}                    % to manage author information
+\usepackage[ruled]{algorithm2e}         % algorithm package
+\usepackage[title,titletoc]{appendix}   % to manage appendix
+\usepackage[english]{babel}             % for other languages
+\usepackage{blindtext}                  % to generate random text bloks
 
 % bibliographic package (make sure your bib file is in BibLaTeX format)
 % use Zotero or some other reference manager to generate the BibLaTeX file
 % change the style or other options as needed
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 
-
-\usepackage{caption}
+\usepackage{caption}                    % to manage caption
 
 \usepackage{color}
 \usepackage{csquotes}                   % for quote envionrment
-\usepackage{comment}
-\usepackage{enumitem}			        % list environment
-\usepackage{float}                      % for image floating
-\usepackage[T1]{fontenc}		        % output
-\usepackage{geometry}		            % margin manipulation
+\usepackage{comment}                    % comment environment
+\usepackage{enumitem}                   % to manage list environment
+\usepackage{float}                      % to manage floating environment
+\usepackage[T1]{fontenc}                % font encoding output
+\usepackage{geometry}                   % margin manipulation
 
 \usepackage{fancyhdr}                   % for headers and footers
-\usepackage[bottom]{footmisc}
-\usepackage{graphicx,wrapfig}           % for image  
-\usepackage{hyperref}
+\usepackage[bottom]{footmisc}           % footnote management
+\usepackage{graphicx,wrapfig}           % for images
+\usepackage{hyperref}                   % to manage hyperlinks
 
 % table related package
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
-%\usepackage[protrusion]{microtype}
-\usepackage{textcomp}
-\usepackage{setspace}
-\usepackage{seqsplit}
-\usepackage[rightcaption]{sidecap}
-\usepackage{soul}
-\usepackage{tocbasic}
-\usepackage{parskip}
-\usepackage{titlesec}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tikz}
-\usepackage{subcaption}             % individual panel captions
+
+\usepackage{parskip}                    % for paragraph layout
+\usepackage{pax,pdfpages,soul}          % to add pdfs
+\usepackage{setspace}                   % sets space between lines
+\usepackage{seqsplit}                   % splits long character sequence
+\usepackage[rightcaption]{sidecap}      % for sideway captions
+\usepackage{textcomp}                   % text companion fonts in TS1
+\usepackage{titlesec}                   % managing different titles
+\usepackage[dvipsnames]{xcolor}         % xcolor package with dvipsname option
+\usepackage{tikz}                       % package for drawing
+\usepackage{subcaption}                 % individual panel and caption
 
 %% add more packages as you need
 

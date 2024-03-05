@@ -7,6 +7,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              for details, please check the README.MD file                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % this is an unofficial template for the thesis or dissertation proposal in 
 % the Department of Mechanical Engineering at Johns Hopkins University. 
 
@@ -51,52 +56,52 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[utf8]{inputenc}	    %input
-\usepackage[pagewise,mathlines]{lineno}
+\usepackage[utf8]{inputenc}	            % input character encoding
+\usepackage[pagewise,mathlines]{lineno} % line no during drafting process
 
-% math packages
-\usepackage{amsfonts,amssymb,amsmath,amsthm,dsfont,mathtools,mathbbol,siunitx,upgreek,mathrsfs,cancel}
+%% math packages
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
-\usepackage[ruled]{algorithm2e} % algorithm package
-\usepackage[title,titletoc]{appendix}
-\usepackage{autobreak}
-\usepackage[english]{babel}		% for other languages
-\usepackage{blindtext}
-
+\usepackage{authblk}                    % to manage author information
+\usepackage[ruled]{algorithm2e}         % algorithm package
+\usepackage[title,titletoc]{appendix}   % to manage appendix
+\usepackage[english]{babel}             % for other languages
+\usepackage{blindtext}                  % to generate random text bloks
 
 % bibliographic package (make sure your bib file is in BibLaTeX format)
 % use Zotero or some other reference manager to generate the BibLaTeX file
 % change the style or other options as needed
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 
-\usepackage{caption}
+\usepackage{caption}                    % to manage caption
 
 \usepackage{color}
-\usepackage{csquotes}           % for quote envionrment
-\usepackage{enumitem}			% list environment
-\usepackage{float}              % for image floating
-\usepackage[T1]{fontenc}		% output
-\usepackage{geometry}		    % margin manipulation
+\usepackage{csquotes}                   % for quote envionrment
+\usepackage{comment}                    % comment environment
+\usepackage{enumitem}                   % to manage list environment
+\usepackage{float}                      % to manage floating environment
+\usepackage[T1]{fontenc}                % font encoding output
+\usepackage{geometry}                   % margin manipulation
 
-\usepackage{fancyhdr}           % for headers and footers
-\usepackage[bottom]{footmisc}
-\usepackage{graphicx,wrapfig}   % for image  
-\usepackage{hyperref}
+\usepackage{fancyhdr}                   % for headers and footers
+\usepackage[bottom]{footmisc}           % footnote environment management
+\usepackage{graphicx,wrapfig}           % for images
+\usepackage{hyperref}                   % to manage hyperlinks
 
 % table related package
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
-\usepackage{textcomp}
-\usepackage{setspace}
-\usepackage{seqsplit}
-\usepackage[rightcaption]{sidecap}
-\usepackage{soul}
-\usepackage{tocbasic}
-\usepackage{parskip}
-\usepackage{titlesec}
-\usepackage{xcolor}
-\usepackage{tikz}
-\usepackage{subcaption}    % Individual panel captions
 
+\usepackage{parskip}                    % for paragraph layout
+\usepackage{pax,pdfpages,soul}          % to add pdfs
+\usepackage{setspace}                   % sets space between lines
+\usepackage{seqsplit}                   % splits long character sequence
+\usepackage[rightcaption]{sidecap}      % for sideway captions
+\usepackage{textcomp}                   % text companion fonts in TS1
+\usepackage{tocbasic}                   % to manage table of contents
+\usepackage{titlesec}                   % managing different titles
+\usepackage[dvipsnames]{xcolor}         % xcolor package with dvipsname option
+\usepackage{tikz}                       % package for drawing
+\usepackage{subcaption}                 % individual panel and caption
 
 %% add more packages as you need
 
@@ -177,8 +182,8 @@
 
 %% Define math symbols and macros
 \allowdisplaybreaks[1]
-\setcounter{MaxMatrixCols}{20}
-\numberwithin{equation}{section}
+\setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
+\numberwithin{equation}{section}        % eqn no begins with section no
 \newcommand{\dC}{$^{\circ}$C}           % degree celcius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
