@@ -37,20 +37,25 @@ Once the project is opened, for main proposal, compile `proposal.tex` and rebutt
 
 ## Current formatting and suggestions
 
-- The title page is customized to my preference inspired by Johns Hopkins dissertation template. If you have more than two committee members besides your advisor or have multiple advisors, you may need to use `minipage` environment to fit the full committee in the title page.
+Format of the dissertation proposal document is inspired by the [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/). However, because of the page limit and difference in the style of contents, it was heavily customized.
 
-- Tha main text of both of the documents are single-spaced with listed front matter being one-half-spaced for the main.tex because of the page limitation. But you can space out the content if you want or prefer by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text.
+- The title page is customized to my preference inspired by Johns Hopkins dissertation template. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you may need to use `minipage` environment to fit the full committee in the title page.
 
-- Margin used in both documents are 1.0in in all sides with no header and footer except pagination at bottom center.
+- Tha main text of the both documents are single-spaced with listed front matter being one-half-spaced for the main.tex because of the page limitation. But you can space out the content if you prefer by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text. Change other spacing accordingly. All the necessary variables that can customize the format of the template are declared in the very beginning of the document. Tweak them to obtain a more consistent format for Table, Figures, Paragraph, and Bibliographic items, etc.
 
-- For main proposal, the pagination counter starts from the abstract page with Roman numeral ii. For main text, the pagination reset in Arabic. For response document, the pagination is always is in Arabic from the beginning.
+- Margin used in both documents are 1.0in for all sides with no header and footer except for pagination at bottom center.
 
-- Table of contents, List of figures, List of tables are considered to be unnumbered sections. `tocbasic` package was used to manage this formatting. Every numbered or unnumbered section is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting.
+- The title page of the main proposal document does not have any pagination. For the main proposal document, the pagination counter starts from the abstract page with Roman numeral ii. For main text in the proposal document, the pagination resets in Arabic starting from 1. For the response document, the pagination is always is in Arabic from the beginning.
 
-- Currently, the biblatex package is used with `nature` citation style. You may need to change it based on your research field.
+- There is no specific title page for the response document. Rather it uses standard `authblk` packagee to have a title, author name, and author affiliation.
+
+- Table of contents, List of figures, List of tables are considered to be unnumbered sections in this template. `tocbasic` package was used to manage this formatting. Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting.
+
+- Currently, the biblatex package is used with `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, but for this page-limited proposal document, I found numbered-style citation to be more appropriate and space saving.
 
 - For the response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference.
 
+- For each committee member, a specific section is dedicated in the response document and questions are posed using a enumerated list.
 
 
 
