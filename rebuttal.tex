@@ -10,59 +10,86 @@
 
 \documentclass[12pt]{article}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% if possible, make all of your changes here in the variable definition before
+%% tweaking original settings down below which could be little more involved.
 
+\baselineskip=12pt
+\def\NoTocLevel{3}                  % no of levels showed in the table of contents
+\def\NoSectionLevel{4}              % no of levels for sections ... to subsubsection
+
+\def\SectionFont{\bfseries\large}   % font for section heading
+\def\SubsectionFont{\bfseries\normalsize}        % font for subsection heading
+\def\SubsubsectionFont{\itshape\normalsize}      % font for subsubsection heading
+
+\def\GlobalTableSpacing{1.2}        % global spacing parameter for table (double spaced)
+
+\def\ParagraphSpacing{\baselineskip}% spacing between paragraph
+\def\ParagraphIndent{0}             % indentation at the beginning of the paragraph
+\def\BibItemSpacing{\baselineskip}  % spacing between bibliographic items in reference
+\def\FootnoteSpacing{0.75\baselineskip} % spacing between footnotes
+\def\CaptionSpacing{0}              % spacing between the figure and the caption (unit: pt)
+
+\def\CaptionFontSize{small}         % size of caption font
+\def\CaptionFontType{bf}            % boldface caption tag
+\def\CaptionSeparator{period}       % you can change it to 'colon' as well
+
+\def\FontPackage{lmodern}           % latin modern font (you can also change it to times)
+\def\BibFileName{references.bib}    % name of BibLaTeX file with all the bibliography
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{authblk}
+
 \usepackage[utf8]{inputenc}	    %input
-\DeclareUnicodeCharacter{2212}{-}
 \usepackage[pagewise,mathlines]{lineno}
 
 % math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,dsfont,mathtools,mathbbol,siunitx,upgreek,mathrsfs,cancel}
-\allowdisplaybreaks[1]
-
+\usepackage{authblk}
 \usepackage[ruled]{algorithm2e} % algorithm package
 \usepackage[title,titletoc]{appendix}
 \usepackage{autobreak}
 \usepackage[english]{babel}		% for other languages
+\usepackage{blindtext}
 
 
-% bibliographic package
-%% make sure your bib file is in BibLaTeX format
-\usepackage[backend=biber, style=apa, doi=true]{biblatex}
+% bibliographic package (make sure your bib file is in BibLaTeX format)
+% use Zotero or some other reference manager to generate the BibLaTeX file
+% change the style or other options as needed
+\usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
+
 
 \usepackage{caption}
-\usepackage{color}
-\usepackage{csquotes}           % for quote envionrment
-\usepackage{enumitem}			% list environment
-\usepackage{float}              % for image floating
-\usepackage[T1]{fontenc}		% output
-\usepackage{geometry} %margin
 
-\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{csquotes}                   % for quote envionrment
+\usepackage{comment}
+\usepackage{enumitem}			        % list environment
+\usepackage{float}                      % for image floating
+\usepackage[T1]{fontenc}		        % output
+\usepackage{geometry}		            % margin manipulation
+
+\usepackage{fancyhdr}                   % for headers and footers
 \usepackage[bottom]{footmisc}
-\usepackage{graphicx,wrapfig}           %for image  
+\usepackage{graphicx,wrapfig}           % for image  
 \usepackage{hyperref}
 
-% table related packages
+% table related package
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 %\usepackage[protrusion]{microtype}
 \usepackage{textcomp}
-\usepackage{sectsty}
 \usepackage{setspace}
 \usepackage{seqsplit}
 \usepackage[rightcaption]{sidecap}
 \usepackage{soul}
-\usepackage{tocbasic,parskip}
+\usepackage{tocbasic}
 \usepackage{parskip}
 \usepackage{titlesec}
-%\usepackage{tocbibind}
-\usepackage{subfig}    % Individual panel captions
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes,arrows}
+\usepackage{subcaption}             % individual panel captions
+
+
+%% add more packages as you need
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -73,53 +100,69 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% margin settings
-\geometry{left=1in, right=1.0in, top=1.25in, bottom=1.25in}
+%% choice a font form (or add something else) for your thesis (uncomment one option)
+\usepackage{\FontPackage}       
+% if you want to use Palatino font, use the following and comment above line
+%\usepackage[sc]{mathpazo}          % palatino font family
+
+
+%% I use Zotero to generate the BibLaTeX file and include it in the same directory
+\addbibresource{\BibFileName}
+
+
+%% margin settings with geometry package
+\geometry{left=1.0in, right=1.0in, top=1.0in, bottom=1.0in}
+
+
+%% settings for the hyperref package
+\hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+\urlstyle{rm}   % to remove the default URL style (tt format)
+
+
+%% settings for figure caption
+\captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
+
+
 
 %% authblk title, author, and affiliation font size
-%% use symbols up to the same number of authors
-%% otherwise it will start showing up in the footnotes
 \renewcommand*{\Authfont}{\normalsize}
 \DefineFNsymbolsTM{otherfnsymbols}{%
   \textdagger    \dagger
-  \textdaggerdbl \ddagger
-  \textsection   \mathsection
 }%
 \setfnsymbol{otherfnsymbols}
 \renewcommand\Affilfont{\itshape\small}
 \setlength{\affilsep}{1em}
 
 
-%% section, subsection, subsubsection, and paragraph
-\setcounter{secnumdepth}{4}
-\titleformat*{\section}{\large\bfseries}
-\titleformat*{\subsection}{\normalsize\bfseries}
-\titleformat*{\subsubsection}{\normalsize\itshape}
+%% section, subsection, and subsubsection to appear in the TOC
+\setcounter{secnumdepth}{\NoSectionLevel}
+
+%% formatting for the section, subsection, subsubsection, etc.
+\titleformat{\section}
+{\SectionFont}{\thesection}{1em}{}
+\titleformat*{\subsection}{\SubsectionFont}
+\titleformat*{\subsubsection}{\SubsubsectionFont}
 \titleformat{\paragraph}
-{\normalfont\normalsize\itshape}{\theparagraph}{1em}{}
+{\normalfont\normalsize}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 
 %% no indent with single paragraph spacing
-\setlength{\parindent}{0px}
-\setlength{\parskip}{\baselineskip}
-\setlength{\footnotesep}{\baselineskip}
-\setlength{\marginparwidth}{2.5cm} 
-\def\arraystretch{1.25}
-
-
-%% settings for figure captions
-\captionsetup{font=small,labelfont=bf,labelsep=period,belowskip=0pt}
+\setlength{\parskip}{\ParagraphSpacing}
+\setlength{\parindent}{\ParagraphIndent pt}
+\setlength{\footnotesep}{\FootnoteSpacing}
+\setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
+\def\arraystretch{\GlobalTableSpacing}
 
 
 %% bibliography settings
 \DeclareFieldFormat{titlecase}{#1}
 \AtBeginBibliography{\urlstyle{rm}}
 
-%% settings for hyperref
-\hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -131,6 +174,7 @@
 
 %% Define math symbols and macros
 \numberwithin{equation}{section}
+\newcommand{\dC}{$^{\circ}$C}
 \newcommand{\vect}[1]{\mathbf{#1}}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\divg}{div}
@@ -138,7 +182,6 @@
 \DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\sym}{sym}
 \DeclareMathOperator{\skw}{skw}
-\newcommand{\dC}{$^{\circ}$C}
 
 %% these are just some examples. add more macros as you need
 
@@ -152,14 +195,13 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%% SIMPLE COMMENT SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% color used for questions by committee members
 \newcommand{\question}{\textcolor{RoyalBlue}}
 
 %% for personal comments
 \newcommand{\COMMENT}{\textcolor{red}}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
-\newcommand{\ADDFIGURE}{\COMMENT{(ADD FIGURE)}}
-\newcommand{\ADDTABLE}{\COMMENT{(ADD TABLE)}}
 
 %% you can use other packages for more complicated review and comment section
 
@@ -170,35 +212,12 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% BASIC SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% choice a font form (or add something else) for your thesis.
-\usepackage{lmodern}            % latin modern
-%\usepackage[sc]{mathpazo}
-%\usepackage{times}             % times new roman
-
-
-%% may be useful during drafting
-%\linenumbers
-
-
-%% this file has to be in BibLaTeX format. Use Zotero or another citation manager to generate the .bib file in BibLaTeX format.
-\addbibresource{references.bib}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%% END BASIC SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %% title and authors
 \title{\vspace{-0.75in}\large{Response to the comments of thesis proposal committee members}}
 \author[]{Author name\footnote{Contact: Author name \texttt{(email)}}} 
 \affil[]{Affiliation goes here}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%% END TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -208,11 +227,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\linenumbers                   %% may be useful during drafting
 \begin{document}
 \date{}
 \maketitle 
 \vspace{-0.5cm} \hrule
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESPONSE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,7 +262,7 @@ The response goes here.
 
 \item \question{Question goes here}
 
-The response goes here.
+The response goes here \cite{einstein}.
 
 %% add more questions and responses here with \item
 
@@ -263,7 +282,7 @@ The response goes here.
 
 \item \question{Question goes here}
 
-The response goes here
+The response goes here 
 
 %% add more questions and responses here with \item
 
@@ -279,7 +298,6 @@ The response goes here
 \section*{Bibliographic references}
 \addcontentsline{toc}{section}{Bibliographic references}
 \printbibliography[notcategory=fullcited,heading=none]
-
 
 
 

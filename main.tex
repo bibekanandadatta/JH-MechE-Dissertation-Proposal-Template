@@ -17,8 +17,7 @@
 % this template is based on the LaTeX article class and uses BibLaTeX as 
 % bibliographic manager. Use a citation manager to generate the BibLaTeX file.
 
-% GitHub repository: https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template
-
+% GitHub: https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -70,7 +69,6 @@
 % change the style or other options as needed
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 
-
 \usepackage{caption}
 
 \usepackage{color}
@@ -87,9 +85,7 @@
 
 % table related package
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
-%\usepackage[protrusion]{microtype}
 \usepackage{textcomp}
-\usepackage{sectsty}
 \usepackage{setspace}
 \usepackage{seqsplit}
 \usepackage[rightcaption]{sidecap}
@@ -97,12 +93,10 @@
 \usepackage{tocbasic}
 \usepackage{parskip}
 \usepackage{titlesec}
-%\usepackage{tocbibind}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes,arrows}
-\usepackage{subcaption}    % Individual panel captions
 \usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{subcaption}    % Individual panel captions
+
 
 %% add more packages as you need
 
@@ -163,13 +157,16 @@
 \def\arraystretch{\GlobalTableSpacing}
 
 
-
 %% settings for bibliography
 \AtBeginBibliography{\urlstyle{rm}}
 \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
 \DeclareBibliographyCategory{fullcited}
 \newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
 
+
+%% settings for TikZ library
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
