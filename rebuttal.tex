@@ -88,7 +88,6 @@
 \usepackage{tikz}
 \usepackage{subcaption}             % individual panel captions
 
-
 %% add more packages as you need
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,7 +126,7 @@
 %% authblk title, author, and affiliation font size
 \renewcommand*{\Authfont}{\normalsize}
 \DefineFNsymbolsTM{otherfnsymbols}{%
-  \textdagger    \dagger
+  \textdagger    \dagger        % author name will have a dagger symbol for footnote
 }%
 \setfnsymbol{otherfnsymbols}
 \renewcommand\Affilfont{\itshape\small}
@@ -136,6 +135,7 @@
 
 %% section, subsection, and subsubsection to appear in the TOC
 \setcounter{secnumdepth}{\NoSectionLevel}
+
 
 %% formatting for the section, subsection, subsubsection, etc.
 \titleformat{\section}
@@ -149,10 +149,10 @@
 
 
 %% no indent with single paragraph spacing
-\setlength{\parskip}{\ParagraphSpacing}
-\setlength{\parindent}{\ParagraphIndent pt}
-\setlength{\footnotesep}{\FootnoteSpacing}
-\setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
+\setlength{\parskip}{\ParagraphSpacing}         % spacing in paragraph
+\setlength{\parindent}{\ParagraphIndent pt}     % indentation in paragraph
+\setlength{\footnotesep}{\FootnoteSpacing}      % footnote seperation
+\setlength{\bibitemsep}{\BibItemSpacing}        % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}
 
 
