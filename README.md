@@ -31,7 +31,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it storn
 Once the project is opened, for main proposal, compile `proposal.tex` and rebuttal compile `rebuttal.tex`. These files should compile separately without any errors; there might be warnings but you can ignore them.
 
 
-**PS:** I stopped using local LaTeX compiler for a while now. If you would like to do it locally, you should a have LaTeX compiler installed and configured with multiple packages with a decent text editor. Unfortunately I did not try compiling this project locally, so will not be able to help out!
+**PS:** I stopped using local LaTeX compiler for a while now. If you would like to do it locally, you should a have LaTeX compiler installed and configured with multiple packages with a decent text editor. Unfortunately I did not try compiling this project locally, so will not be able to help out if you run into issues!
 
 
 

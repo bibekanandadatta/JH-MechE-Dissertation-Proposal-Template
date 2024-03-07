@@ -2,13 +2,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                          AUTHOR: BIBEKANANDA DATTA                         %%
 %%                             (C) SEPTEMBER 2023                             %%
-%%                      PHD STUDENT, MECHANICAL ENGINEERING                   %%
+%%                      PhD STUDENT, MECHANICAL ENGINEERING                   %%
 %%                           JOHNS HOPKINS UNIVERSITY                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%              for details, please check the README.MD file                  %%
+% https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template %
+%%              it may be conveneint to read this file on GitHub              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,90 +25,95 @@
 % this template is based on the LaTeX article class and uses BibLaTeX as 
 % bibliographic manager. Use a citation manager to generate the BibLaTeX file.
 
-% GitHub: https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{article}
 
-%% if possible, make all of your changes here in the variable definition before
-%% tweaking original settings down below which could be little more involved.
+\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+\def\BibFileName{references.bib}            % name of BibLaTeX file with all the bibliography
 
-\baselineskip=12pt
-\def\NoTocLevel{3}                  % no of levels showed in the table of contents
-\def\NoSectionLevel{4}              % no of levels for sections ... to subsubsection
+\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
+\def\TocIndent{0}                           % indentation in the list of figs and tables
+\def\NoTocLevel{3}                          % no of levels showed in the table of contents
+%% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
 
-\def\SectionFont{\bfseries\large}   % font for section heading
-\def\SubsectionFont{\bfseries\normalsize}        % font for subsection heading
-\def\SubsubsectionFont{\itshape\normalsize}      % font for subsubsection heading
+\def\ChapterTopSpace{-48}                   % white space on top of the chapter heading (unit: pt)
+\def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
+\def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
 
-\def\GlobalTableSpacing{1.2}        % global spacing parameter for table (double spaced)
+% font format for section heading and title
+\def\SectionFont{\large\bfseries}           % section heading font format
+\def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
+\def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
+\def\CaptionFontSize{small}                 % caption font size
+\def\CaptionFontType{bf}                    % boldface label for captions
+\def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
 
-\def\ParagraphSpacing{\baselineskip}% spacing between paragraph
-\def\ParagraphIndent{0}             % indentation at the beginning of the paragraph
-\def\BibItemSpacing{\baselineskip}  % spacing between bibliographic items in reference
-\def\FootnoteSpacing{0.75\baselineskip} % spacing between footnotes
-\def\CaptionSpacing{0}              % spacing between the figure and the caption (unit: pt)
+%% if this seems too widespread for you, try changing it locally using
+%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+\def\GlobalTableSpacing{1.2}                % global spacing parameter for table
 
-\def\CaptionFontSize{small}         % size of caption font
-\def\CaptionFontType{bf}            % boldface caption tag
-\def\CaptionSeparator{period}       % you can change it to 'colon' as well
+\def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
+\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
+\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
+\def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items in reference
+\def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
+\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
-\def\FontPackage{lmodern}           % latin modern font (you can also change it to times)
-\def\BibFileName{references.bib}    % name of BibLaTeX file with all the bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}	                % for encoding input character
+\usepackage[pagewise,mathlines]{lineno}     % linenumbers
 
-\usepackage[utf8]{inputenc}	            % input character encoding
-\usepackage[pagewise,mathlines]{lineno} % line no during drafting process
 
 %% math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
-\usepackage{authblk}                    % to manage author information
-\usepackage[ruled]{algorithm2e}         % algorithm package
-\usepackage[title,titletoc]{appendix}   % to manage appendix
-\usepackage[english]{babel}             % for other languages
-\usepackage{blindtext}                  % to generate random text bloks
+\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
+\usepackage[titletoc]{appendix}             % to manage appendix chapters
+\usepackage[american]{babel}                % for different language typography
 
-% bibliographic package (make sure your bib file is in BibLaTeX format)
-% use Zotero or some other reference manager to generate the BibLaTeX file
-% change the style or other options as needed
+%% bibliographic package (make sure your bib file is in BibLaTeX format)
+%% use Zotero or some other reference manager to generate the BibLaTeX file
+%% change the style or other options if you need to
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
+% \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
-\usepackage{caption}                    % to manage caption
+\usepackage{blindtext}                      % to generate random filler texts
+\usepackage{calc}                           % to set arithmetic arguments for spacing
+\usepackage{caption}                        % to manage captions
+\usepackage{color}                          % color related packages
+\usepackage{csquotes,epigraph,varwidth}     % for managing quotes
+\usepackage{enumitem}                       % to manage list environment
+\usepackage{float}                          % to manage floating environment
+\usepackage[T1]{fontenc}                    % for font encoding
+\usepackage[bottom]{footmisc}               % footnote environment management
+\usepackage{graphicx,wrapfig}               % to manage images
+\usepackage{geometry}                       % to manage margins and others
+\usepackage{fancyhdr}                       % for header/ footer settings
+\usepackage[dvipsnames]{xcolor}
+\usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
+\usepackage[pdfa]{hyperref}                 % for hyperlinks
+\usepackage[all]{hypcap}                    % for captions on the side of figures
+\usepackage{ifthen}                         % if-then statement in algorithm
+\usepackage{lscape}                         % landscape mode
+\usepackage{listings}                       % to include codes
 
-\usepackage{color}
-\usepackage{csquotes}                   % for quote envionrment
-\usepackage{comment}                    % comment environment
-\usepackage{enumitem}                   % to manage list environment
-\usepackage{float}                      % to manage floating environment
-\usepackage[T1]{fontenc}                % font encoding output
-\usepackage{geometry}                   % margin manipulation
-
-\usepackage{fancyhdr}                   % for headers and footers
-\usepackage[bottom]{footmisc}           % footnote environment management
-\usepackage{graphicx,wrapfig}           % for images
-\usepackage{hyperref}                   % to manage hyperlinks
-
-% table related package
+%% table related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 
-\usepackage{parskip}                    % for paragraph layout
-\usepackage{pax,pdfpages,soul}          % to add pdfs
-\usepackage{setspace}                   % sets space between lines
-\usepackage{seqsplit}                   % splits long character sequence
-\usepackage[rightcaption]{sidecap}      % for sideway captions
-\usepackage{textcomp}                   % text companion fonts in TS1
-\usepackage{tocbasic}                   % to manage table of contents
-\usepackage{titlesec}                   % managing different titles
-\usepackage[dvipsnames]{xcolor}         % xcolor package with dvipsname option
-\usepackage{tikz}                       % package for drawing
-\usepackage{subcaption}                 % individual panel and caption
+\usepackage{parskip}
+\usepackage{setspace}                       % sets space between lines
+\usepackage{seqsplit}                       % splits long character sequence
+\usepackage[rightcaption]{sidecap}          % for sideway captions
+\usepackage{tocbasic}                       % to manage table of contents
+\usepackage{titlesec}                       % managing different titles
+\usepackage{tikz}                           % package for drawing
+\usepackage{subcaption}                     % individual panel and caption
 
 %% add more packages as you need
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -115,7 +122,7 @@
 %% choice a font form (or add something else) for your thesis (uncomment one option)
 \usepackage{\FontPackage}       
 % if you want to use Palatino font, use the following and comment above line
-%\usepackage[sc]{mathpazo}      % palatino font family
+%\usepackage[sc]{mathpazo}                  % palatino font family
 
 
 %% I use Zotero to generate the BibLaTeX file and include it in the same directory
@@ -159,7 +166,7 @@
 \setlength{\parskip}{\ParagraphSpacing}
 \setlength{\parindent}{\ParagraphIndent pt}
 \setlength{\footnotesep}{\FootnoteSpacing}
-\setlength{\bibitemsep}{\BibItemSpacing}  %% bib item separation 
+\setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}
 
 
@@ -170,9 +177,14 @@
 \newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
 
 
-%% settings for TikZ library
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes,arrows}
+%% settings for TikZ library (add more if you need them)
+
+
+\usetikzlibrary{decorations.pathreplacing, positioning, arrows.meta, shapes,}
+
+
+\DeclareUnicodeCharacter{2212}{-}           % defining unicode character
+%% may need to define more if some unicode characters appears somewhere in your thesis
 
 %%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -206,7 +218,7 @@
 
 %% you can use other packages for more complicated review and comment section
 
-%% to add quotes
+%% to add small quotes
 \newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
 
 %%%%%%%%%%%%%%%%%%%% END SIMPLE COMMENT SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%
@@ -340,20 +352,27 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% for subsections and subsubsection, I did not like having numbered section
+%% because it appeared confusing with my objectives and task numbering.
+%% so I used unnumbered subsections and subsubsections and added them to
+%% the table of content using \phantomsection and \addcontentsline commands
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OBJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Research objectives}                   %% 1 page limit
 
 \blindtext
 
-
+%% 
 \phantomsection
 \subsection*{Objective 1: Some major objective here}
 \addcontentsline{toc}{subsection}{Objective 1: Some major objective here}
 
 \blindtext
+
 
 %% add more objectives (one objective is not enough you know it)
 
@@ -361,24 +380,44 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% for subsections and subsubsection, I did not like having numbered section
+%% because it appeared confusing with my objectives and task numbering.
+%% so I used unnumbered subsections and subsubsections and added them to
+%% the table of content using \phantomsection and \addcontentsline commands
+
 %%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Proposed methodology and results}  %% 4 page limit
+
+\blindtext
 
 \subsection{Task 1: Major project task heading here related to objective 1}
 
 \blindtext
 
 
-
-
 \phantomsection
 \subsubsection*{Subtask 1.1: Some sub-task here}
 \addcontentsline{toc}{subsubsection}{Subtask 1.1: Some sub-task here}
+
 \blindtext
 
 
+
+
+\subsubsection*{Subtask 1.2: Some other sub-task here}
+\addcontentsline{toc}{subsubsection}{Subtask 1.2: Some other sub-task here}
+
+\blindtext
+
+
+
+
 %% add more tasks and subtasks (one task is not enough for PhD - you know it by now)
+
+
 
 
 
@@ -400,22 +439,54 @@
 
 \section{Timeline}
 
-%% add a chart/ table/ list showing the progress and tentative timeline
-
-
-
-
+%% this is an example how to draw something using TikZ
+%% I used a Timeline chart made using Excel/ PowerPoint
+\begingroup
+\begin{tikzpicture}
+    % draw horizontal line   
+    \draw[thick, -Triangle] (0,0) -- (\textwidth,0) node[font=\scriptsize,below left=3pt and -8pt]{years};
+    
+    % draw vertical lines
+    \foreach \x in {0,1,...,10}
+    \draw (\x cm,3pt) -- (\x cm,-3pt);
+    
+    \foreach \x/\descr in {4/t-2,5/t-1,6/t,7/t+1}
+    \node[font=\scriptsize, text height=1.75ex,
+    text depth=.5ex] at (\x,-.3) {$\descr$};
+    
+    % colored bar up
+    \foreach \x/\perccol in
+    {1/100,2/75,3/25,4/0}
+    \draw[lightgray!\perccol!red, line width=4pt] 
+    (\x,.5) -- +(1,0);
+    \draw[-Triangle, dashed, red] (5,.5) --  +(1,0);
+    
+    % colored bar down
+    \foreach \x/\perccol in
+    {3/100,4/75,5/0}
+    \draw[lightgray!\perccol!green, line width=4pt] 
+    (\x,-.7) -- +(1,0);
+    \draw[-Triangle, dashed, green] (6,-.7) --  +(1,0);
+    
+    % braces
+    \draw [thick ,decorate,decoration={brace,amplitude=5pt}] (4,0.7)  -- +(2,0) 
+           node [black,midway,above=4pt, font=\scriptsize] {Training period};
+    \draw [thick,decorate,decoration={brace,amplitude=5pt}] (6,-.9) -- +(-1,0)
+           node [black,midway,font=\scriptsize, below=4pt] {Testing period};
+\end{tikzpicture}
+\captionof{figure}{An abstract roadmap to finish my PhD.}
+\endgroup
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% ACKNOWLEDGEMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Optional acknowledgment section (uncomment if you want to use)
-% \section*{Acknowledgement}
-% \addcontentsline{toc}{section}{Acknowledgement}
+\section*{Acknowledgement}
+\addcontentsline{toc}{section}{Acknowledgement}
 
-
-
+%% acknowledge your mentor, collaborators, and labmates if they helped you crafting your proposal or primary studies.
+\blindtext
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -424,6 +495,7 @@
 \section*{References}
 \addcontentsline{toc}{section}{References}
 \printbibliography[heading=none] 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%
 
