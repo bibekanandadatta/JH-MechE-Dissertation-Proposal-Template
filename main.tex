@@ -27,7 +27,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt]{article}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% if possible, please make your formatting changes here through the variables 
+%% go through all the variables and understand what role they play in formatting
+
+%%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
 \def\BibFileName{references.bib}            % name of BibLaTeX file with all the bibliography
@@ -36,10 +45,6 @@
 \def\TocIndent{0}                           % indentation in the list of figs and tables
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
 %% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
-
-\def\ChapterTopSpace{-48}                   % white space on top of the chapter heading (unit: pt)
-\def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
-\def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
 
 % font format for section heading and title
 \def\SectionFont{\large\bfseries}           % section heading font format
@@ -60,7 +65,23 @@
 \def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% add packages as needed but sometimes the order of the packages matter.
+%% I primarily tried to load the packages in alphabetical order unless or 
+%% based on their functionalities (all math/ table packages) unless there 
+%% is an issue with dependency, then I included packages in that order.
+%% you may get warning/ error for the order in which packages are included
+%% you may have to change the options in biblatex package for bibliography
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}               % document class (article - 12 pt)
 
 \usepackage[utf8]{inputenc}	                % for encoding input character
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers
@@ -113,32 +134,32 @@
 
 %% add more packages as you need
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% choice a font form (or add something else) for your thesis (uncomment one option)
+%%% choice a font form (or add something else) for your thesis (uncomment one option)
 \usepackage{\FontPackage}       
 % if you want to use Palatino font, use the following and comment above line
 %\usepackage[sc]{mathpazo}                  % palatino font family
 
 
-%% I use Zotero to generate the BibLaTeX file and include it in the same directory
+%%% I use Zotero to generate the BibLaTeX file and include it in the same directory
 \addbibresource{\BibFileName}
 
 
-%% margin settings with geometry package
+%%% margin settings with geometry package
 \geometry{left=1.0in, right=1.0in, top=1.0in, bottom=1.0in}
 
 
-%% settings for the hyperref package
+%%% settings for the hyperref package
 \hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 \urlstyle{rm}   % to remove the default URL style (tt format)
 
 
-%% settings for figure caption
+%%% settings for figure caption
 \captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
 
@@ -151,26 +172,26 @@
 \setuptoc{lot}{totoc}
 
 
-%% section, subsection, and subsubsection to appear in the TOC
+%%% section, subsection, and subsubsection to appear in the TOC
 \setcounter{secnumdepth}{\NoSectionLevel}
 
 
-%% formatting for the section, subsection, subsubsection, etc.
+%%%% font and style for the section, subsection, subsubsection, etc.
 \titleformat{\section}
 {\SectionFont}{\thesection}{1em}{}[{\titlerule}]
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 
 
-%% no indent with single paragraph spacing
-\setlength{\parskip}{\ParagraphSpacing}
-\setlength{\parindent}{\ParagraphIndent pt}
-\setlength{\footnotesep}{\FootnoteSpacing}
+%%%% paragraph, footnote, bib item, and table spacing
+\setlength{\parskip}{\ParagraphSpacing}     % paragraph spacing
+\setlength{\parindent}{\ParagraphIndent pt} % paragraph indentation
+\setlength{\footnotesep}{\FootnoteSpacing}  % footnote separation
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
-\def\arraystretch{\GlobalTableSpacing}
+\def\arraystretch{\GlobalTableSpacing}      % spacing in table
 
 
-%% settings for bibliography
+%%% settings for bibliography
 \AtBeginBibliography{\urlstyle{rm}}
 \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
 \DeclareBibliographyCategory{fullcited}
@@ -178,22 +199,25 @@
 
 
 %% settings for TikZ library (add more if you need them)
-
-
 \usetikzlibrary{decorations.pathreplacing, positioning, arrows.meta, shapes,}
 
 
-\DeclareUnicodeCharacter{2212}{-}           % defining unicode character
+\DeclareUnicodeCharacter{2212}{-}       % defining unicode character
 %% may need to define more if some unicode characters appears somewhere in your thesis
 
-%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Define math symbols and macros
+%% add all your custom math settings and macros in the following section.
+%% this is where LaTeX supremacy becomes a thing. you can customize a lot.
+
+%%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Define math symbols and macros
 \allowdisplaybreaks[1]
 \setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
 \numberwithin{equation}{section}        % eqn no begins with section no
@@ -203,25 +227,29 @@
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 
-%% these are just some examples. add more macros as you need.
+%% these are just some examples; add more macros for your custom symbols
 
-%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% END MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%% SIMPLE COMMENT SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%
+%% add all your non-mathematical macros and other random settings in here.
 
-%% for basic commenting purposes (you can add more)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\COMMENT}{\textcolor{red}}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
-%% you can add more macros in here
 
-%% you can use other packages for more complicated review and comment section
+%% you can also add more simple comments here as you need
+%% you can use some other packages for more complicated review and comment section
 
-%% to add small quotes
+%%% to add small quotes
 \newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
 
-%%%%%%%%%%%%%%%%%%%% END SIMPLE COMMENT SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -229,10 +257,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% may be useful during drafting
-% \linenumbers
 \begin{document}
 
+% \linenumbers                      % may find it useful during drafting
+% place the command wherever you want to start numbering the line
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
