@@ -57,6 +57,11 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Tha main text of the both documents are **single-spaced** with table of contents, list of figures, list of table being **one-half-spaced** in `main.tex`. If you find this too tightly-spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both .tex files. In this case, you will have to change the spacing for other environments as well to have a consistently-formatted document. Most of the necessary variables that can customize the format of the template are declared in the very beginning of the .tex files. Tweak them to obtain a more consistent formatting for the tables, figures, paragraphs, and bibliographic items, etc. You are welcome to define more customized settings as well.
 
+- Space around the headings of different environments is managed by `\parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add following command in the preamble:
+  ```
+  \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
+  ```
+
 - Currently, the biblatex package is used with `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, but I found numbered-style citation to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where `biblatex` package is loaded in the `LaTeX Class and Package` section.
 
 - Table of contents, List of figures, List of tables are considered to be unnumbered sections in this template. `tocbasic` package was used to manage this formatting. Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `Document Formatting` section in the `main.tex` file.
