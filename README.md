@@ -76,7 +76,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Finally, you may consider using `microtype` package to have a better typography of your document. Check details on using [microtype package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
-- All of these suggestion also apply to the `rebuttal.tex` file. In the response document, for each committee member, a specific section is dedicated, and the questions are posed as an enumerated list. Additionally, questions or suggestion are written in a different color `(royalblue)` than the actual response using `xcolor` package with `dvipsnames` option. You can change the color to your preference.
+- All of these suggestion also apply to the `rebuttal.tex` file. In the response document, for each committee member, a specific section is dedicated, and the questions are posed as an enumerated list. Additionally, questions or suggestion are written in a different color `(royalblue)` than the actual response using `xcolor` package with `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
 - Keep writing ... and good luck :tada:!
 
