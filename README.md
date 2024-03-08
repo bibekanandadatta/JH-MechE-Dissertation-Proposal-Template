@@ -12,9 +12,9 @@ This is an unofficial LaTeX template for dissertation proposal in PhD in Mechani
 - `rebuttal.tex`: This is a plain article class file which you can use to prepare your response to committee members in case they make suggestions to your proposal. I hope you do not have to do this. Anyway, this is a general-purposed article class based .tex file which can be used for writing small report or even reponse to journal or conference artlce peer review.
 - `references.bib`: This is a biblatex file which contains all the bibliographic item. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I recommend adding all the citation files (for main proposal and subsequent rebuttal) to one single file that means update the same file when writing rebuttal to avoid clutter.
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
-- 'README.md` is this file containing all the details related to the template.
+- `README.md` is this file containing all the details related to the template.
 
-I suggest going though both of the .tex files to see what packages have been included and what options are invoked to obtain the current formatting. You can the tweak the options or add more packages to format it your preference or domain-specific requirement.
+I suggest going though both of the .tex files to see what packages have been included and what options are invoked to obtain the current formatting. You can the tweak the options or add more packages to format it your preference or field-specific requirement.
 
 
 
@@ -30,7 +30,6 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it storn
 
 Once the project is opened, for main proposal document, compile `proposal.tex` and the response to the committee document compile `rebuttal.tex`. These files should compile separately without any errors; there might be warnings but you can ignore them.
 
-
 **PS:** I stopped using local LaTeX compiler for a while now. If you would like to do it locally, you should a have LaTeX compiler installed and configured with multiple packages with a decent text editor. Unfortunately I did not try compiling this project locally, so will not be able to help out if you run into issues!
 
 
@@ -44,7 +43,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - The title page of the main proposal document does not have any pagination. For the main proposal document, the pagination counter starts from the abstract page with Roman numeral ii. For main text in the proposal document, the pagination resets in Arabic starting from 1. For the response document, the pagination is always is in Arabic from the beginning.
 
-- Necessary variables to manage the formatting of the document has been declared in the beginning of the document. If you prefer cutosmizing the format, you will likely to find the variable in the beginning of the `.tex` files.
+- Most of the necessary variables to manage the formatting of the document has been declared in the beginning of the `.tex` files. If you prefer cutosmizing the format, you will likely to find the necessary variable there. But you are welcome to add more variables and settings in the document to your preference or need.
   
 - Add your bibliographic file to the main directory and make sure to change the name of your bibliographic file or the variable related to it. Make sure your bibliography file is in biblatex format; use Zotero or some other citation manage to generate the biblatex file.
 
@@ -52,9 +51,9 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Most common and popular packages for writing dissertations are added in the `LaTeX Class and Package` sections. Check the packages; add any additional package you need and/or customize your options there.
 
-- Margin used in both documents are 1.0in for all sides with no header and footer except for pagination at bottom center in the margin. If you would like to change it, then look for `\geometry{}` command inside the `Document Formatting` section.
+- Margin used in both documents are **1.0in** for all sides with no header and footer except for the pagination at bottom center inside the margin. If you would like to change it, then look for `\geometry{}` command inside the `Document Formatting` section.
 
-- I used `Latin Modern Roman` font for the document as it produces consistent typography for text and math environment. If you prefer, you can use some other font by loading that package using `\usepackage{}` command. However, you will have to be careful about the consistency of the typpgraphy.
+- I used `Latin Modern Roman` font for the document as it produces consistent typography for text and math environment. If you prefer, you can use some other font by loading that package using `\usepackage{}` command. However, you will have to be careful about the consistency of the typpgraphy, specially between text and math environment.
 
 - Tha main text of the both documents are **single-spaced** with table of contents, list of figures, list of table being **one-half-spaced** in `main.tex`. If you find this too tightly-spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both .tex files. In this case, you will have to change the spacing for other environments as well to have a consistently-formatted document. Most of the necessary variables that can customize the format of the template are declared in the very beginning of the .tex files. Tweak them to obtain a more consistent formatting for the tables, figures, paragraphs, and bibliographic items, etc. You are welcome to define more customized settings as well.
 
@@ -66,13 +65,13 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
 
+- You can use `\linenumbers` command from `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
+
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 - Finally, you may consider using `microtype` package to have a better typography of your document. Check details on using [`microtype` package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
-- For the response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference.
-
-- For each committee member, a specific section is dedicated in the response document and the questions are posed as an enumerated list.
+- For the response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference. Additionally, for each committee member, a specific section is dedicated in the response document, and the questions are posed as an enumerated list.
 
 - Keep writing ... and good luck :tada:!
 
