@@ -6,36 +6,29 @@
 %%                           JOHNS HOPKINS UNIVERSITY                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%              for details, please check the README.MD file                  %%
-% https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template %
+%%             PLEASE CHECK THE README.md FILE BEFORE YOU PROCEED             %%
 %%              it may be conveneint to read this file on GitHub              %%
+% https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template %
+%% template hosted on the GitHub repository is likely to be the most updated  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % this is an unofficial template for the thesis or dissertation proposal in 
 % the Department of Mechanical Engineering at Johns Hopkins University. 
-
 % consult with the department or advisor before using the template.
-% it is the user's responsibility to ensure it conforms with the advisor
-% or department's requirement.
-
+% this template includes comments on the department-suggested page limits. 
+% however, it is the user's responsibility to ensure the formatting conforms 
+% with the advisor or proposal committee or department's requirement.
 % this template is based on the LaTeX article class and uses BibLaTeX as 
 % bibliographic manager. Use a citation manager to generate the BibLaTeX file.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% if possible, please make your formatting changes here through the variables 
 %% go through all the variables and understand what role they play in formatting
-
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
@@ -60,9 +53,9 @@
 
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
+\def\FullCiteSpacing{1.1}                   % spacing in a fullcite item
 \def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items in reference
-\def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
+\def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
@@ -70,15 +63,13 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add packages as needed but sometimes the order of the packages matter.
 %% I primarily tried to load the packages in alphabetical order unless or 
 %% based on their functionalities (all math/ table packages) unless there 
 %% is an issue with dependency, then I included packages in that order.
 %% you may get warning/ error for the order in which packages are included
 %% you may have to change the options in biblatex package for bibliography
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{article}               % document class (article - 12 pt)
@@ -123,7 +114,7 @@
 %% table related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 
-\usepackage{parskip}
+\usepackage{parskip}                        % paragraph spacing 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
@@ -132,7 +123,7 @@
 \usepackage{tikz}                           % package for drawing
 \usepackage{subcaption}                     % individual panel and caption
 
-%% add more packages as you need
+%% add more packages and options as you need
 
 %%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -211,10 +202,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% add all your custom math settings and macros in the following section.
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
-
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Define math symbols and macros
@@ -233,9 +222,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% add all your non-mathematical macros and other random settings in here.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\COMMENT}{\textcolor{red}}
@@ -326,6 +313,7 @@
 \pagenumbering{roman}
 \setcounter{page}{2}
 \addcontentsline{toc}{section}{Abstract}
+\singlespacing                                  % single spacing for abstract
 \section*{Abstract}
 
 \blindtext
@@ -336,13 +324,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\onehalfspacing             % one half spacing for the table of contents
+\onehalfspacing                                 % one half spacing for the TOC
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 
 \newpage
 \listoffigures
-
 
 \newpage
 \listoftables
@@ -350,23 +337,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\singlespacing              % single spacing for the document
+\singlespacing                                 % single spacing for the document
 \pagenumbering{arabic}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACKGROUND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Background and significance}           %% 2 page limit 
+\section{Background and significance}           %%% 2 page limit 
 
 \blindtext \cite{dirac}.
-
 
 \begin{figure}[ht]
 \begin{center}
@@ -378,19 +360,15 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for subsections and subsubsection, I did not like having numbered 
+%% environmentsbecause it appeared confusing with my objectives and task 
+%% numbering. so I used unnumbered subsections and subsubsections and added 
+%% them to the table of content using \phantomsection and \addcontentsline 
+%% commands before and after the corresponding environment.
+%%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% for subsections and subsubsection, I did not like having numbered section
-%% because it appeared confusing with my objectives and task numbering.
-%% so I used unnumbered subsections and subsubsections and added them to
-%% the table of content using \phantomsection and \addcontentsline commands
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OBJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Research objectives}                   %% 1 page limit
+\section{Research objectives}                   %%% 1 page limit
 
 \blindtext
 
@@ -408,16 +386,15 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% for subsections and subsubsection, I did not like having numbered section
-%% because it appeared confusing with my objectives and task numbering.
-%% so I used unnumbered subsections and subsubsections and added them to
-%% the table of content using \phantomsection and \addcontentsline commands
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for subsections and subsubsection, I did not like having numbered 
+%% environmentsbecause it appeared confusing with my objectives and task 
+%% numbering. so I used unnumbered subsections and subsubsections and added 
+%% them to the table of content using \phantomsection and \addcontentsline 
+%% commands before and after the corresponding environment.
 %%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Proposed methodology and results}  %% 4 page limit
+\section{Proposed methodology and results}      %%% 4 page limit
 
 \blindtext
 
@@ -468,7 +445,7 @@
 \section{Timeline}
 
 %% this is an example how to draw something using TikZ
-%% I used a Timeline chart made using Excel/ PowerPoint
+%% I used a Timeline chart made using Excel/ PowerPoint combination
 \begingroup
 \begin{tikzpicture}
     % draw horizontal line   
@@ -502,10 +479,8 @@
     \draw [thick,decorate,decoration={brace,amplitude=5pt}] (6,-.9) -- +(-1,0)
            node [black,midway,font=\scriptsize, below=4pt] {Testing period};
 \end{tikzpicture}
-\captionof{figure}{An abstract roadmap to finish my PhD.}
+\captionof{figure}{An abstract timeline to finish my PhD.}
 \endgroup
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% ACKNOWLEDGEMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
