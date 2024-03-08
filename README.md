@@ -49,34 +49,34 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Add all of your figures to the main directory. You can also add the figures to a specfic subdirectory if you would like. In that case, you will have to define the subdirectory in `\includegraphicspath{}` command.
 
-- Most common and popular packages for writing dissertations are added in the `LaTeX Class and Package` sections. Check the packages; add any additional package you need and/or customize your options there.
+- Most common and popular packages for writing dissertations are added in the `LaTeX CLASS AND PACKAGES` sections. Check the packages; add any additional package you need and/or customize your options there.
 
-- Margin used in both documents are **1.0in** for all sides with no header and footer except for the pagination at bottom center inside the margin. If you would like to change it, then look for `\geometry{}` command inside the `Document Formatting` section.
+- Margin used in both documents are **1.0in** for all sides with no header and footer except for the pagination at bottom center inside the margin. If you would like to change it, then look for `\geometry{}` command inside the `DOCUMENT FORMATTING` section.
 
 - I used `Latin Modern Roman` font for the document as it produces consistent typography for text and math environment. If you prefer, you can use some other font by loading that package using `\usepackage{}` command. However, you will have to be careful about the consistency of the typpgraphy, specially between text and math environment.
 
 - Tha main text of the both documents are **single-spaced** with table of contents, list of figures, list of table being **one-half-spaced** in `main.tex`. If you find this too tightly-spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both .tex files. In this case, you will have to change the spacing for other environments as well to have a consistently-formatted document. Most of the necessary variables that can customize the format of the template are declared in the very beginning of the .tex files. Tweak them to obtain a more consistent formatting for the tables, figures, paragraphs, and bibliographic items, etc. You are welcome to define more customized settings as well.
 
-- Space around the headings of different environments is managed by `\parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add following command in the preamble:
+- Space around the headings of different environments is managed by `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add following command in the preamble:
   ```
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
 
-- Currently, the biblatex package is used with `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, but I found numbered-style citation to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where `biblatex` package is loaded in the `LaTeX Class and Package` section.
+- Currently, the biblatex package is used with `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, but I found numbered-style citation to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where `biblatex` package is loaded in the `LaTeX CLASS AND PACKAGES` section.
 
-- Table of contents, List of figures, List of tables are considered to be unnumbered sections in this template. `tocbasic` package was used to manage this formatting. Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `Document Formatting` section in the `main.tex` file.
+- Table of contents, List of figures, List of tables are considered to be unnumbered sections in this template. `tocbasic` package was used to manage this formatting. Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `DOCUMENT FORMATTING` section in the `main.tex` file.
 
 - I used unnumbered `subsection*` and `subsubsection*` environment in the main proposal document to avoid confusion with the numbering scheme of my objectives, tasks, subtasks. However, to add them in the table of contents, I placed `\phantomsection` and `\addcontentsline` command before and after (respectively) declaring the environments. If you would like, you can change it to standard numbered section and subsection.
 
-- Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
+- Add your math macros and settings in the `MATH SETTINGS AND MACROS` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
 
 - You can use `\linenumbers` command from `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
-- Finally, you may consider using `microtype` package to have a better typography of your document. Check details on using [`microtype` package for writing thesis here](https://www.khirevich.com/latex/microtype/).
+- Finally, you may consider using `microtype` package to have a better typography of your document. Check details on using [microtype package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
-- For the response document, the questions or suggestions from the committee members are written in a different color than the actual response to distinguish. `xcolor` package with `dvipsnames` option was used for this. You can change the color to your preference. Additionally, for each committee member, a specific section is dedicated in the response document, and the questions are posed as an enumerated list.
+- All of these suggestion also apply to the `rebuttal.tex` file. In the response document, for each committee member, a specific section is dedicated, and the questions are posed as an enumerated list. Additionally, questions or suggestion are written in a different color `(royalblue)` than the actual response using `xcolor` package with `dvipsnames` option. You can change the color to your preference.
 
 - Keep writing ... and good luck :tada:!
 
