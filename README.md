@@ -12,6 +12,7 @@ This is an unofficial LaTeX template for dissertation proposal in PhD in Mechani
 - `rebuttal.tex`: This is a plain article class file which you can use to prepare your response to committee members in case they make suggestions to your proposal. I hope you do not have to do this. Anyway, this is a general-purposed article class based .tex file which can be used for writing small report or even reponse to journal or conference artlce peer review.
 - `references.bib`: This is a biblatex file which contains all the bibliographic item. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I recommend adding all the citation files (for main proposal and subsequent rebuttal) to one single file that means update the same file when writing rebuttal to avoid clutter.
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
+- 'README.md` is this file containing all the details related to the template.
 
 I suggest going though both of the .tex files to see what packages have been included and what options are invoked to obtain the current formatting. You can the tweak the options or add more packages to format it your preference or domain-specific requirement.
 
