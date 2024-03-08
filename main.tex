@@ -39,6 +39,8 @@
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
 %% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
 
+\def\GlobalMargin{1.0in}                    % margin on all sides
+
 % font format for section heading and title
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
@@ -142,11 +144,11 @@
 
 
 %%% margin settings with geometry package
-\geometry{left=1.0in, right=1.0in, top=1.0in, bottom=1.0in}
+\geometry{margin=\GlobalMargin, nomarginpar}
 
 
 %%% settings for the hyperref package
-\hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+\hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 \urlstyle{rm}   % to remove the default URL style (tt format)
 
 
@@ -325,6 +327,7 @@
 
 \newpage
 \onehalfspacing                                 % one half spacing for the TOC
+% \hypersetup{linkcolor=black}                  % to make TOC hyperlinks black
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 
