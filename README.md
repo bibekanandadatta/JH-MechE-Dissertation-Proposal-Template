@@ -63,9 +63,11 @@ The margin used in both documents is **1.0in** for all sides with no header and 
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
 
-- Currently, the biblatex package is used with the `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, I found numbered-style citations to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where `biblatex` package is loaded in the `LaTeX CLASS AND PACKAGES` section.
+- Currently, the biblatex package is used with the `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, I found numbered-style citations to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where the `biblatex` package is loaded in the `LaTeX CLASS AND PACKAGES` section.
 
-The table of contents, List of figures, and List of tables are considered to be unnumbered sections in this template. The `tocbasic` package was used to manage this formatting. Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `DOCUMENT FORMATTING` section in the `main.tex` file.
+- The table of contents (ToC), list of figures (LoF), and list of tables (LoT) are considered to be equivalent to unnumbered sections in this template. The `tocloft` package was used to manage this typesetting for the title. If you do not want any or one of these items to appear in your document, you can comment out or delete the relevant commands in the main document part.
+
+- Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `DOCUMENT FORMATTING` section in the `main.tex` file.
 
 - I used the unnumbered `subsection*` and `subsubsection*` environment in the main proposal document to avoid confusion with the numbering scheme of my objectives, tasks, and subtasks. However, to add them to the table of contents, I placed the `\phantomsection` and `\addcontentsline` commands before and after (respectively) declaring the environments. If you would like, you can change it to a standard numbered section and subsection.
 

@@ -112,7 +112,6 @@
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
-\usepackage{tocbasic}                       % to manage table of contents
 \usepackage{titlesec}                       % managing different titles
 \usepackage{tikz}                           % package for drawing
 \usepackage{subcaption}                     % individual panel and caption
@@ -128,17 +127,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% choice a font form (or add something else) for your thesis (uncomment one option)
+%%%% choice a font form (or add something else) for your thesis (uncomment one option)
 \usepackage{\FontPackage}       
 % if you want to use Palatino font, use the following and comment above line
 % \usepackage[sc]{mathpazo}                 % palatino font family
 
-
-%%% I use Zotero to generate the BibLaTeX file and include it in the same directory
+%%%% I use Zotero to generate the BibLaTeX file and include it in the same directory
 \addbibresource{\BibFileName}
 
-
-%%% margin settings with geometry package
+%%%% margin settings with geometry package
 \geometry{left=1.0in, right=1.0in, top=1.0in, bottom=1.0in}
 
 
@@ -147,11 +144,10 @@
 \urlstyle{rm}   % to remove the default URL style (tt format)
 
 
-%%% settings for figure caption
+%%%% settings for figure caption
 \captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
-
-%%% authblk title, author, and affiliation font size
+%%%% authblk title, author, and affiliation font size
 \renewcommand*{\Authfont}{\normalsize}
 \DefineFNsymbolsTM{otherfnsymbols}{%
   \textdagger    \dagger                    % author name will have a dagger symbol for footnote
@@ -161,11 +157,8 @@
 \setlength{\affilsep}{1em}
 
 
-%% section, subsection, and subsubsection to appear in the TOC
+%%%% formatting for the section, subsection, subsubsection, etc.
 \setcounter{secnumdepth}{\NoSectionLevel}
-
-
-%% formatting for the section, subsection, subsubsection, etc.
 \titleformat{\section}
 {\SectionFont}{\thesection}{1em}{}
 \titleformat*{\subsection}{\SubsectionFont}
@@ -179,11 +172,9 @@
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}      % spacing in table
 
-
-%% bibliography settings
+%%%% bibliography settings
 \DeclareFieldFormat{titlecase}{#1}
 \AtBeginBibliography{\urlstyle{rm}}
-
 
 \usetikzlibrary{positioning,shapes,arrows}
 
@@ -242,8 +233,10 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% add title and author of the document here
-\title{\vspace{-0.75in}\large{Response to the comments of thesis proposal committee members}}
+%%%% add title and author of the document here
+%%%% format it as you like
+\title{\vspace{-0.75in}\large{Response to the comments of thesis proposal committee members: \\
+tentative thesis title}}
 \author[]{Author name\footnote{Contact: Author name \texttt{(email)}}} 
 \affil[]{Affiliation goes here}
 \date{}
@@ -256,7 +249,11 @@
 
 \section{Prof. X's questions and comments}
 
-\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin= 0.75 cm, itemsep=10pt,parsep=6pt]
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=1 cm, itemsep=12pt,parsep=12pt]
+
+\item \question{Question goes here}
+
+\Blindtext[2]
 
 \item \question{Question goes here}
 
@@ -274,7 +271,7 @@ The response goes here.
 \newpage
 \section{Prof. Y's questions and comments}
 
-\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin= 0.75 cm, itemsep=10pt,parsep=6pt]
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=1 cm, itemsep=12pt,parsep=12pt]
 
 \item \question{Question goes here}
 
@@ -294,7 +291,7 @@ The response goes here \cite{einstein}.
 \newpage
 \section{Prof. Z's questions and comments}
 
-\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin= 0.75 cm, itemsep=10pt,parsep=6pt]
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=1 cm, itemsep=12pt,parsep=12pt]
 
 \item \question{Question goes here}
 

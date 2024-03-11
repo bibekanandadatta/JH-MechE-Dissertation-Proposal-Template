@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%             PLEASE CHECK THE README.md FILE BEFORE YOU PROCEED             %%
-%%              it may be conveneint to read this file on GitHub              %%
+%%              it may be convenient to read this file on GitHub              %%
 % https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template %
 %% template hosted on the GitHub repository is likely to be the most updated  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,7 +51,7 @@
 
 %% if this seems too widespread for you, try changing it locally using
 %% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
-\def\GlobalTableSpacing{1.2}                % global spacing parameter for table
+\def\GlobalTableSpacing{1.1}                % global spacing parameter for table
 
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
@@ -116,11 +116,11 @@
 %% table related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 
+\usepackage{tocloft}                        % to manage table of contents
 \usepackage{parskip}                        % paragraph spacing 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
-\usepackage{tocbasic}                       % to manage table of contents
 \usepackage{titlesec}                       % managing different titles
 \usepackage{tikz}                           % package for drawing
 \usepackage{subcaption}                     % individual panel and caption
@@ -156,25 +156,33 @@
 \captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
 
-%%% table of content, list of table, list of figure header setting with tocbasic
-\addtotoclist[\jobname]{toc}
-\renewcommand \tableofcontents{\listoftoc[{\contentsname}]{toc}}
-\renewcommand*{\listoffigures}{\listoftoc[\listfigurename]{lof}}
-\renewcommand*{\listoftables}{\listoftoc[\listtablename]{lot}}
-\setuptoc{lof}{totoc}
-\setuptoc{lot}{totoc}
+
+\setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
+\renewcommand{\cfttoctitlefont}{\SectionFont}           % font for ToC title
+\renewcommand{\cftloftitlefont}{\SectionFont}           % font for LoF title
+\renewcommand{\cftlottitlefont}{\SectionFont}           % font for LoT title
 
 
-%%% section, subsection, and subsubsection to appear in the TOC
-\setcounter{secnumdepth}{\NoSectionLevel}
+\setlength{\cftbeforesecskip}{0.5\baselineskip}         % space between sections in TOC
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}   % dots for sections too
+
+\setlength{\cftfigindent}{\TocIndent pt}                % indentation from figures in LoF
+\setlength{\cfttabindent}{\TocIndent pt}                % indentation from tables in LoT
+
+
+% tweak to LoF/ LoT to add 'Figure' & 'Table' to the figure and table caption listing
+% to change the distance to the start of the figure/ table title
+\renewcommand{\cftfigpresnum}{\bfseries Figure }
+\renewcommand{\cfttabpresnum}{\bfseries Table }
+\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
+\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
 
 
 %%%% font and style for the section, subsection, subsubsection, etc.
-\titleformat{\section}
-{\SectionFont}{\thesection}{1em}{}[{\titlerule}]
+\setcounter{secnumdepth}{\NoSectionLevel}   % section to ... subsubsection ...
+\titleformat{\section}{\SectionFont}{\thesection}{1em}{}[{\titlerule}]
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
-
 
 %%%% paragraph, footnote, bib item, and table spacing
 \setlength{\parskip}{\ParagraphSpacing}     % paragraph spacing
@@ -182,7 +190,6 @@
 \setlength{\footnotesep}{\FootnoteSpacing}  % footnote separation
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}      % spacing in table
-
 
 %%% settings for bibliography
 \AtBeginBibliography{\urlstyle{rm}}
@@ -194,9 +201,8 @@
 %% settings for TikZ library (add more if you need them)
 \usetikzlibrary{decorations.pathreplacing, positioning, arrows.meta, shapes,}
 
-
-\DeclareUnicodeCharacter{2212}{-}       % defining unicode character
-%% may need to define more if some unicode characters appears somewhere in your thesis
+\DeclareUnicodeCharacter{2212}{-}       % defining Unicode character
+%% may need to define more if some Unicode characters appear somewhere in your thesis
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -224,7 +230,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add all your non-mathematical macros and other random settings in here.
+%% add all your non-mathematical macros and other random settings here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\COMMENT}{\textcolor{red}}
@@ -274,13 +280,13 @@
 \vspace{0.75in}
 % if you have more people on your committee then squeeze out some spaces or use the minipage feature
 \begin{singlespace}
-
     \textbf{Primary advisor:}
     
     Dr. Chuck Darwin \\
     Professor \\
     Department of Biology \\
     Johns Hopkins University, Baltimore, MD \\
+
 
     \textbf{Dissertation proposal committee members:} 
     
@@ -293,21 +299,19 @@
     Professor\\
     Department of Biology \\
     Johns Hopkins University, Baltimore, MD 
-    
 \end{singlespace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% TIME AND LOCATION %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.75in}
 \begin{center}
-    Baltimore, Maryland \\  % Location
-    Month YEAR              % Like May 2023
+    Baltimore, Maryland \\          % Location
+    Month YEAR                      % Like May 2023
 \end{center}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -327,15 +331,18 @@
 
 \newpage
 \onehalfspacing                                 % one-half spacing for the TOC
-% \hypersetup{linkcolor=black}                  % to make TOC hyperlinks black
-\renewcommand{\contentsname}{Table of Contents}
+%\hypersetup{linkcolor=black}                  % to make TOC hyperlinks black
+\renewcommand{\contentsname}{Table of Contents \vspace{3pt} \hrule}
 \tableofcontents
 
 \newpage
+\renewcommand{\listfigurename}{List of Figures \vspace{3pt} \hrule}
 \listoffigures
 
 \newpage
+\renewcommand{\listtablename}{List of Tables \vspace{3pt} \hrule}
 \listoftables
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -411,6 +418,22 @@
 
 \blindtext
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{c c c c} 
+\toprule \toprule
+Col1 & Col2 & Col2 & Col3 \\ 
+\toprule \toprule
+1 & 6 & 87837 & 787 \\ 
+2 & 7 & 78 & 5415 \\
+3 & 545 & 778 & 7507 \\
+4 & 545 & 18744 & 7560 \\
+5 & 88 & 788 & 6344 \\ 
+\bottomrule
+\end{tabular}
+\caption{Table to test captions and labels taken from Overleaf.}
+\label{table:1}
+\end{table}
 
 
 
@@ -430,7 +453,7 @@
 
 \section{Planned publications}
 
-\begin{enumerate} [leftmargin=0.75cm,itemsep=0pt]
+\begin{enumerate} [leftmargin=0.6cm,itemsep=-6pt]
     \item \fullcite{einstein}.
     \item \fullcite{knuth-fa}. \hfill (In preparation)
     %% add more items (if you have published/ planned for more papers)
