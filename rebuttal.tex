@@ -7,16 +7,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%             PLEASE CHECK THE README.md FILE BEFORE YOU PROCEED             %%
-%%              it may be conveneint to read this file on GitHub              %%
+%%              it may be convenient to read this file on GitHub              %%
 % https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template %
 %% template hosted on the GitHub repository is likely to be the most updated  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% this document is intend to prepare response to the thesis proposal committee
-%% however, it is a very generic document template, can be used for general-
-%% purpose article by making some tweaks or adding more options in here.
+%% this document is intended to prepare a response to the thesis proposal committee
+%% however, it is a very generic document template, that can be used for general-
+%% purpose article by making some tweaks or adding more options here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -32,7 +32,7 @@
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\TocIndent{0}                           % indentation in the list of figs and tables
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
-%% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
+%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
 
 % font format for section heading and title
 \def\SectionFont{\large\bfseries}           % section heading font format
@@ -57,12 +57,12 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add packages as needed but sometimes the order of the packages matter.
+%% add packages as needed but sometimes the order of the packages matters.
 %% I primarily tried to load the packages in alphabetical order unless or 
 %% based on their functionalities (all math/ table packages) unless there 
-%% is an issue with dependency, then I included packages in that order.
-%% you may get warning/ error for the order in which packages are included
-%% you may have to change the options in biblatex package for bibliography
+%% is package-dependency, then I included packages in that order.
+%% you may get warnings/ errors for the order in which packages are included
+%% you may have to change the options in the biblatex package for the bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{article}               % document class (article - 12 pt)
@@ -200,7 +200,7 @@
 \allowdisplaybreaks[1]
 \setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
 \numberwithin{equation}{section}        % eqn no begins with section no
-\newcommand{\dC}{$^{\circ}$C}           % degree celcius symbol
+\newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
@@ -211,11 +211,9 @@
 %%%%%%%%%%%%%%%%%%%%% END MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add all your non-mathematical macros and other random settings in here.
+%% add all your non-mathematical macros and other random settings here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %% color used for questions by committee members
 \newcommand{\question}{\textcolor{RoyalBlue}}
@@ -223,6 +221,9 @@
 %% for personal comments
 \newcommand{\COMMENT}{\textcolor{red}}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
+
+%%% to add small quotes
+\newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
 
 %% you can use other packages for more complicated review and comment section
 

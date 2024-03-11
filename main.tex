@@ -37,7 +37,7 @@
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\TocIndent{0}                           % indentation in the list of figs and tables
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
-%% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
+%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
 
 \def\GlobalMargin{1.0in}                    % margin on all sides
 
@@ -66,12 +66,12 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add packages as needed but sometimes the order of the packages matter.
+%% add packages as needed but sometimes the order of the packages matters.
 %% I primarily tried to load the packages in alphabetical order unless or 
 %% based on their functionalities (all math/ table packages) unless there 
-%% is an issue with dependency, then I included packages in that order.
-%% you may get warning/ error for the order in which packages are included
-%% you may have to change the options in biblatex package for bibliography
+%% is an issue with package dependency, so I included packages in that order.
+%% you may get warnings/ errors for the order in which packages are included
+%% you may have to change the options in biblatex package for the bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{article}               % document class (article - 12 pt)
@@ -212,7 +212,7 @@
 \allowdisplaybreaks[1]
 \setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
 \numberwithin{equation}{section}        % eqn no begins with section no
-\newcommand{\dC}{$^{\circ}$C}           % degree celcius symbol
+\newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
@@ -319,14 +319,14 @@
 \section*{Abstract}
 
 \blindtext
-%% write your abstract here
+%%% write your abstract here
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\onehalfspacing                                 % one half spacing for the TOC
+\onehalfspacing                                 % one-half spacing for the TOC
 % \hypersetup{linkcolor=black}                  % to make TOC hyperlinks black
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
@@ -364,12 +364,12 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% for subsections and subsubsection, I did not like having numbered 
-%% environmentsbecause it appeared confusing with my objectives and task 
-%% numbering. so I used unnumbered subsections and subsubsections and added 
-%% them to the table of content using \phantomsection and \addcontentsline 
-%% commands before and after the corresponding environment.
-%%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for subsections and subsubsection, I didn't particularly like having 
+%% numbered environments because they appeared confusing with my objectives  
+%% and task numbering. so I used unnumbered subsections and subsubsections 
+%% and added these env to the table of contents using \phantomsection and 
+%% \addcontentsline commands before and after the corresponding environment.
+%%%%%%%%%%%%%%%%%%%%%%%%% RESEARCH OBJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Research objectives}                   %%% 1 page limit
 
@@ -382,7 +382,6 @@
 
 \blindtext
 
-
 %% add more objectives (one objective is not enough you know it)
 
 
@@ -390,11 +389,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% for subsections and subsubsection, I did not like having numbered 
-%% environmentsbecause it appeared confusing with my objectives and task 
-%% numbering. so I used unnumbered subsections and subsubsections and added 
-%% them to the table of content using \phantomsection and \addcontentsline 
-%% commands before and after the corresponding environment.
+%% for subsections and subsubsection, I didn't particularly like having 
+%% numbered environments because they appeared confusing with my objectives  
+%% and task numbering. so I used unnumbered subsections and subsubsections 
+%% and added these env to the table of contents using \phantomsection and 
+%% \addcontentsline commands before and after the corresponding environment.
 %%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Proposed methodology and results}      %%% 4 page limit
@@ -421,8 +420,6 @@
 \blindtext
 
 
-
-
 %% add more tasks and subtasks (one task is not enough for PhD - you know it by now)
 
 
@@ -447,11 +444,11 @@
 
 \section{Timeline}
 
-%% this is an example how to draw something using TikZ
+%% this is an example of how to draw something using TikZ
 %% I used a Timeline chart made using Excel/ PowerPoint combination
 \begingroup
 \begin{tikzpicture}
-    % draw horizontal line   
+    % draw a horizontal line   
     \draw[thick, -Triangle] (0,0) -- (\textwidth,0) node[font=\scriptsize,below left=3pt and -8pt]{years};
     
     % draw vertical lines
@@ -491,7 +488,7 @@
 \section*{Acknowledgement}
 \addcontentsline{toc}{section}{Acknowledgement}
 
-%% acknowledge your mentor, collaborators, and labmates if they helped you crafting your proposal or primary studies.
+%% acknowledge your mentor, collaborators, and labmates if they helped you craft your proposal or primary studies.
 \blindtext
 
 
