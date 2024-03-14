@@ -38,14 +38,14 @@ Once the project is opened, for the main proposal document, compile `proposal.te
 
 Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. Two other useful sources to find answers to any questions are StackExchange and StackOverflow. 
 
-- The title page of the main proposal document is inspired by [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/) but it was customized to my preference. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you may need to use the `minipage` environment to fit the full committee on the title page. Or you may change the style of it entirely to fit your necessity.
+- The title page of the main proposal document is inspired by [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/) but it was customized to my preference since there is no specific guideline to it. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you may need to use the `minipage` environment to fit the full committee on the title page. Or you may change the style of it entirely to fit your necessity.
   - There is no specific title page for the response document. Rather it uses the standard `authblk` package to manage document title, author name, and author affiliation.
 
 - The title page of the main proposal document does not have any pagination. For the main proposal document, the pagination counter starts from the abstract page with the Roman numeral ii. For the main text in the proposal document, the pagination resets in Arabic starting from 1. For the response document, the pagination is always in Arabic from the beginning.
 
 - Most of the necessary variables to manage the formatting of the document have been declared at the beginning of the `.tex` files. If you prefer customizing the format, you will likely find the necessary variable there. But you are welcome to add more variables and settings in the document to your preference or need.
   
-- Add your bibliographic file to the main directory and make sure to change the name of your bibliographic file or the variable related to it. Make sure your bibliography file is in biblatex format; use Zotero or some other citation to generate the biblatex file.
+- Add your bibliographic file to the main directory and make sure to change the name of your bibliographic file or the variable related to it. Make sure your bibliography file is in biblatex format; use Zotero or some other citation manager to generate the biblatex file.
 
 - Add all of your figures to the main directory. You can also add the figures to a specific subdirectory if you would like. In that case, you will have to define the subdirectory in `\includegraphicspath{}` command.
 
@@ -65,15 +65,16 @@ The margin used in both documents is **1.0in** for all sides with no header and 
 
 - Currently, the biblatex package is used with the `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, I found numbered-style citations to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where the `biblatex` package is loaded in the `LaTeX CLASS AND PACKAGES` section.
 
-- The table of contents (ToC), list of figures (LoF), and list of tables (LoT) are considered to be equivalent to unnumbered sections in this template. The `tocloft` package was used to manage this typesetting for the title. If you do not want any or one of these items to appear in your document, you can comment out or delete the relevant commands in the main document part.
+- The table of contents (ToC), list of figures (LoF), and list of tables (LoT) are considered to be equivalent to unnumbered sections in this template. The `tocloft` package was used to manage this typesetting for the title. If you do not want any or one of these items to appear in your document to keep the document concise, you can comment out or delete the relevant commands in the `FRONT MATTER` section of the `main.tex` file.
 
 - Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `DOCUMENT FORMATTING` section in the `main.tex` file.
+  - However, the `\hrule` command is added to the ToC, LoF, and LoT in the front matter section of the `main.tex` file manually. If you would like to remove them, look into the `FRONT MATTER` section in the `main.tex` file.
 
-- I used the unnumbered `subsection*` and `subsubsection*` environment in the main proposal document to avoid confusion with the numbering scheme of my objectives, tasks, and subtasks. However, to add them to the table of contents, I placed the `\phantomsection` and `\addcontentsline` commands before and after (respectively) declaring the environments. If you would like, you can change it to a standard numbered section and subsection.
+- I used the unnumbered `subsection*` and `subsubsection*` environment in the main proposal document to avoid confusion with the numbering scheme of my objectives, tasks, and subtasks. However, to add them to the table of contents, I placed the `\phantomsection` and `\addcontentsline` commands before and after (respectively) declaring the environments. If you would like, you can change it to a standard numbered section and subsection, use the default `\subsection` and `\subsubsection` commands.
 
 - Add your math macros and settings in the `MATH SETTINGS AND MACROS` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
 
-- You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
+- You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. `\input{}` command pastes content from the source file. See [managing the large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
