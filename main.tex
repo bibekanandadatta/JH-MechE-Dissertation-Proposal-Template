@@ -56,7 +56,7 @@
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.1}                   % spacing in a fullcite item
-\def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items in reference
+\def\BibItemSpacing{0.4\baselineskip}       % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
@@ -67,9 +67,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add packages as needed but sometimes the order of the packages matters.
-%% I primarily tried to load the packages in alphabetical order unless or 
-%% based on their functionalities (all math/ table packages) unless there 
-%% is an issue with package dependency, so I included packages in that order.
+%% I primarily tried to load the packages in alphabetical order or based on
+%% their functionalities (all math/ table packages) unless there is an issue
+%% with package dependency, so I included packages in that order. remember,
 %% you may get warnings/ errors for the order in which packages are included
 %% you may have to change the options in biblatex package for the bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -313,7 +313,7 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \pagenumbering{roman}
 \setcounter{page}{2}
@@ -326,11 +326,13 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\onehalfspacing                                 % one-half spacing for the TOC
-%\hypersetup{linkcolor=black}                  % to make TOC hyperlinks black
+\onehalfspacing                                % one-half spacing for the TOC
+%% single spacing appears to be too cramped and double spacing is too relaxed
+{
+%\hypersetup{linkcolor=black}                  % local hyperref settings
 \renewcommand{\contentsname}{Table of Contents \vspace{3pt} \hrule}
 \tableofcontents
 
@@ -341,19 +343,19 @@
 \newpage
 \renewcommand{\listtablename}{List of Tables \vspace{3pt} \hrule}
 \listoftables
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \singlespacing                                 % single spacing for the document
 \pagenumbering{arabic}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACKGROUND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACKGROUND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Background and significance}           %%% 2 page limit 
 
@@ -395,9 +397,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% for subsections and subsubsection, I didn't particularly like having 
-%% numbered environments because they appeared confusing with my objectives  
-%% and task numbering. so I used unnumbered subsections and subsubsections 
+%% I used unnumbered subsections and subsubsections in this section as well
 %% and added these env to the table of contents using \phantomsection and 
 %% \addcontentsline commands before and after the corresponding environment.
 %%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -501,7 +501,7 @@ Col1 & Col2 & Col2 & Col3 \\
     \draw [thick,decorate,decoration={brace,amplitude=5pt}] (6,-.9) -- +(-1,0)
            node [black,midway,font=\scriptsize, below=4pt] {Testing period};
 \end{tikzpicture}
-\captionof{figure}{An abstract timeline to finish my PhD.}
+\captionof{figure}{An abstract timeline to finish my PhD. Drawing credit goes to a user on StackExchange.}
 \endgroup
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% ACKNOWLEDGEMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
