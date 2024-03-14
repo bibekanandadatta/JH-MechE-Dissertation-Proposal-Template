@@ -14,7 +14,7 @@ This is an unofficial LaTeX template for the dissertation proposal in PhD in Mec
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
 - `README.md` is this file containing all the details related to the template.
 
-I suggest going through both of the .tex files to see what packages have been included and what options are invoked to obtain the current formatting. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
+I suggest going through both of the .tex files to see what packages have been included and what options are invoked to obtain the current formatting. The structure of the .tex files are almost identical except for a few minor changes to serve separate purposes. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
 
 
 
@@ -28,7 +28,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working... But Overleaf and GitHub will not sync automatically; you will have to do it.
 
-Once the project is opened, for the main proposal document, compile `proposal.tex` and for the response to the committee document compile `rebuttal.tex`. These files should compile separately without any errors; there might be warnings but you can ignore them.
+Once the project is opened, for the main proposal document, compile `proposal.tex` and for the response to the committee document, compile `rebuttal.tex`. You will have to compile them separately. These files should compile separately without any errors; there might be warnings but you can ignore them. In your first submission to thesis proposal committee, response text should not be necessary. During resubmission (if your committee members require you to do so), compile them separately and if you need to submit them as one document, just merge them using Preview app on macOS or online PDF tools.
 
 **PS:** I stopped using the local LaTeX compiler for a while now. If you would like to do it locally, you should a have LaTeX compiler installed and configured with multiple packages with a decent text editor. Unfortunately, I did not try compiling this project locally, so will not be able to help out if you run into issues!
 
@@ -56,9 +56,9 @@ The margin used in both documents is **1.0in** for all sides with no header and 
 - I used Latin Modern Roman font (loaded using the `lmodern` package) for the document as it produces consistent typography for text and math environment. If you prefer, you can use some other font by loading that package using the `\usepackage{}` command. However, you will have to be careful about the consistency of the typography, especially between text and math environments. [Follow this discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
 
 
-- The main text of both documents is **single-spaced** with the table of contents, list of figures, and list of the table being **one-half-spaced** in `main.tex`. If you find this too tightly spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both .tex files. In this case, you will have to change the spacing for other environments as well to have a consistently formatted document. Most of the necessary variables that can customize the format of the template are declared at the very beginning of the .tex files. Tweak them to obtain more consistent formatting for the tables, figures, paragraphs, bibliographic items, etc. You are welcome to define more customized settings as well.
+- The main text sections of both documents are **single-spaced** except the table of contents, list of figures, and list of tables being **one-half-spaced** in `main.tex`. If you find the main text is too tightly spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both .tex files. In this case, you will have to change the spacing for other environments as well to have a consistently formatted document. Most of the necessary variables that can customize the format of the template are declared at the very beginning of the .tex files. Tweak them to obtain more consistent formatting for the tables, figures, paragraphs, bibliographic items, etc. You are welcome to define more customized preamble settings as well.
 
-- Space around the headings of different environments is managed by the `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add the following command in the preamble:
+  - In case you change text spacing, you most likely would need to change the spacing around the headings of different environments that are managed by the `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add the following command in the preamble:
   ```
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
@@ -75,7 +75,7 @@ The margin used in both documents is **1.0in** for all sides with no header and 
 
 - You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
-- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command pastes content from the source file. See [managing the large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
+- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. `\input{}` command pastes content from the source file. See [managing the large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 - Finally, you may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
 
