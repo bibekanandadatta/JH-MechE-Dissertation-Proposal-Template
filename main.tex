@@ -57,8 +57,8 @@
 \def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.1}                   % spacing in a fullcite item
-\def\LOTItemSpacing{6 pt}                   % spacing between LOT/LOF items
+\def\FullCiteSpacing{1.0}                   % spacing in a fullcite item
+\def\LOTItemSpacing{3 pt}                   % spacing between LOT/LOF items
 \def\BibItemSpacing{0.35\baselineskip}      % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
@@ -271,7 +271,7 @@
     Department of Mechanical Engineering of The Johns Hopkins University
     
     \vspace{0.5in}                      % space between statement and title
-    {\TitleFont {\LaTeX\ template for dissertation proposal} \par}  
+    {\TitleFont {\LaTeX\ template for MechE dissertation proposal} \par}  
     %% tentative thesis title (\par is needed for proper spacing)
     
     \vspace{0.25in}                     % space between title and author
@@ -308,7 +308,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%% TIME AND LOCATION %%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.5in}
 \begin{center}
-    Baltimore, Maryland \\          % location (according to Hopkins it's always same)
+    Baltimore, Maryland \\          % location (according to Hopkins it's always the same)
     Month YEAR                      % like May 2024
 
     \vspace{0.25 in}
@@ -396,7 +396,7 @@
 
 \section{Research objectives}                   %%% 1 page limit
 
-\blindtext
+\blindtext \cite{knuthwebsite}
 
 %% 
 \phantomsection
@@ -531,10 +531,10 @@ Col1 & Col2 & Col2 & Col3 \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-\section*{Bibliographic references}
+\clearpage \phantomsection
 \addcontentsline{toc}{section}{Bibliographic references}
-\nocite{*}
+\section*{Bibliographic references}
+
 \printbibliography[heading=none,notcategory=mypapers]
 
 
