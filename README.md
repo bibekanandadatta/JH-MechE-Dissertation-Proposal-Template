@@ -77,6 +77,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 
 
+
 ## User guidelines
 
 ### Proposal document
@@ -132,7 +133,8 @@ The preamble section of both of the `.tex` files has been subdivided into multip
   ```
   \printbibliography[heading=none,notcategory=mypapers]
   ```
-
+- To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the xcolor package with the dvipsnames option (already loaded with this option in the preamble). Check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+- 
 - You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
 - Finally, you may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
@@ -142,13 +144,14 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 ### Response document
 
-All of these suggestions also apply to the `rebuttal.tex` file. In the response document, for each committee member, a specific section is dedicated, and the questions are posed as an enumerated list. Additionally, questions or suggestions are written in a different color `(royalblue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+- Questions or suggestions are written in a different color `(royalblue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+
+- For tables, figures, bibliography, footnotes, and any other special environments, follow the suggested format given above for the main proposal document.
 
 
 ### Final note on organizing
 
-If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
-  - You can also upgrade the template-related settings to make a LaTeX package for the thesis using the `.sty` file.
+If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project). You can also upgrade the template-related settings to make a LaTeX package for the thesis using the `.sty` file.
 
 ## Contributing to the project
 
