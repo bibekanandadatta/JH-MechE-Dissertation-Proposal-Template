@@ -41,8 +41,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 ### Main proposal document
 
 - The margin used in both documents (proposal and response) is **1.0in** for all sides with no header and special footer except for the pagination at the bottom center inside the margin.
-  - The title page of the main proposal document does not have any pagination. The pagination counter starts from the abstract page with the Roman numeral ii and continues this way throughout the front matter. For the main text in the proposal document, the pagination resets in Arabic starting from 1.
-
+  - The title page of the main proposal document does not have any pagination. The pagination counter starts from the abstract page with the Roman numeral ii and continues this way throughout the front matter. For the main text in the proposal document, the pagination resets in Arabic starting from 1. The pagination is placed in the footer of the document.
  
 - The document is typeset using Latin Modern Roman font (loaded using the `lmodern` package) with a single-spaced 12 pt font size for the main text.
   - For the proposal title, I used `\Large\bfseries\MakeUppercase` (**boldface 17.28 pt**).
@@ -117,7 +116,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
  - If you would like to customize the spacing inside a table globally throughout the document, you can change the variable `\GlobalTableSpacing`. However, I suggest doing it locally by defining a group for each table (StackExhange or StackOverflow is your friend here) where you can redefine `\arraystretch` for the individual tables as needed. Also if the table is wider than the page during editing, you may want to use the landscape tables which are placed sideways and may go over multiple pages (someone on StackExhange or StackOverflow has done it for sure).
   - For wide tables, you can use the `sideways` environment from the `rotating` package which will print our table in landscape mode.
 
-- For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the double-spaced text document.
+- For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the spacing of the document (default is single-spaced, however you can change it).
 
 -The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name. The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Perhaps consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file. Learn about [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
 
@@ -134,7 +133,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
   \printbibliography[heading=none,notcategory=mypapers]
   ```
 - To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the xcolor package with the dvipsnames option (already loaded with this option in the preamble). Check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
-- 
+
 - You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
 - Finally, you may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
