@@ -103,7 +103,6 @@ The preamble section of both of the `.tex` files has been subdivided into multip
   ```
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
-
 - The table of contents (ToC), list of figures (LoF), and list of tables (LoT) are considered to be equivalent to unnumbered sections in this template. The `tocloft` package was used to manage this typesetting for the title. If you do not want any or one of these items to appear in your document to keep the document concise, you can comment out or delete the relevant commands in the `FRONT MATTER` section of the `main.tex` file.
 
 - Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `DOCUMENT FORMATTING` section in the `main.tex` file.
@@ -120,19 +119,19 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 - For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the double-spaced text document.
 
 -The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name. The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Perhaps consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file. Learn about [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
+
   - Currently, the biblatex package is used with the `nature` citation style (numbered). You may need to change it based on your research field such as IEEE, APA, or something else. While I prefer author-year format (such as APA) in most cases, I found numbered-style citations to be more appropriate because of the page limitation. If you would like to change or customize it, look for the command where the `biblatex` package is loaded in the `LaTeX CLASS AND PACKAGES` section.
   ```
   \usepackage[ ... ]{biblatex}
   ```
-
-- In the list of planned (or already published) publications, use the `\fullcite` command to print the bibliography directly in the document. However, if that citation does not appear anywhere in the document and you do not want to include it in the final bibliography in the back matter, use the following command alongside `\fullcite`.
+  - In the list of planned (or already published) publications, use the `\fullcite` command to print the bibliography directly in the document. However, if that citation does not appear anywhere in the document and you do not want to include it in the final bibliography in the back matter, use the following command alongside `\fullcite`.
   ```
   \mybibexclude{citation-key}
   ```
-- Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexlude{}` command are not printed.
-```
-\printbibliography[heading=none,notcategory=mypapers]
-```
+  - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexlude{}` command are not printed.
+  ```
+  \printbibliography[heading=none,notcategory=mypapers]
+  ```
 
 - You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
