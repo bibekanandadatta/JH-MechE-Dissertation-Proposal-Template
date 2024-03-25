@@ -34,6 +34,11 @@
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
 %% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
 
+%% font size for title and author information
+\def\TitleFont{\large}                      % title font size
+\def\AuthorFont{\normalsize}                % author font size
+\def\AffiliationFont{\itshape\normalsize}   % affiliate font size and style
+
 % font format for section heading and title
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
@@ -46,6 +51,7 @@
 %% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
 \def\GlobalTableSpacing{1.2}                % global spacing parameter for table
 
+\def\GlobalMargin{1.0in}                    % margin on all sides
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
@@ -136,7 +142,7 @@
 \addbibresource{\BibFileName}
 
 %%%% margin settings with geometry package
-\geometry{left=1.0in, right=1.0in, top=1.0in, bottom=1.0in}
+\geometry{margin=\GlobalMargin}
 
 
 %%% settings for the hyperref package
@@ -148,13 +154,14 @@
 \captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
 %%%% authblk title, author, and affiliation font size
-\renewcommand*{\Authfont}{\normalsize}
+\renewcommand*{\Authfont}{\AuthorFont}
+\renewcommand\Affilfont{\AffiliationFont}
+\setlength{\affilsep}{1em}
 \DefineFNsymbolsTM{otherfnsymbols}{%
-  \textdagger    \dagger                    % author name will have a dagger symbol for footnote
+  \textdagger    \dagger             % author name will have a dagger symbol
 }%
 \setfnsymbol{otherfnsymbols}
-\renewcommand\Affilfont{\itshape\small}
-\setlength{\affilsep}{1em}
+
 
 
 %%%% formatting for the section, subsection, subsubsection, etc.
@@ -233,17 +240,17 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% add title and author of the document here
+
+%%%% add the title and author of the document here
 %%%% format it as you like
-\title{\vspace{-0.75in}\large{Response to the comments of thesis proposal committee members: \\
+\title{\vspace{-\baselineskip}\TitleFont{Response to the comments of thesis proposal committee members: \\
 tentative thesis title}}
 \author[]{Author name\footnote{Contact: Author name \texttt{(email)}}} 
 \affil[]{Affiliation goes here}
 \date{}
-
+%
 \maketitle 
-\vspace{-0.5cm} \hrule
-
+\vspace{-\baselineskip} \hrule
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESPONSE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
