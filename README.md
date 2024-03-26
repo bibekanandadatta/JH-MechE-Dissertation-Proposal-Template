@@ -154,7 +154,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Finally, you may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
 
-- Keep writing ... and good luck :tada:!
+
 
 
 ### Response document
@@ -167,6 +167,8 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 ### Final note on organizing
 
 If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project). You can also upgrade the template-related settings to make a LaTeX package for the thesis using the `.sty` file.
+
+Keep writing ... and good luck with the proposal/ candidacy :tada:!
 
 ## Contributing to the project
 

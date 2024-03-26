@@ -199,6 +199,12 @@
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}      % spacing in table
 
+%%%% settings for math environment
+\allowdisplaybreaks[1]                      % page break in math formula
+\numberwithin{equation}{section}            % eqn no begins with section no
+\setcounter{MaxMatrixCols}{20}              % maximum columns in matrix = 20
+
+
 %%% settings for bibliography
 \AtBeginBibliography{\urlstyle{rm}}
 \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
@@ -218,21 +224,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add all your custom math settings and macros in the following section.
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
-%%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Define math symbols and macros
-\allowdisplaybreaks[1]
-\setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
-\numberwithin{equation}{section}        % eqn no begins with section no
 \newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
+\DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
+\DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
 
 %% these are just some examples; add more macros for your custom symbols
 
-%%%%%%%%%%%%%%%%%%%%% END MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
