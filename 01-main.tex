@@ -146,32 +146,27 @@
 % if you want to use Palatino font, use the following and comment above line
 % \usepackage[sc]{mathpazo}                  % palatino font family
 
-
 %%% I use Zotero to generate the BibLaTeX file and include it in the same directory
 \addbibresource{\BibFileName}
 
-
 %%% margin settings with geometry package
 \geometry{margin=\GlobalMargin, nomarginpar}
-
 
 %%% settings for the hyperref package
 \hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 \urlstyle{rm}   % to remove the default URL style (tt format)
 
-
 %%% settings for figure caption
 \captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
-
 \setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
+
 \renewcommand{\cfttoctitlefont}{\SectionFont}           % font for ToC title
 \renewcommand{\cftloftitlefont}{\SectionFont}           % font for LoF title
 \renewcommand{\cftlottitlefont}{\SectionFont}           % font for LoT title
 
 \setlength{\cftbeforesecskip}{0.5\baselineskip}         % space between sections in TOC
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}   % dots for sections too
-
 
 % tweak to LoF/ LoT to add 'Figure' & 'Table' to the figure and table caption listing
 % to change the distance to the start of the figure/ table title
@@ -291,23 +286,27 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.5in}
-%% if you have more people on your committee then squeeze out some spaces or use the minipage feature
+%%%% if you have more people on your committee then squeeze out some spaces or use the minipage feature
+%%%% you can also consider shortening the affiliation to make more space to list more people
 \begin{singlespace}
     \subsection*{Primary advisor:}
     
     Dr. Chuck Darwin \\
-    Professor, Department of Mechanical Engineering \\
+    Professor \\
+    Department of Mechanical Engineering \\
     Johns Hopkins University, Baltimore, MD
 
 
     \subsection*{Dissertation proposal committee members:} 
     
     Dr. Albrecht Einstein \\
-    Professor, Department of Mechanical Engineering \\
+    Professor \\
+    Department of Mechanical Engineering \\
     Johns Hopkins University, Baltimore, MD
     
     Dr. Stewart Hawking \\
-    Professor, Department of Mechanical Engineering \\
+    Professor \\
+    Department of Mechanical Engineering \\
     Johns Hopkins University, Baltimore, MD 
 \end{singlespace}
 
@@ -321,7 +320,7 @@
     
     %% copyright statement is optional (but this will protect your ideas)
     {\begin{textblock*}{\textwidth}(\GlobalMargin,9.5in)
-        \copyright\ YEAR Author Name. All rights reserved
+        \copyright\ YEAR Author Name. All rights reserved.
     \end{textblock*}
     \null}
 \end{center}
