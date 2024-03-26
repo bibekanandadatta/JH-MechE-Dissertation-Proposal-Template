@@ -1,8 +1,8 @@
 # JHU Mechanical Engineering Dissertation Proposal Template
 
-This is an unofficial LaTeX template for the dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting but only provides some general guidelines on the sections with a tentative page limit to be included in the proposal. This template is created based on those general guidelines. The repository is also available as [Overleaf template](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx). However, GitHub is likely to have the most updated repository. See below for how to use this repository on Overleaf.
+This is an unofficial LaTeX template for the dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, however, provides some general guidelines on the sections with a suggested page limit to be included in the proposal. This template is created based on those general guidelines. The repository is also available as [Overleaf template](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx). However, GitHub is likely to have the most updated repository. See below for how to use this repository on Overleaf.
 
-**It is the user's responsibility to discuss with their advisor(s) and committee members about the formatting. The author of this repository bears no responsibility regarding this.**
+**It is the user's responsibility to discuss with their advisor(s) and committee members about the formatting and styles of the proposal.**
 
 
 
@@ -14,7 +14,7 @@ This is an unofficial LaTeX template for the dissertation proposal in PhD in Mec
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
 - `README.md` is this file containing all the details related to the template.
 
-I suggest going through both of the `.tex` files to see what packages have been included and what options are invoked to obtain the current formatting. The structure of the `.tex` files is almost identical except for a few minor changes to serve separate purposes. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
+Go through both of the `.tex` files to see what packages have been included and what options are invoked to obtain the current formatting. The structure of the `.tex` files is almost identical except for a few minor changes to serve separate purposes. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
 
 
 
@@ -28,7 +28,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working... But Overleaf and GitHub will not sync automatically; you will have to do it.
 
-- Once the project is opened, for the main proposal document, compile `proposal.tex` and for the response to the committee document, compile `02-response.tex`. You will have to compile them separately. These files should compile separately without any errors; there might be warnings but you can ignore them. In your first submission to the thesis proposal committee, response text should not be necessary. During resubmission (if your committee members require you to do so), compile them separately and if you need to submit them as one document, just merge them using the Preview app on macOS or online PDF tools.
+- Once the project is opened, for the main proposal document, compile `proposal.tex` and for the response to the committee document, compile `02-response.tex`. You will have to compile them separately. These files should compile separately without any errors; you may ignore warnings (if any). In your first submission to the thesis proposal committee, response text should not be necessary. During resubmission (if your committee members require you to do so), compile them separately and if you need to submit them as one document, just merge them using the Preview app on macOS or online PDF tools.
 
 > [!TIP]
 >
@@ -99,9 +99,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 ### Proposal document
 
-Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. Two other useful sources to find answers to any questions are StackExchange and StackOverflow. 
-
-The preamble section of both of the `.tex` files has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
+Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. If you would like to do something specific, your best friend is Google; someone on [TeX StackExchange](https://tex.stackexchange.com) has perhaps done it. The preamble section of both of the `.tex` files has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
 
 - Most of the necessary variables to customize the format and the style of the document are included at the beginning of the `.tex` file in the `LIST OF VARIABLES FOR FORMATTING` section. You can customize different spacing and font style options using these variables. For most cases, tweaking these variables to your needs and preferences will be enough to get the desired formatting.
     
@@ -134,7 +132,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
  - If you would like to customize the spacing inside a table globally throughout the document, you can change the variable `\GlobalTableSpacing`. However, I suggest doing it locally by defining a group for each table (StackExhange or StackOverflow is your friend here) where you can redefine `\arraystretch` for the individual tables as needed. Also if the table is wider than the page during editing, you may want to use the landscape tables which are placed sideways and may go over multiple pages (someone on StackExhange or StackOverflow has done it for sure).
   - For wide tables, you can use the `sideways` environment from the `rotating` package which will print our table in landscape mode.
 
-- For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the spacing of the document (default is single-spaced, however, you can change it).
+- For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the spacing of the document (the default is single-spaced, however, you can change it as mentioned before).
 
 -The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name. The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Perhaps consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file. Learn about [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
 
@@ -150,7 +148,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
   ```
   \printbibliography[heading=none,notcategory=mypapers]
   ```
-- To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the xcolor package with the dvipsnames option (already loaded with this option in the preamble). Check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+- To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
 - You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
@@ -161,7 +159,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 ### Response document
 
-- Questions or suggestions are written in a different color `(royalblue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+- Questions or suggestions are written in a different color `(royalblue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
 - For tables, figures, bibliography, footnotes, and any other special environments, follow the suggested format given above for the main proposal document.
 
