@@ -44,17 +44,17 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   - The title page of the main proposal document does not have any pagination. The pagination counter starts from the abstract page with the Roman numeral ii and continues this way throughout the front matter. For the main text in the proposal document, the pagination resets in Arabic starting from 1. The pagination is placed in the footer of the document.
  
 - The document is typeset using Latin Modern Roman font (loaded using the `lmodern` package) with a single-spaced 12 pt font size for the main text.
-  - For the proposal title, I used `\Large\bfseries\MakeUppercase` (**boldface 17.28 pt**).
+  - For the proposal title, I used `\large\bfseries\MakeUppercase` (**boldface 14.4 pt**).
   - For the section headings, I used `\singlespacing\large\bfseries` (**boldface 14.4 pt**) with an underline throughout the width of the page.
   - For the subsection headings, I used `\normalsize\bfseries` (**boldface 12 pt**) whereas for the subsubsection headings, I used `\normalsize\itshape` (*italic 12 pt*).
   - For the table and figure captions, I used `\small` (10.95 pt).
   - For the footnotes, I used `\footnotesize` (10 pt), and footnotes are single-spaced with `0.5\baselineskip` spacing between each footnote.
 
-- The title page of the main proposal document is inspired by [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/) but it was customized to my preference since there is no specific guideline to it. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you may need to use the `minipage` environment to fit the full committee on the title page. Or you may change the style of it entirely to fit your necessity.
+- The title page of the main proposal document is inspired by [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/) but it was customized to my preference since there is no specific guideline to it. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you can use the `minipage` environment to fit the full committee on the title page. You may change the style of it entirely to fit your necessity (spacing, details of affiliation information, etc.)
   - The title page starts with a statement that is placed 1 inch from the top of the page followed by a tentative title for the thesis and the author placed with 0.5 inches and 0.25 inches spacing relative to each other. These contents are center-justified on the page.
   - Thesis advisor and proposal committee members with their affiliations are included next in a left justified on the page. Depending on the situation, you may need to change the format of this (see below).
   - Location and date are placed in two different single-spaced lines followed by the committee members.
-  - An optional copyright statement is placed 1.5 inches from the bottom of the place in a single line.
+  - An optional copyright statement is placed approximately 1.5 inches from the bottom of the place in a single line.
 
 - Front matters are placed following the title page in this order: Abstract, Table of Contents (ToC), List of Tables (LoT), and List of Figures (LoF).
   - The section headings for these environments are placed 1 inch from the top of the page.

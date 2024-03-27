@@ -44,7 +44,7 @@
 %%%% font size and typeset for different environments
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
 \def\BaseFont{12pt}
-\def\TitleFont{\Large\bfseries\MakeUppercase}
+\def\TitleFont{\large\bfseries\MakeUppercase}
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
@@ -58,7 +58,7 @@
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.0}                   % spacing in a fullcite item
-\def\LOTItemSpacing{3 pt}                   % spacing between LOT/LOF items
+\def\LOTItemSpacing{3.5 pt}                 % spacing between LOT/LOF items
 \def\BibItemSpacing{0.4\baselineskip}       % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
@@ -186,6 +186,8 @@
 \titleformat{\section}{\SectionFont}{\thesection}{1em}{}[{\titlerule}]
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
+%% delete [{\titlerule}] to remove all the underlines below the section title
+
 
 %%%% paragraph, footnote, bib item, and table spacing
 \setlength{\parskip}{\ParagraphSpacing}     % paragraph spacing
@@ -281,43 +283,88 @@
     
     Author Name                         % author name (student)
 \end{center}
+\vspace{0.5in}
 %%%%%%%%%%%%%%%%%%%%%%%%% END TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{0.5in}
-%%%% if you have more people on your committee then squeeze out some spaces or use the minipage feature
-%%%% you can also consider shortening the affiliation to make more space to list more people
-\textbf{Primary advisor:}
 
-Dr. Chuck Darwin \\
-Professor, \\
-Department of Mechanical Engineering \\
-Johns Hopkins University, Baltimore, MD
+%% depending on the number of advisor/ co-advisors and committee members
+%% you have, you can style the placement of this in many different ways.
+%% you can include their full (or brief) affiliation to fit all on the page.
+%% you can place them side-by-side in a centered environment (STYLE 1)
+%% you can place them one after one in a left justified environment (STYLE2)
+%% you can style however you want with proper spacing
+
+%%%% Suggested STYLE 2: CENTERED (uncomment following, comment above)
+\begin{center}
+    \textbf{Primary advisor}
+    
+    Dr. Chuck Darwin \\
+    Professor \\
+    Department of Mechanical Engineering \\
+    Johns Hopkins University, Baltimore, MD
+\end{center}
+
+\vspace{0.35in}
+\centerline{\textbf{Dissertation proposal committee members}}
+
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{flushleft}
+	Dr. Albrecht Einstein \\
+    Professor \\
+    Department of Mechanical Engineering \\
+    Johns Hopkins University, Baltimore, MD
+	\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{flushleft}
+    Dr. Stewart Hawking \\
+    Professor \\
+    Department of Mechanical Engineering \\
+    Johns Hopkins University, Baltimore, MD 
+	\end{flushleft}
+\end{minipage}
 
 
-\textbf{Dissertation proposal committee members:} 
+%%%% Suggested STYLE 2: LEFT PLACEMENT
+% \begin{center}
 
-Dr. Albrecht Einstein \\
-Professor, \\
-Department of Mechanical Engineering \\
-Johns Hopkins University, Baltimore, MD
+% \textbf{Primary advisor}
 
-Dr. Stewart Hawking \\
-Professor, \\
-Department of Mechanical Engineering \\
-Johns Hopkins University, Baltimore, MD 
+% Dr. Chuck Darwin \\
+% Professor \\
+% Department of Mechanical Engineering \\
+% Johns Hopkins University, Baltimore, MD
+
+% \vspace{0.2in}
+
+% \textbf{Dissertation proposal committee members} 
+
+% Dr. Albrecht Einstein \\
+% Professor \\
+% Department of Mechanical Engineering \\
+% Johns Hopkins University, Baltimore, MD
+
+% Dr. Stewart Hawking \\
+% Professor, \\
+% Department of Mechanical Engineering \\
+% Johns Hopkins University, Baltimore, MD 
+
+% \end{center}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% END COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% TIME AND LOCATION %%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{0.5in}
+\vspace{0.75in}                     % space after committee members and location
 \begin{center}
-    Baltimore, Maryland \\          % location (according to Hopkins it's always the same)
-    Month YEAR                      % like May 2024
+    Baltimore, Maryland \\          % location 
+    Month YEAR                      % like May 2024 (month and year of submission)
     
-    %% copyright statement is optional (but this will protect your ideas)
+    %%%% copyright statement is optional (but this will protect your ideas)
+    %% this is placed 1.5 inches above the bottom of the page
     {\begin{textblock*}{\textwidth}(\GlobalMargin,9.5in)
         \copyright\ YEAR Author Name. All rights reserved.
     \end{textblock*}
@@ -352,24 +399,25 @@ Johns Hopkins University, Baltimore, MD
 %% single spacing appears to be too cramped and double spacing is too relaxed
 {
 \clearpage
-\TOCTextSpacing                               % one-half spacing for the TOC
-\hypersetup{linkcolor=black}                  % local hyperref settings to make the TOC appear black (you can comment it if you would like the default)
-\renewcommand{\contentsname}{Table of Contents \vspace{3pt} \hrule}
+\TOCTextSpacing                         % one-half spacing for the TOC
+\hypersetup{linkcolor=black}            % local hyperref settings to make the TOC appear black (you can comment it out if you would like the default)
+\renewcommand{\contentsname}{Table of Contents \vspace{3.5pt} \hrule}
 \tableofcontents
 
 
-% \MainTextSpacing
 \clearpage \phantomsection
 \addcontentsline{toc}{section}{List of Tables}
-\renewcommand{\listtablename}{List of Tables \vspace{3pt} \hrule}
+\renewcommand{\listtablename}{List of Tables \vspace{3.5pt} \hrule}
 \listoftables
 
 
 \clearpage \phantomsection
 \addcontentsline{toc}{section}{List of Figures}
-\renewcommand{\listfigurename}{List of Figures \vspace{3pt} \hrule}
+\renewcommand{\listfigurename}{List of Figures \vspace{3.5pt} \hrule}
 \listoffigures
 }
+
+%% delete \vspace{3.5pt} \hrule if you want to remove the underlines
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%
