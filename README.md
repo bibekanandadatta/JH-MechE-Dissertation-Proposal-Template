@@ -28,7 +28,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working... But Overleaf and GitHub will not sync automatically; you will have to do it.
 
-- Once the project is opened, for the main proposal document, compile `proposal.tex` and for the response to the committee document, compile `02-response.tex`. You will have to compile them separately. These files should compile separately without any errors; you may ignore warnings (if any). In your first submission to the thesis proposal committee, response text should not be necessary. During resubmission (if your committee members require you to do so), compile them separately and if you need to submit them as one document, just merge them using the Preview app on macOS or online PDF tools.
+- Once the project is opened, for the main proposal document, compile `01-main.tex` and for the response to the committee document, compile `02-response.tex`. You will have to compile them separately. These files should compile separately without any errors; you may ignore warnings (if any). In your first submission to the thesis proposal committee, response text should not be necessary. During resubmission (if your committee members require you to do so), compile them separately and if you need to submit them as one document, just merge them using the Preview app on macOS or online PDF tools.
 
 > [!TIP]
 >
@@ -97,9 +97,11 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 ## User guidelines
 
+Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. If you would like to do something specific, your best friend is Google; someone on [TeX StackExchange](https://tex.stackexchange.com) has perhaps done it. 
+
 ### Proposal document
 
-Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. If you would like to do something specific, your best friend is Google; someone on [TeX StackExchange](https://tex.stackexchange.com) has perhaps done it. The preamble section of both of the `.tex` files has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
+The preamble section of both of the `.tex` files has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
 
 - Most of the necessary variables to customize the format and the style of the document are included at the beginning of the `.tex` file in the `LIST OF VARIABLES FOR FORMATTING` section. You can customize different spacing and font style options using these variables. For most cases, tweaking these variables to your needs and preferences will be enough to get the desired formatting.
     
@@ -110,7 +112,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
 ``` 
 
-- Add your math macros and settings in the `MATH SETTINGS AND MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
+- Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
 
 - To change the default font to another font of your preference, you can load the font package using the `\usepackage{}` command. However, you will have to be careful about the consistency of the typography, especially between text and math environments. [Follow this discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
 
