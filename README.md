@@ -10,7 +10,7 @@ This is an unofficial LaTeX template for the dissertation proposal in PhD in Mec
 
 - `01-main.tex`: This is the main file based on the LaTeX article class in which you will write your proposal. This single file has all the packages, their settings, customized macros, and the main text section.
 - `02-response.tex`: This is a plain article class file that you can use to prepare your response to committee members in case they make suggestions for your proposal. I hope you do not have to do this. Anyway, this is a general-purpose article class-based .tex file that can be used for writing small reports or even responses to journal or conference article peer reviews.
-- `references.bib`: This is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I recommend adding all the citation files (for the main proposal and subsequent response) to one single file which means updating the same file when writing the response to avoid clutter.
+- `references.bib`: This is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I suggest adding all the citation files (for the main proposal and subsequent response) to one single file which means updating the same file when writing the response to avoid clutter.
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
 - `README.md` is this file containing all the details related to the template.
 
@@ -22,7 +22,7 @@ Go through both of the `.tex` files to see what packages have been included and 
 
 I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks history. You can recover files if you break them (hopefully you won't). Follow one of the three approaches for getting started with this project on Overleaf.
 
-- To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx). Then click on **Open as Template** and proceed from there to go through the template and edit it.
+- To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx). Then click on **Open as Template** and proceed from there to go through the template and edit it. However, please note that Overleaf may not have the latest version of the project. It might be better to use the following approaches.
 
 - If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. Continue...
   
