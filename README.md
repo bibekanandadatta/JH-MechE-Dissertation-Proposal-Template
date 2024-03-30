@@ -1,6 +1,6 @@
 # JHU Mechanical Engineering Dissertation Proposal Template
 
-This is an unofficial LaTeX template for the dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, however, provides some general guidelines on the sections with a suggested page limit to be included in the proposal. This template is created based on those general guidelines. The repository is also available as [Overleaf template](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx). However, GitHub is likely to have the most updated repository. See below for how to use this repository on Overleaf.
+This is an unofficial LaTeX template for the dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, however, provides some general guidelines on the sections with a suggested page limit to be included in the proposal. This template is created based on those general guidelines.
 
 **It is the user's responsibility to discuss with their advisor(s) and committee members about the formatting and styles of the proposal.**
 
@@ -12,6 +12,8 @@ This is an unofficial LaTeX template for the dissertation proposal in PhD in Mec
 - `02-response.tex`: This is a plain article class file that you can use to prepare your response to committee members in case they make suggestions for your proposal. I hope you do not have to do this. Anyway, this is a general-purpose article class-based .tex file that can be used for writing small reports or even responses to journal or conference article peer reviews.
 - `references.bib`: This is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I suggest adding all the citation files (for the main proposal and subsequent response) to one single file which means updating the same file when writing the response to avoid clutter.
 - `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
+- `01-main.pdf` is the output template PDF file when `01-main.tex` file is compiled.
+- `02-response.pdf` is the output template PDF file when `02-response.tex` file is compiled.
 - `README.md` is this file containing all the details related to the template.
 
 Go through both of the `.tex` files to see what packages have been included and what options are invoked to obtain the current formatting. The structure of the `.tex` files is almost identical except for a few minor changes to serve separate purposes. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
@@ -22,11 +24,9 @@ Go through both of the `.tex` files to see what packages have been included and 
 
 I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks history. You can recover files if you break them (hopefully you won't). Follow one of the three approaches for getting started with this project on Overleaf.
 
-- To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-meche-dissertation-proposal-template/ppqmcfvvpzsx). Then click on **Open as Template** and proceed from there to go through the template and edit it. However, please note that Overleaf may not have the latest version of the project. It might be better to use the following approaches.
-
-- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. Continue...
+- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. You can now work on the project.
   
-- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working... But Overleaf and GitHub will not sync automatically; you will have to do it.
+- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on the project.
 
 - Once the project is opened, for the main proposal document, compile `01-main.tex` and for the response to the committee document, compile `02-response.tex`. You will have to compile them separately. These files should compile separately without any errors; you may ignore warnings (if any). In your first submission to the thesis proposal committee, response text should not be necessary. During resubmission (if your committee members require you to do so), compile them separately and if you need to submit them as one document, just merge them using the Preview app on macOS or online PDF tools.
 
