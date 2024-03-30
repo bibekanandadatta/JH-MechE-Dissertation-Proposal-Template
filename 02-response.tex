@@ -26,13 +26,18 @@
 %% go through all the variables and understand what role they play in formatting
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
 \def\BibFileName{references.bib}            % name of BibLaTeX file with all the bibliography
 
-\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
-\def\TocIndent{0}                           % indentation in the list of figs and tables
-\def\NoTocLevel{3}                          % no of levels showed in the table of contents
-%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
+
+\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+\def\BaseFont{12pt}                         % document font size
+\def\GlobalMargin{1.0in}                    % margin on all sides
+
+
+\def\MainTextSpacing{\singlespacing}        % single-spaced main text document
+\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
+\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
+
 
 %% font size for title and author information
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
@@ -57,7 +62,7 @@
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.0}                   % spacing in a fullcite item
-\def\BibItemSpacing{0.4\baselineskip}       % spacing between bibliographic items in reference
+\def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
@@ -97,17 +102,16 @@
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
-\usepackage{epigraph,varwidth}              % for managing quotes
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
 \usepackage[T1]{fontenc}                    % for font encoding
-\usepackage[bottom]{footmisc}               % footnote environment management
+% footnote environment management
+\usepackage[bottom,multiple,hang,flushmargin]{footmisc}  
 \usepackage{graphicx,wrapfig}               % to manage images
 \usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
-\usepackage[dvipsnames]{xcolor}
-\usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
-\usepackage[pdfa]{hyperref}                 % for hyperlinks
+\usepackage[dvipsnames]{xcolor}             % to manage colors
+\usepackage{hyperref}                       % for hyperlinks
 \usepackage[all]{hypcap}                    % for captions on the side of figures
 \usepackage{ifthen}                         % if-then statement in algorithm
 \usepackage{lscape}                         % landscape mode
@@ -132,8 +136,6 @@
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% choice a font form (or add something else) for your thesis (uncomment one option)
@@ -153,8 +155,9 @@
 \urlstyle{rm}   % to remove the default URL style (tt format)
 
 
-%%%% settings for figure caption
+%%%% settings for table and figure caption
 \captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
+
 
 %%%% authblk title, author, and affiliation font size
 \renewcommand*{\Authfont}{\AuthorFont}
@@ -168,7 +171,6 @@
 
 
 %%%% formatting for the section, subsection, subsubsection, etc.
-\setcounter{secnumdepth}{\NoSectionLevel}
 \titleformat{\section}
 {\SectionFont}{\thesection}{1em}{}
 \titleformat*{\subsection}{\SubsectionFont}
@@ -182,6 +184,7 @@
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}      % spacing in table
 
+
 %%%% bibliography settings
 \DeclareFieldFormat{titlecase}{#1}
 \AtBeginBibliography{\urlstyle{rm}}
@@ -189,7 +192,8 @@
 \DeclareBibliographyCategory{mypapers}
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
-%%% TikZ library options (add more if you want/ need)
+
+%%%% TikZ library options (add more if you want/ need)
 \usetikzlibrary{positioning,shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%

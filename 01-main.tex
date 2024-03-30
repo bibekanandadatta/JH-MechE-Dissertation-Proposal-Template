@@ -31,20 +31,31 @@
 %% go through all the variables and understand what role they play in formatting
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
 \def\BibFileName{references.bib}            % name of BibLaTeX file with all the bibliography
 
-\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
-\def\TocIndent{0}                           % indentation in the list of figs and tables
-\def\NoTocLevel{3}                          % no of levels showed in the table of contents
-%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
 
+\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+\def\BaseFont{12pt}                         % document font size
 \def\GlobalMargin{1.0in}                    % margin on all sides
+
+
+\def\MainTextSpacing{\singlespacing}        % single-spaced main text document
+\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
+\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
+
+
+
+%%%% level of paragraph-styled environments
+%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
+\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
+\def\NoTocLevel{3}                          % no of levels showed in the table of contents
+\def\TocIndent{0}                           % indentation in the list of figs and tables
+
+
 
 %%%% font size and typeset for different environments
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-\def\BaseFont{12pt}
-\def\TitleFont{\large\bfseries\MakeUppercase}
+\def\TitleFont{\Large\bfseries\MakeUppercase}
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
@@ -52,13 +63,12 @@
 \def\CaptionFontType{bf}                    % boldface label for captions
 \def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
 
-\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
-\def\MainTextSpacing{\singlespacing}        % double spacing in the main text (JH library requirement)
-\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
+
+%%%% spacing in different environments
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.0}                   % spacing in a fullcite item
-\def\LOTItemSpacing{3.5 pt}                 % spacing between LOT/LOF items
+\def\LOTItemSpacing{3.6 pt}                 % spacing between LOT/LOF items
 \def\BibItemSpacing{0.4\baselineskip}       % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
@@ -87,15 +97,15 @@
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers
 
 
-%% math packages
+%%%% math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
 \usepackage[ruled]{algorithm2e}             % to manage algorithm environment
 \usepackage[titletoc]{appendix}             % to manage appendix chapters
 \usepackage[american]{babel}                % for different language typography
 
-%% bibliographic package (make sure your bib file is in BibLaTeX format)
-%% use Zotero or some other reference manager to generate the BibLaTeX file
+%%%% bibliographic package (make sure your bib file is in BibLaTeX format)
+%% use a citation manager program to generate the BibLaTeX file
 %% change the style or other options if you need to
 \usepackage[backend=biber, defernumbers=true, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 % \usepackage[backend=biber, defernumbers=true, style=apa, isbn=false, url=false, doi=true]{biblatex}
@@ -104,27 +114,27 @@
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
-\usepackage{csquotes,epigraph,varwidth}     % for managing quotes
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
 \usepackage[T1]{fontenc}                    % for font encoding
-\usepackage[bottom]{footmisc}               % footnote environment management
+% footnote environment management
+\usepackage[bottom,multiple,hang,flushmargin]{footmisc}  
 \usepackage{graphicx,wrapfig}               % to manage images
 \usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
-\usepackage[dvipsnames]{xcolor}
-\usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
-\usepackage[pdfa]{hyperref}                 % for hyperlinks
+\usepackage[dvipsnames]{xcolor}             % to manage colors
+\usepackage{hyperref}                       % for hyperlinks
 \usepackage[all]{hypcap}                    % for captions on the side of figures
 \usepackage{ifthen}                         % if-then statement in algorithm
 \usepackage{lscape}                         % landscape mode
-\usepackage{listings}                       % to include codes
+\usepackage{listings,minted}                % to include codes
+\usepackage{csquotes}                       % for managing quotes
 
-%% table related packages
+%%%% table-related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 
 \usepackage{tocloft}                        % to manage table of contents
-\usepackage{parskip}                        % paragraph spacing 
+\usepackage{parskip}                        % default paragraph spacing 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
@@ -202,7 +212,7 @@
 \setcounter{MaxMatrixCols}{20}              % maximum columns in matrix = 20
 
 
-%%% settings for bibliography
+%%%% settings for bibliography
 \AtBeginBibliography{\urlstyle{rm}}
 \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
 
@@ -223,7 +233,7 @@
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% Define math symbols and macros
+%%%% Define math symbols and macros
 \newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
@@ -247,20 +257,26 @@
 %% you can also add more simple comments here as you need
 %% you can use some other packages for more complicated review and comment section
 
-%%% to add small quotes
+%%% to add small quotes (example below)
 \newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
+%% \say{Don't believe everything you see on the internet}{Isaac Newton}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%% if you would like to check consistency in the document this is useful
 % \usepackage[color=red,unit=in,type=upperleft,showframe]{fgruler}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-% \linenumbers                      % may find it useful during drafting
+% \linenumbers                          % may find it useful during drafting
 %% place the command wherever you want to start numbering the line
 
 
@@ -275,7 +291,7 @@
     Department of Mechanical Engineering of The Johns Hopkins University
     
     \vspace{0.5in}                      % space between statement and title
-    {\TitleFont {A simple \LaTeX\ template for MechE dissertation proposal at Johns Hopkins University} \par}  
+    {\TitleFont {A \LaTeX\ template for MechE dissertation proposal at Johns Hopkins University} \par}  
     %% tentative thesis title (\par is needed for proper spacing)
     
     \vspace{0.25in}                     % space between title and author
@@ -288,10 +304,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%%%
 %% if you have multiple advisors/co-advisors, you can add them side-by-side
 %% like the committee members as shown below using the 'minipage' environment
-%% adjust the space in \vspace{ } command if you want to fit more members
-%% you can also condense information for each advisor/ member to make space
 
 \vspace{0.75in}                         % space between author and advisor
+
 \begin{center}
     \textbf{Primary advisor}
     
@@ -301,7 +316,7 @@
     Johns Hopkins University, Baltimore, MD
 \end{center}
 
-\vspace{0.35in}
+\vspace{0.5in}
 \centerline{\textbf{Dissertation proposal committee members}}
 
 \begin{minipage}[t]{0.5\textwidth}
@@ -321,11 +336,17 @@
     Johns Hopkins University, Baltimore, MD 
 	\end{flushleft}
 \end{minipage}
+
+%% if you have more committee members, you can add two more `minipage` here.
+%% you can also condense information about each member by removing some affiliation
+%% information. you can also have three `minipage` side-by-side in this case.
+
 \vspace{0.75in}                     % space between committee members and location
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% END COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% TIME AND LOCATION %%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{center}
     Baltimore, Maryland \\          % location 
     Month YEAR                      % like May 2024 (month and year of submission)
@@ -356,11 +377,10 @@
 \addcontentsline{toc}{section}{Abstract}
 \section*{Abstract}
 
-%%% write your abstract and keywords here
+%%%% write your abstract and keywords here
 \blindtext
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% single spacing appears to be too cramped and double spacing is too relaxed
@@ -368,23 +388,23 @@
 \clearpage
 \TOCTextSpacing                         % one-half spacing for the TOC
 \hypersetup{linkcolor=black}            % local hyperref settings to make the TOC appear black (you can comment it out if you would like the default)
-\renewcommand{\contentsname}{Table of Contents \vspace{3.5pt} \hrule}
+\renewcommand{\contentsname}{Table of Contents \vspace{3.6pt} \hrule}
 \tableofcontents
 
 
 \clearpage \phantomsection
 \addcontentsline{toc}{section}{List of Tables}
-\renewcommand{\listtablename}{List of Tables \vspace{3.5pt} \hrule}
+\renewcommand{\listtablename}{List of Tables \vspace{3.6pt} \hrule}
 \listoftables
 
 
 \clearpage \phantomsection
 \addcontentsline{toc}{section}{List of Figures}
-\renewcommand{\listfigurename}{List of Figures \vspace{3.5pt} \hrule}
+\renewcommand{\listfigurename}{List of Figures \vspace{3.6pt} \hrule}
 \listoffigures
 }
 
-%% delete \vspace{3.5pt} \hrule if you want to remove the underlines
+%% delete \vspace{3.6pt} \hrule if you want to remove the underlines
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -423,14 +443,14 @@
 
 \blindtext \cite{knuthwebsite}
 
-%% 
+
 \phantomsection
 \subsection*{Objective 1: Some major objective here}
 \addcontentsline{toc}{subsection}{Objective 1: Some major objective here}
 
 \blindtext
 
-%% add more objectives (one objective is not enough you know it)
+%% add more objectives ( more objectives, advisors more happy :D )
 
 
 
@@ -480,7 +500,7 @@ Col1 & Col2 & Col2 & Col3 \\
 
 \blindtext
 
-%%% add more tasks and subtasks (one task is not enough for PhD - you know it by now)
+%%% add more tasks and subtasks ( advisor won't be happy with one task :( )
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PUBLICATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -503,7 +523,7 @@ Col1 & Col2 & Col2 & Col3 \\
 
 \section{Timeline}
 
-%% this is an example of how to draw something using TikZ
+%% this is an example of how to draw something using TikZ (remove it)
 %% I used a Timeline chart made using Excel/ PowerPoint combination
 \begingroup
 \begin{tikzpicture}
