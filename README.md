@@ -22,7 +22,7 @@ Go through both of the `.tex` files to see what packages have been included and 
 
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks history. You can recover files if you break them (hopefully you won't). Follow one of the three approaches for getting started with this project on Overleaf.
+I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks history. You can recover the files if you break them (hopefully you won't). Follow one of the two approaches for getting started with this project on Overleaf.
 
 - If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. You can now work on the project.
   
@@ -113,7 +113,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 > [!NOTE]
 > 
-> Currently, both of the documents are filled with randomly generated text by the `blindtext` package. Remove them to get started with your writing.
+> Currently, both of the documents are filled with randomly generated text by the `blindtext` package and some example environments. Remove them to get started with your writing.
 
 
 
@@ -189,9 +189,9 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 - For tables, figures, bibliography, footnotes, and any other special environments, follow the suggested format given above for the main proposal document.
 
 
-### Final note on organizing
-
-If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
+> [!TIP]
+> 
+> If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `\input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 
 > [!TIP]
