@@ -149,11 +149,13 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 - Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
 
-- If you do not like the default font (Latin Modern Roman), you can try a different font or combination of font or typeset. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math). Font package has been loaded using `\usepackage{\FontPackage}` command. Depending on the Font you choose, you may have to add additional options there or even a few other commands to make the typography consistent.
-
 > [!WARNING]
 >
-> Finding a different font that offers consistent text and math typography may require you to add customized commands/ macros and options.
+> Finding a different font that offers consistent text and math typography may require you to add customized commands/ macros and options. 
+
+- If you do not like the default font of this template (Latin Modern Roman), you can try a different font or combination of fonts. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this old discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
+  - This TUG page lists [fonts that provide math support](https://tug.org/FontCatalogue/mathfonts.html). But Overleaf may not have all of the packages listed there, and some of the packages may raise conflict with other packages that are already loaded. You can try and figure out which works best for you.
+  - The font package has been loaded using the `\usepackage{\FontPackage}` command in the `DOCUMENT FORMATTING` section of the preamble. Depending on the Font you choose, you may have to add additional options/ packages (follow the above webpage) and simply changing the `\FontPackage` variable may not work.
 
 -  If you find the main text is too tightly spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both `.tex` files. In this case, you will have to change the spacing for other environments as well to have a consistently formatted document.
   - In case you change text spacing, you most likely would need to change the spacing around the headings of different environments that are managed by the `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add the following command in the preamble:
