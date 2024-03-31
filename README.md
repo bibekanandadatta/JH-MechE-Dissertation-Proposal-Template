@@ -4,17 +4,31 @@ This is an unofficial LaTeX template for the dissertation proposal in PhD in Mec
 
 **It is the user's responsibility to discuss with their advisor(s) and committee members about the formatting and styles of the proposal.**
 
+## Table of Contents
+
+* [Description of the repository](#description-of-the-repository)
+* [How to use the template on Overleaf](#how-to-use-the-template-on-overleaf)
+* [Document formatting](#document-formatting)
+  + [Main proposal document](#main-proposal-document)
+  + [Response document](#response-document)
+* [User guidelines](#user-guidelines)
+  + [Main proposal document](#main-proposal-document)
+  + [Response document](#response-document-1)
+* [Contributing to the project](#contributing-to-the-project)
+
 
 
 ## Description of the repository
 
-- `01-main.tex`: This is the main file based on the LaTeX article class in which you will write your proposal. This single file has all the packages, their settings, customized macros, and the main text section.
-- `02-response.tex`: This is a plain article class file that you can use to prepare your response to committee members in case they make suggestions for your proposal. I hope you do not have to do this. Anyway, this is a general-purpose article class-based .tex file that can be used for writing small reports or even responses to journal or conference article peer reviews.
-- `references.bib`: This is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I suggest adding all the citation files (for the main proposal and subsequent response) to one single file which means updating the same file when writing the response to avoid clutter.
-- `figures.pdf`: This pdf file contains all the figures for your proposal. In case you do not have all figures compiled in a single file, you can add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document.
-- `01-main.pdf` is the output template PDF file when for the main proposal document.
-- `02-response.pdf` is the output template PDF file for the response document.
-- `README.md` is this file containing all the details related to the template.
+| File name   | Description   |
+| :---------  | :-----------  |
+| `01-main.tex` | is the main `.tex` file based on the LaTeX article class in which you will write your proposal. This has all the packages, their settings, customized macros, and the main text section. |
+| `02-response.tex` | is another plain article class-based `.tex` file that you can use to prepare your response to committee members in case they make suggestions for your proposal. I hope you do not have to do this. You can use it for writing response for your journal or conference articles as well. | 
+| `references.bib` | is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I suggest adding all the citation files (for the main proposal and subsequent response) to one single file which means updating the same file when writing the response to avoid clutter.
+| `figures.pdf` | is the pdf file that contains all the figures for your proposal. You can also add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document. |
+| `01-main.pdf` | is the output template PDF file when for the main proposal document | 
+| `02-response.pdf` | is the output template PDF file for the response document. |
+| `README.md` | is this file containing all the details related to the template. |
 
 Go through both of the `.tex` files to see what packages have been included and what options are invoked to obtain the current formatting. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
 
@@ -67,13 +81,13 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   - The Table of Contents (ToC), List of Tables (LoT), and List of Figures (LoF) are **one-half-spaced**. The titles of these environments are treated as of a similar type as the section headings, i.e., the same font size and type with underlining below them.
  
 - Following the suggested outline by the department, in the main proposal document, the following sections are included, however, you can include other sections by consulting your advisor or committee members.
-  - **Background and significance:** the suggested page limit is 2 pages.
-  - **Research objectives:** the suggested page limit is 1 page.
-  - **Proposed methodology and results:** the suggested page limit is 4 pages.
-  - **Planned publications:** no specific limits on the pages.
-  - **Timeline:** no specific format/ limits on the page.
-  - **Acknowledgement**: this is optional - thank the people who helped you along the way and funding sources as well.
-  - **Bibliographic references**: add all the citations following a specific format based on your discipline
+  - **Background and significance** section has a page limit is 2 pages.
+  - **Research objectives** section has a page limit is 1 page.
+  - **Proposed methodology and results** section has a page limit is 4 pages.
+  - **Planned publications** section has no page limit. This section contains a list of papers you already published or planning on publishing.
+  - **Timeline** has no specific format/ limits on the page. You should include a chart or table showing a tentative timeline to finish the project.
+  - **Acknowledgement** section is optional. Thank the people who helped you along the way and funding sources as well.
+  - **Bibliographic references** lists all the citations from your main text following a specific format based on your discipline
 
 - For the main text of the main proposal document, there are **three** levels of paragraph-style environments (section, subsection, subsubsection) for writing. All of them are shown in the Table of Contents as well.
   - The spacing around the section, subsection, and subsubsection headings are chosen to be default offered by the `parskip` package. The paragraphs do not have any indentation with `\baselineskip` spacing in between them.
@@ -83,7 +97,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 - Captions for the table and figure environments are placed at the bottom of the environments. The caption starts with boldfaced **Figure** and **Table** labels, respectively, for Figure and Table, and uses chapter-wise numbering separated by a period between the section label and the number of the corresponding environment followed by a colon before the long caption.
 
 - Equation numbers are also preceded by section numbers as defined by the following command:
-    ```
+    ``` latex
     \numberwithin{equation}{section}       
     ```
 
@@ -117,7 +131,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 
 
-### Proposal document
+### Main proposal document
 
 The preamble section of both of the `.tex` files has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
 
@@ -129,7 +143,9 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 > 
 > If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
 
-    \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
+``` latex
+\usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
+```
 
 - Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
 
@@ -141,7 +157,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 -  If you find the main text is too tightly spaced, you can space out the content by using `\onehalfspacing` or `\doublespacing` instead of `\singlespacing` for the main text in both `.tex` files. In this case, you will have to change the spacing for other environments as well to have a consistently formatted document.
   - In case you change text spacing, you most likely would need to change the spacing around the headings of different environments that are managed by the `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add the following command in the preamble:
-      ```
+      ``` latex
       \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
       ```
 - The table of contents (ToC), list of figures (LoF), and list of tables (LoT) are considered to be equivalent to unnumbered sections in this template. The `tocloft` package was used to manage this typesetting for the title. If you do not want any or one of these items to appear in your document to keep the document concise, you can comment out or delete the relevant commands in the `FRONT MATTER` section of the `01-main.tex` file.
@@ -165,12 +181,12 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 - The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file.
   - To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, Harvard, etc. As an example, APA styles are also shown in the template as well (commented). For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
-    ```
+    ``` latex
     \usepackage[ ... ]{biblatex}
     ```
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexclude{}` command are not printed.
-  ```
+  ``` latex
   \printbibliography[heading=none,notcategory=mypapers]
   ```
 
@@ -189,8 +205,9 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 
 
-
 ### Response document
+
+The LaTeX code of the `02-response.tex` file has been arranged in a similar way as the `01-main.tex`. So most of the suggestions given above will apply to this as well.
 
 - Questions or suggestions are written in a different color `(royalblue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
@@ -202,13 +219,12 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 > If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `\input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 
-> [!TIP]
+> [!Note]
 >
 > Sometimes even if you have done everything right after fixing an error, Overleaf still may not compile your files because of `cache`. In that case, click on the `Logs and Output Files` option beside the `Recompile` button, then click on the `Clear cached files` button at the bottom, and `Recompile` the files again.
 
 
 Keep writing ... and good luck with the proposal/ candidacy :tada:!
-
 
 
 ## Contributing to the project
