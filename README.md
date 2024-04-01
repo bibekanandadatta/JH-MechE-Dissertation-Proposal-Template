@@ -36,9 +36,9 @@ Go through both of the `.tex` files to see what packages have been included and 
 
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks history. You can recover the files if you break them (hopefully you won't). Follow one of the two approaches for getting started with this project on Overleaf.
+Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/learn/how-to/Overleaf_premium_features) account for all of its affiliates, I recommend using Overleaf for this template. Follow one of the two approaches to get started with this project on Overleaf. Then go through the 00-main.tex file and other files to see how the template is structured.
 
-- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. You can now work on the project.
+-  You can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. You can now work on the project.
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on the project.
 
@@ -50,7 +50,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 > [!TIP]
 >
-> Although it is very convenient to write your document on Overleaf, strongly consider backing up your work using Git or GitHub integration or the Dropbox sync feature. This may save you from losing your document in case of an accident.
+> Although it is very convenient to write your document on Overleaf, strongly consider backing up your work using Git or GitHub integration or the Dropbox sync feature. This may save you from losing your document in case of an accident. The latter approach of using this template may save you from hassle.
 
 
 
@@ -68,7 +68,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   - For the table and figure captions, I used `\small` (10.95 pt).
   - For the footnotes, I used `\footnotesize` (10 pt), and footnotes are single-spaced with `0.5\baselineskip` spacing between each footnote.
 
-- The title page of the main proposal document is inspired by [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/) but it was customized to my preference since there is no specific guideline to it. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you can use the `minipage` environment to fit the full committee on the title page. You may change the style of it entirely to fit your necessity (spacing, details of affiliation information, etc.)
+- The title page of the main proposal document is inspired by [thesis/ dissertation formatting provided by the Johns Hopkins Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/) but it was customized to my preference since there is no specific guideline/ requirement to it. If you have more than two committee members besides your advisor or have multiple advisors/ co-advisors, you can use the `minipage` environment to fit the full committee on the title page. You may change the style of it entirely to fit your necessity (spacing, details of affiliation information, etc.)
   - The title page starts with a statement that is placed 1 inch from the top of the page followed by a tentative title for the thesis and the author placed with 0.5 inches and 0.25 inches spacing relative to each other. These contents are center-justified on the page.
   - Thesis advisor and proposal committee members with their affiliations are included next in a left justified on the page. Depending on the situation, you may need to change the format of this (see below).
   - Location and date are placed in two different single-spaced lines followed by the committee members.
@@ -77,17 +77,17 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 - Front matters are placed following the title page in this order: Abstract, Table of Contents (ToC), List of Tables (LoT), and List of Figures (LoF).
   - In case you do not have any table or figure, you will not need LoT and LoF, respectively.
   - The section headings for these environments are placed 1 inch from the top of the page.
-  - Text in the Abstract is single-spaced.
-  - The Table of Contents (ToC), List of Tables (LoT), and List of Figures (LoF) are **one-half-spaced**. The titles of these environments are treated as of a similar type as the section headings, i.e., the same font size and type with underlining below them.
+  - Text in the Abstract is **single-spaced**.
+  - The Table of Contents (ToC), List of Tables (LoT), and List of Figures (LoF) are **single-spaced**. The titles of these environments are treated as of a similar type as the section headings, i.e., the same font size and type with underlining below them.
  
 - Following the suggested outline by the department, in the main proposal document, the following sections are included, however, you can include other sections by consulting your advisor or committee members.
-  - **Background and significance** section has a page limit is 2 pages.
-  - **Research objectives** section has a page limit is 1 page.
-  - **Proposed methodology and results** section has a page limit is 4 pages.
-  - **Planned publications** section has no page limit. This section contains a list of papers you already published or planning on publishing.
-  - **Timeline** has no specific format/ limits on the page. You should include a chart or table showing a tentative timeline to finish the project.
-  - **Acknowledgement** section is optional. Thank the people who helped you along the way and funding sources as well.
-  - **Bibliographic references** lists all the citations from your main text following a specific format based on your discipline
+  - The **Background and significance** section has a page limit is 2 pages.
+  - The **Research objectives** section has a page limit is 1 page.
+  - The **Proposed methodology and results** section has a page limit is 4 pages.
+  - The **Planned publications** section has no page limit. This section contains a list of papers you already published or planning on publishing.
+  - The **Timeline** has no specific format/ limits on the page. You should include a chart or table showing a tentative timeline to finish the project.
+  - The **Acknowledgement** section is optional. Thank the people who helped you along the way and funding sources as well.
+  - The **Bibliographic references** lists all the citations from your main text following a specific format based on your discipline
 
 - For the main text of the main proposal document, there are **three** levels of paragraph-style environments (section, subsection, subsubsection) for writing. All of them are shown in the Table of Contents as well.
   - The spacing around the section, subsection, and subsubsection headings are chosen to be default offered by the `parskip` package. The paragraphs do not have any indentation with `\baselineskip` spacing in between them.
@@ -144,7 +144,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 > If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
 
 ``` latex
-\usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
+\usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
 ```
 
 - Some essential macros related to different redefined environments are available `OTHER MACROS` (will be discussed below).
@@ -213,7 +213,8 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 
 - Finally, you may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
-
+  - Customizing the settings for this package is an involved process and requires some effort. It also depends on the font type being used. Thus I kept it as minimal as possible. But you are welcome to explore more.
+  - It is best not to use the protrusion option from the `microtype` package for the TOC, LOT, and LOF. So they are locally deactivated around these.
 
 
 ### Response document
