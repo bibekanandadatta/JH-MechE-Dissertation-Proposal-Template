@@ -58,7 +58,7 @@ Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/lea
 
 ### Main proposal document
 
-- The margin used in both documents (proposal and response) is **1.0in** for all sides with no header and special footer except for the pagination at the bottom center inside the margin.
+- The margin used in both documents (proposal and response) is **1.0in** for all sides with no header and special footer except for the pagination at the bottom center inside the margin. Look into this first to understand [how space is managed in LaTeX](https://www.overleaf.com/learn/latex/Articles/How_to_change_paragraph_spacing_in_LaTeX).
   - The title page of the main proposal document does not have any pagination. The pagination counter starts from the abstract page with the Roman numeral ii and continues throughout the front matter. For the main text in the proposal document, the pagination resets in Arabic starting from 1. The pagination is placed in the footer (bottom center) of the document.
  
 - The document is typeset using Latin Modern Roman font (loaded using the `lmodern` package) with a single-spaced 12 pt font size for the main text.
@@ -79,11 +79,12 @@ Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/lea
   - The section headings for these environments are placed 1 inch from the top of the page.
   - Text in the Abstract is **single-spaced**.
   - The Table of Contents (ToC), List of Tables (LoT), and List of Figures (LoF) are **single-spaced**. The titles of these environments are treated as of a similar type as the section headings, i.e., the same font size and type with underlining below them.
+  - Spacing between sections, tables, and figure entries in the TOC, LOT, and LOF are `0.75\baselineskip`. Spacing between two consecutive subsections and subsubsections in TOC are smaller.
  
 - Following the suggested outline by the department, in the main proposal document, the following sections are included, however, you can include other sections by consulting your advisor or committee members.
-  - The **Background and significance** section has a page limit is 2 pages.
-  - The **Research objectives** section has a page limit is 1 page.
-  - The **Proposed methodology and results** section has a page limit is 4 pages.
+  - The **Background and significance** section has a page limit of 2 pages.
+  - The **Research objectives** section has a page limit of 1 page.
+  - The **Proposed methodology and results** section has a page limit of 4 pages.
   - The **Planned publications** section has no page limit. This section contains a list of papers you already published or planning on publishing.
   - The **Timeline** has no specific format/ limits on the page. You should include a chart or table showing a tentative timeline to finish the project.
   - The **Acknowledgement** section is optional. Thank the people who helped you along the way and funding sources as well.
@@ -101,7 +102,7 @@ Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/lea
     \numberwithin{equation}{section}       
     ```
 
-- The back matter includes the bibliographic references in a single-spaced format with 6 pt (`0.4\baselineskip`) between each bibliographic item.
+- The back matter includes the bibliographic references in a single-spaced format with 6 pt (`0.5\baselineskip`) between each bibliographic item.
   - Default bibliography style is numbered-based `Nature` style citation. Depending on the discipline, you may have to change it; the details are given below.
 
 - Currently, no appendix section is available, but you can add it if you need to.
@@ -117,7 +118,7 @@ The response document is based on the standard LaTeX article class that does not
 - For each member of the committee, the document has a dedicated section that starts on a new page and contains the questions and responses as numbered items. To provide your response, you can add figures, tables, citations, etc. as needed.
   - Tables and Figures have the same format as the main document.
 
-- The back matter of the document has a Bibliographic reference section which is of the same format as the main proposal document, i.e., single-spaced bibliographic items with `0.4\baselineskip` between them.
+- The back matter of the document has a Bibliographic reference section which is of the same format as the main proposal document, i.e., single-spaced bibliographic items with `0.5\baselineskip` between them.
  
 
 

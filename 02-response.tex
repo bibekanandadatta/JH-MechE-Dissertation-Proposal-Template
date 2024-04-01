@@ -184,16 +184,18 @@
 \geometry{margin=\GlobalMargin,nomarginpar}
 
 
+%%%% AUTHBLK: author, and affiliation font size
+\renewcommand*{\Authfont}{\AuthorFont}
+\renewcommand\Affilfont{\AffiliationFont}
+\setlength{\affilsep}{1em}
+
+
+
 %%%% HYPERREF PACKAGE
 \hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, 
     citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
 
-
-%%%% AUTHBLK: author, and affiliation font size
-\renewcommand*{\Authfont}{\AuthorFont}
-\renewcommand\Affilfont{\AffiliationFont}
-\setlength{\affilsep}{1em}
 
 
 %%%% TITLESEC: font and style for the section, subsection, subsubsection, heading
