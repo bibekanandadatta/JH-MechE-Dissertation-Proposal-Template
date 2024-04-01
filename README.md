@@ -62,7 +62,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   - The title page of the main proposal document does not have any pagination. The pagination counter starts from the abstract page with the Roman numeral ii and continues throughout the front matter. For the main text in the proposal document, the pagination resets in Arabic starting from 1. The pagination is placed in the footer (bottom center) of the document.
  
 - The document is typeset using Latin Modern Roman font (loaded using the `lmodern` package) with a single-spaced 12 pt font size for the main text.
-  - For the proposal title, I used `\Large\bfseries\MakeUppercase` (**boldface 17.28 pt**).
+  - For the proposal title, I used `\large\bfseries\MakeUppercase` (**boldface 14.4 pt**).
   - For the section headings, I used `\singlespacing\large\bfseries` (**boldface 14.4 pt**) with an underline throughout the width of the page.
   - For the subsection headings, I used `\normalsize\bfseries` (**boldface 12 pt**) whereas for the subsubsection headings, I used `\normalsize\itshape` (*italic 12 pt*).
   - For the table and figure captions, I used `\small` (10.95 pt).
