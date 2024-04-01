@@ -11,71 +11,74 @@
 % https://github.com/bibekananda-datta/JH-MechE-Dissertation-Proposal-Template %
 %% template hosted on the GitHub repository is likely to be the most updated  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % this is an unofficial template for the thesis or dissertation proposal in 
 % the Department of Mechanical Engineering at Johns Hopkins University. 
-% consult with the department or advisor before using the template.
 % this template includes comments on the department-suggested page limits. 
-% however, it is the user's responsibility to ensure the formatting conforms 
+% it is the user's responsibility to ensure the formatting conforms 
 % with the advisor or proposal committee or department's requirement.
-% this template is based on the LaTeX article class and uses BibLaTeX as 
-% bibliographic manager. Use a citation manager to generate the BibLaTeX file.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\documentclass[12pt,letterpaper]{article}   % document class (article w/ 12 pt)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if possible, please make your formatting changes here through the variables 
-%% go through all the variables and understand what role they play in formatting
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%% ADDITIONAL PATHS and FILES
+\def\FigurePath{figures}                    % subdirectory for the figure files
 \def\BibFileName{references.bib}            % name of BibLaTeX file with all the bibliography
 
 
-\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
-\def\BaseFont{12pt}                         % document font size
-\def\GlobalMargin{1.0in}                    % margin on all sides
+%%%% GlOBAL MARGIN
+\def\GlobalMargin{1.0in}                   
 
 
-\def\MainTextSpacing{\singlespacing}        % single-spaced main text document
-\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
-\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
-
-
-
-%%%% level of paragraph-styled environments
-%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
-\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
-\def\NoTocLevel{3}                          % no of levels showed in the table of contents
-\def\TocIndent{0}                           % indentation in the list of figs and tables
+%%%% FONT TYPE
+\def\FontPackage{lmodern}                   % Latin Modern font
 
 
 
 %%%% font size and typeset for different environments
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-\def\TitleFont{\Large\bfseries\MakeUppercase}
+\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
+\def\TitleFont{\large\bfseries\MakeUppercase}
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
 \def\CaptionFontSize{small}                 % caption font size
 \def\CaptionFontType{bf}                    % boldface label for captions
-\def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
+\def\CaptionSeparator{colon}                % separates caption label from text. can use 'period' as well
 
 
-%%%% spacing in different environments
+%%%% TEXT SPACING
+\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
+\def\MainTextSpacing{\singlespacing}        % single-spaced main text document
+\def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
+\def\BibTextSpacing{\singlespacing}         % single spacing for bib text
+
+
+%%%% MORE SPACING
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
-\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.0}                   % spacing in a fullcite item
-\def\LOTItemSpacing{3.6 pt}                 % spacing between LOT/LOF items
-\def\BibItemSpacing{0.4\baselineskip}       % spacing between bibliographic items in reference
+\def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
+\def\LOTItemSpacing{0.75\baselineskip}      % spacing between LOT/LOF items
+\def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items 
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
-\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
+\def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption
 
 \def\GlobalTableSpacing{1.0}                % global spacing parameter for table
-%% if this seems too widespread for you, try changing it locally using
+%% if this seems too tight for you, try changing it locally using
 %% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+
+
+%%%% TOC APPEARANCE
+\def\NoTocLevel{3}                          % no of levels showed in TOC
+\def\SecTOCSpacing{0.75\baselineskip}       % spacing between sections
+\def\SubsecTOCSpacing{0.5\baselineskip}     % ... between subsections
+\def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
+\def\TocIndent{0 pt}                        % indentation in the list of figs and tables
+\def\AfterLOTTitleSpacing{0.1\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
@@ -84,39 +87,66 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add packages as needed but sometimes the order of the packages matters.
-%% I primarily tried to load the packages in alphabetical order or based on
-%% their functionalities (all math/ table packages) unless there is an issue
-%% with package dependency, so I included packages in that order. remember,
 %% you may get warnings/ errors for the order in which packages are included
 %% you may have to change the options in biblatex package for the bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[\BaseFont,letterpaper]{article} % document class (article w/ 12 pt)
-
-\usepackage[utf8]{inputenc}	                % for encoding input character
-\usepackage[pagewise,mathlines]{lineno}     % linenumbers
-
-
-%%%% math packages
-\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
-
-\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
-\usepackage[titletoc]{appendix}             % to manage appendix chapters
+%%%% SOME PRE-REQUISITE PACKAGES
+\usepackage[T1]{fontenc}                    % for font encoding
+\usepackage[utf8]{inputenc}                 % for encoding input character (required)
 \usepackage[american]{babel}                % for different language typography
 
-%%%% bibliographic package (make sure your bib file is in BibLaTeX format)
-%% use a citation manager program to generate the BibLaTeX file
-%% change the style or other options if you need to
-\usepackage[backend=biber, defernumbers=true, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
-% \usepackage[backend=biber, defernumbers=true, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
+
+%%%% DEFAULT FONT: pick one of the following and comment out the others
+\usepackage{\FontPackage}       
+% \usepackage[sc]{mathpazo}                  % palatino font family
+
+
+
+%%%% COMMON MATH PACKAGES
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,
+    dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
+
+
+
+%%%% BIBLIOGRAPHIC PACKAGE (change the style or other options if you need to)
+%% Nature style bibliography
+\usepackage[backend=biber, defernumbers=true, style=nature, 
+    maxnames=99, date=year, isbn=false, url=false, doi=true]{biblatex}
+
+%% APA style
+% \usepackage[backend=biber, defernumbers=true, style=apa, 
+%   isbn=false, url=false, doi=true]{biblatex}
+
+%% IEEE style
+% \usepackage[backend=biber,style=ieee,defernumbers=true,
+%     maxnames=99, date=year, isbn=false, url=false, doi=true]{biblatex}
+
+
+
+%%%% TABLE-RELATED PACKAGES
+\usepackage{booktabs,longtable,dcolumn,makecell,
+    multicol,multirow,tabularx,xltabular,rotating}
+
+
+
+%%%% package for micro-typography (you can define more settings)
+%% see details here: https://www.khirevich.com/latex/microtype/
+\usepackage[activate={true,nocompatibility}]{microtype}
+
+
+
+%%%% OTHER PACKAGES AND OPTIONS
+\usepackage[pagewise,mathlines]{lineno}     % line numbers for drafting
+\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
+\usepackage[titletoc]{appendix}             % to manage appendix chapters
 \usepackage{blindtext}                      % to generate random filler texts
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
-\usepackage[T1]{fontenc}                    % for font encoding
 % footnote environment management
 \usepackage[bottom,multiple,hang,flushmargin]{footmisc}  
 \usepackage{graphicx,wrapfig}               % to manage images
@@ -129,10 +159,6 @@
 \usepackage{lscape}                         % landscape mode
 \usepackage{listings,minted}                % to include codes
 \usepackage{csquotes}                       % for managing quotes
-
-%%%% table-related packages
-\usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
-
 \usepackage{tocloft}                        % to manage table of contents
 \usepackage{parskip}                        % default paragraph spacing 
 \usepackage{setspace}                       % sets space between lines
@@ -145,53 +171,69 @@
 
 %% add more packages and options as you need
 
-%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% choice a font form (or add something else) for your thesis (uncomment one option)
-\usepackage{\FontPackage}       
-% if you want to use Palatino font, use the following and comment above line
-% \usepackage[sc]{mathpazo}                  % palatino font family
+%%%% GEOMETRY (margins)
+\geometry{margin=\GlobalMargin,nomarginpar}
 
-%%% I use Zotero to generate the BibLaTeX file and include it in the same directory
-\addbibresource{\BibFileName}
 
-%%% margin settings with geometry package
-\geometry{margin=\GlobalMargin, nomarginpar}
+%%%% HYPERREF PACKAGE
+\hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, 
+    citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+\urlstyle{rm}           % removes default \texttt style for hyperlinks
 
-%%% settings for the hyperref package
-\hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
-\urlstyle{rm}   % to remove the default URL style (tt format)
 
-%%% settings for figure caption
-\captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
+%%%% CAPTION PACKAGE
+\captionsetup{belowskip=\CaptionSpacing, font=\CaptionFontSize, 
+    labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
+
+
+%%%% BIBLATEX: bibliography package settings
+\addbibresource{\BibFileName}           % name of the bib file 
+\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
+\AtBeginBibliography{\urlstyle{rm}}     % roman font family for URL (DOI)
+
+%% separate category for papers to be not cited in the bibliography
+\DeclareBibliographyCategory{mypapers}             
+\newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
+
+
+
+%%%% TOCLOFT settings
 \setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
-
 \renewcommand{\cfttoctitlefont}{\SectionFont}           % font for ToC title
 \renewcommand{\cftloftitlefont}{\SectionFont}           % font for LoF title
 \renewcommand{\cftlottitlefont}{\SectionFont}           % font for LoT title
 
-\setlength{\cftbeforesecskip}{0.5\baselineskip}         % space between sections in TOC
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}   % dots for sections too
 
-% tweak to LoF/ LoT to add 'Figure' & 'Table' to the figure and table caption listing
-% to change the distance to the start of the figure/ table title
-\setlength{\cftfigindent}{\TocIndent pt}                % indentation from figures in LoF
-\renewcommand{\cftfigpresnum}{\bfseries Figure }
-\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
-\setlength{\cftbeforetabskip}{\LOTItemSpacing}          % spacing between each item
-%
-\setlength{\cfttabindent}{\TocIndent pt}                % indentation from tables in LoT
+\setlength{\cftbeforesecskip}{\SecTOCSpacing}
+\setlength{\cftbeforesubsecskip}{\SubsecTOCSpacing}
+\setlength{\cftbeforesubsubsecskip}{\SubsubsecTOCSpacing}
+
+
+%% tweak to LOT and LOF to add 'Table'/ 'Figure' to the table/ figure caption listing
+%% to change the distance to the start of the table/ figure title
+\setlength{\cfttabindent}{\TocIndent}               % indentation from tables in LoT
+\setlength{\cftafterlottitleskip}{\AfterLOTTitleSpacing}
 \renewcommand{\cfttabpresnum}{\bfseries Table }
-\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
-\setlength{\cftbeforefigskip}{\LOTItemSpacing}          % spacing between each item
+\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~999.999~}}}
+\setlength{\cftbeforetabskip}{\LOTItemSpacing}      % spacing between each item
 
 
-%%%% font and style for the section, subsection, subsubsection, etc.
+\setlength{\cftfigindent}{\TocIndent}               % indentation from figures in LoF
+\setlength{\cftafterloftitleskip}{\AfterLOTTitleSpacing}
+\renewcommand{\cftfigpresnum}{\bfseries Figure }
+\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~999.999~}}}
+\setlength{\cftbeforefigskip}{\LOTItemSpacing}      % spacing between each item
+
+
+%%%% TITLESEC: font and style for the section, subsection, subsubsection, heading
 \setcounter{secnumdepth}{\NoSectionLevel}   % section to ... subsubsection ...
 \titleformat{\section}{\SectionFont}{\thesection}{1em}{}[{\titlerule}]
 \titleformat*{\subsection}{\SubsectionFont}
@@ -199,33 +241,64 @@
 %% delete [{\titlerule}] to remove all the underlines below the section title
 
 
-%%%% paragraph, footnote, bib item, and table spacing
-\setlength{\parskip}{\ParagraphSpacing}     % paragraph spacing
-\setlength{\parindent}{\ParagraphIndent pt} % paragraph indentation
-\setlength{\footnotesep}{\FootnoteSpacing}  % footnote separation
-\setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
-\def\arraystretch{\GlobalTableSpacing}      % spacing in table
+
+%%%% PARSKIP: for paragraph (and not title) spacing, roughly speaking
+\renewcommand{\arraystretch}{\GlobalTableSpacing}   % spacing inside table
+\setlength{\parskip}{\ParagraphSpacing}             % paragraph skip
+\setlength{\parindent}{\ParagraphIndent}            % paragraph indentation
+\setlength{\bibitemsep}{\BibItemSpacing}            % bib item separation 
+\setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
+
+
 
 %%%% settings for math environment
-\allowdisplaybreaks[1]                      % page break in math formula
-\numberwithin{equation}{section}            % eqn no begins with section no
-\setcounter{MaxMatrixCols}{20}              % maximum columns in matrix = 20
+\allowdisplaybreaks[1]                  % page break for long equations
+\numberwithin{equation}{section}        % eqn no with section label
+\setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
 
 
-%%%% settings for bibliography
-\AtBeginBibliography{\urlstyle{rm}}
-\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
 
-\DeclareBibliographyCategory{mypapers}
-\newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
-
-%% settings for TikZ library (add more if you need them)
+%%%% settings for TikZ library (add more if you need them)
 \usetikzlibrary{decorations.pathreplacing, positioning, arrows.meta, shapes,}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% add all your non-mathematical macros and other random settings here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% removes the 'section #' title while keeping it listed in the TOC
+\newcommand\sect[1]{%
+    \phantomsection
+    \section*{#1}%
+    \addcontentsline{toc}{section}{#1}}
+  
+%% removes the 'subsection #' title while keeping it listed in the TOC
+\newcommand\subsect[1]{%
+    \phantomsection
+    \subsection*{#1}%
+    \addcontentsline{toc}{subsection}{#1}}
+
+%% removes the 'subsubsection #' title while keeping it listed in the TOC
+\newcommand\subsubsect[1]{%
+    \phantomsection
+    \subsubsection*{#1}%
+    \addcontentsline{toc}{subsubsection}{#1}}
+
+
+%% simple macros for commenting
+\newcommand{\COMMENT}{\textcolor{red}}                  % use: \COMMENT{your-comment}
+\newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}     % use: \ADDCITATION
+
+
+%%%% to add small quotes (example below)
+\newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
+%% \say{Don't believe everything you see on the internet}{Isaac Newton}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -242,48 +315,20 @@
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 \DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
 
-%% these are just some examples; add more macros for your custom symbols
+%% these are just some examples; add more macros defined by you
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add all your non-mathematical macros and other random settings here.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\COMMENT}{\textcolor{red}}
-\newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
-
-%% you can also add more simple comments here as you need
-%% you can use some other packages for more complicated review and comment section
-
-%%% to add small quotes (example below)
-\newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
-%% \say{Don't believe everything you see on the internet}{Isaac Newton}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%% if you would like to check consistency in the document this is useful
-% \usepackage[color=red,unit=in,type=upperleft,showframe]{fgruler}
 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-% \linenumbers                          % may find it useful during drafting
-%% place the command wherever you want to start numbering the line
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% TITLE AND AUTHOR
 \TitlePageSpacing \thispagestyle{empty}
 
 \begin{center}
@@ -291,17 +336,18 @@
     Department of Mechanical Engineering of The Johns Hopkins University
     
     \vspace{0.5in}                      % space between statement and title
-    {\TitleFont {A \LaTeX\ template for MechE dissertation proposal at Johns Hopkins University} \par}  
     %% tentative thesis title (\par is needed for proper spacing)
+    {\TitleFont {A \LaTeX\ template for MechE dissertation proposal at Johns Hopkins University} \par}  
+    
     
     \vspace{0.25in}                     % space between title and author
     
     Author Name                         % author name (student)
 \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%% END TITLE AND AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% COMMITTEE MEMBERS 
 %% if you have multiple advisors/co-advisors, you can add them side-by-side
 %% like the committee members as shown below using the 'minipage' environment
 
@@ -338,14 +384,13 @@
 \end{minipage}
 
 %% if you have more committee members, you can add two more `minipage` here.
-%% you can also condense information about each member by removing some affiliation
-%% information. you can also have three `minipage` side-by-side in this case.
+%% you can condense information about each member by removing some details
+%% you can also have three `minipage` (0.33\textwidt) environments side-by-side.
 
 \vspace{0.75in}                     % space between committee members and location
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% END COMMITTEE MEMBERS %%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% TIME AND LOCATION %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% TIME AND LOCATION 
 
 \begin{center}
     Baltimore, Maryland \\          % location 
@@ -359,16 +404,14 @@
     \null}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% END TIME AND LOCATION %%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ABSTRACT
 
 \clearpage 
 \pagenumbering{roman}
@@ -380,46 +423,53 @@
 %%%% write your abstract and keywords here
 \blindtext
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% single spacing appears to be too cramped and double spacing is too relaxed
-{
+
+
+%%%% LISTS
+%% if you do not have tables/ figures, you can comment out those sections
 \clearpage
+\microtypesetup{protrusion=false}
 \TOCTextSpacing                         % one-half spacing for the TOC
-\hypersetup{linkcolor=black}            % local hyperref settings to make the TOC appear black (you can comment it out if you would like the default)
+\hypersetup{linkcolor=black}            % local hyperref settings for TOC
+
+
+%%% TABLE OF CONTENTS
 \renewcommand{\contentsname}{Table of Contents \vspace{3.6pt} \hrule}
 \tableofcontents
 
 
+%%%% LIST OF TABLES 
 \clearpage \phantomsection
-\addcontentsline{toc}{section}{List of Tables}
 \renewcommand{\listtablename}{List of Tables \vspace{3.6pt} \hrule}
+\addcontentsline{toc}{section}{List of Tables}
 \listoftables
+\clearpage
 
 
+%%%% LIST OF FIGURES
 \clearpage \phantomsection
-\addcontentsline{toc}{section}{List of Figures}
 \renewcommand{\listfigurename}{List of Figures \vspace{3.6pt} \hrule}
+\addcontentsline{toc}{section}{List of Figures}
 \listoffigures
-}
+\clearpage
+\microtypesetup{protrusion=true}
 
-%% delete \vspace{3.6pt} \hrule if you want to remove the underlines
+%% delete `\vspace{3.6pt} \hrule` if you want to remove the underlines
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\clearpage \MainTextSpacing \pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACKGROUND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\clearpage \MainTextSpacing \pagenumbering{arabic}
 \section{Background and significance}           %%% 2 page limit 
 
+%% remove the following and add your texts here
 \blindtext \cite{dirac}.
 
 \begin{figure}[ht]
@@ -434,9 +484,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% for subsections and subsubsection, I didn't particularly like having 
 %% numbered environments because they appeared confusing with my objectives  
-%% and task numbering. so I used unnumbered subsections and subsubsections 
-%% and added these env. to the table of contents using \phantomsection and 
-%% \addcontentsline commands before and after the corresponding environment.
+%% and task numbering. I used modified subsections and subsubsections 
+%% using '\subsect' and '\subsubsect' which are unnumbered but added TOC
 %%%%%%%%%%%%%%%%%%%%%%%%% RESEARCH OBJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Research objectives}                   %%% suggested: 1 page limit
@@ -444,38 +493,35 @@
 \blindtext \cite{knuthwebsite}
 
 
-\phantomsection
-\subsection*{Objective 1: Some major objective here}
-\addcontentsline{toc}{subsection}{Objective 1: Some major objective here}
+
+\subsect{Objective 1: Some major objective here}
 
 \blindtext
 
-%% add more objectives ( more objectives, advisors more happy :D )
+%% add more objectives 
 
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% I used unnumbered subsections and subsubsections in this section as well
-%% and added these env. to the table of contents using \phantomsection and 
-%% \addcontentsline commands before and after the corresponding environment.
 %%%%%%%%%%%%%%%%%%%%%%% METHODOLOGY AND RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Proposed methodology and results}      %%% suggested: 4 page limit
 
+%% remove the following and add your text
 \blindtext
+
 
 \subsection{Task 1: Major project task heading here related to objective 1}
 
+%% remove the following and add your text
 \blindtext
 
 
-\phantomsection
-\subsubsection*{Subtask 1.1: Some sub-task here}
-\addcontentsline{toc}{subsubsection}{Subtask 1.1: Some sub-task here}
+\subsubsect{Subtask 1.1: Some sub-task here}
 
+%% remove the following and add your text
 \blindtext
+
 
 \begin{table}[ht]
 \centering
@@ -495,26 +541,28 @@ Col1 & Col2 & Col2 & Col3 \\
 \end{table}
 
 
-\subsubsection*{Subtask 1.2: Some other sub-task here}
-\addcontentsline{toc}{subsubsection}{Subtask 1.2: Some other sub-task here}
 
+\subsubsect{Subtask 1.2: Some other sub-task here}
+
+%% remove the following and add your text
 \blindtext
 
-%%% add more tasks and subtasks ( advisor won't be happy with one task :( )
+
+%%%% add more tasks and subtasks here
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PUBLICATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Planned publications}
 
-%% add more items (if you have published/ planned for more papers)
-%% \mybibexclude makes sure these papers do not appear in the bibliographic references.
-%% in case you have the same paper somewhere else in the text and want it to appear 
-%% as citations, remove the \mybibexclude{} command 
 
-\begin{enumerate} [leftmargin=0.6cm,itemsep=-6pt]
+%% \mybibexclude makes sure these papers do not appear in the bibliographic references.
+%% in case you have the same paper cited somewhere else in the text and want it  
+%% to appear in the final bibliography, remove the \mybibexclude{} command 
+
+\begin{enumerate} [leftmargin=0.6cm,itemsep=-0.5\baselineskip]
     \item \fullcite{einstein}. \mybibexclude{einstein}
-    \item \fullcite{knuth-fa}. \mybibexclude{knuth-fa} \hfill (In preparation)
+    \item \fullcite{knuth-fa}. \hfill (In preparation) \mybibexclude{knuth-fa} 
 \end{enumerate}
 
 
@@ -523,7 +571,7 @@ Col1 & Col2 & Col2 & Col3 \\
 
 \section{Timeline}
 
-%% this is an example of how to draw something using TikZ (remove it)
+%% this is an example of how to draw something using TikZ (REMOVE IT)
 %% I used a Timeline chart made using Excel/ PowerPoint combination
 \begingroup
 \begin{tikzpicture}
@@ -563,29 +611,25 @@ Col1 & Col2 & Col2 & Col3 \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% ACKNOWLEDGEMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Optional acknowledgment section (uncomment if you want to use)
-\section*{Acknowledgement}
-\addcontentsline{toc}{section}{Acknowledgement}
+%%%% unnumbered section but added to the TOC: `\sect`
+\sect{Acknowledgement}
 
-%% acknowledge your mentor, collaborators, and labmates if they helped you craft your proposal or primary studies.
+%% remove this and add your acknowledgement statements here
 \blindtext
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage \phantomsection
-\addcontentsline{toc}{section}{Bibliographic references}
-\section*{Bibliographic references}
-
-\printbibliography[heading=none,notcategory=mypapers]
-
+\printbibliography[title={Bibliographic references},
+    heading=bibintoc,notcategory=mypapers]
+    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

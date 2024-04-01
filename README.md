@@ -147,7 +147,9 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
 ```
 
-- Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
+- Some essential macros related to different redefined environments are available `OTHER MACROS` (will be discussed below).
+
+- Add your math macros to the `MATH MACROS` section. Some examples of simple math macros are added there in the template. You can add more.
 
 > [!WARNING]
 >
@@ -167,7 +169,10 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 - Every section (numbered or unnumbered) is followed by a `\titlerule`. If you do not like the appearance of it, you can delete it to make it appear a little bit more cleaner and less distracting. Check the `DOCUMENT FORMATTING` section in the `01-main.tex` file.
   - However, the `\hrule` command is added to the ToC, LoF, and LoT in the front matter section of the `01-main.tex` file manually. If you would like to remove them, look into the `FRONT MATTER` section in the `01-main.tex` file.
 
-- I used the unnumbered `subsection*` and `subsubsection*` environment in the main proposal document to avoid confusion with the numbering scheme of my objectives, tasks, and subtasks. However, to add them to the table of contents, I placed the `\phantomsection` and `\addcontentsline` commands before and after (respectively) declaring the environments. If you would like, you can change it to a standard numbered section and subsection by using the default `\subsection` and `\subsubsection` commands.
+
+- I used the unnumbered `\sect{}`, `\subsect{}`, and `\subsubsect{}` environments in the main proposal document to avoid confusion with the numbering scheme of my objectives, tasks, and subtasks. These environments are defined in the `OTHER MACROS` section in the preamble.
+  - If you would them to be numbered, you can change them to a standard numbered section and subsection by using the default `\section{}`, `\subsection{}`, and `\subsubsection{}` environments.
+  - If you like any sections to be unnumbered and also not appear in the TOC, then you can use standard * environments; such as `\section*{}`, `\subsection*{}`, and `\subsubsection*{}` etc.
 
 - Add all of your figures to the main directory. You can also add the figures to a specific subdirectory if you would like. In that case, you will have to define the subdirectory in `\includegraphicspath{}` command.
   - Regardless of the file extension and program you use to produce the figure, it is a good practice to ensure the fonts within the images are embedded.
@@ -178,14 +183,18 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 - For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the spacing of the document (the default is single-spaced, however, you can change it as mentioned before).
 
 
-- The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name.
+- The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name or the file name.
 
+> [!TIP]
+>
+> BibLaTeX is a more modern and flexible package (compared to the `natbib` package and `BibTeX` engine) primarily based on the `biber` backend engine. The `.bib` file for `biblatex` is a little different than the one for `bibtex`. Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the `Better BibLaTeX` compatible format.
 
-- The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file.
-  - To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, Harvard, etc. As an example, APA styles are also shown in the template as well (commented). For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
+- To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
     ``` latex
     \usepackage[ ... ]{biblatex}
     ```
+- For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles) and check out [biblatex-related packages on TUG](https://ctan.org/topic/biblatex).
+
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexclude{}` command are not printed.
   ``` latex
@@ -194,7 +203,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 > [!CAUTION]
 >
-> The `biblatex` package works differently than the older `bibtex` package (which is still available). Make sure you generate the `.bib` file compatible with the `biblatex` package, not the `bibtex` package. If you are required to add a very specific citation style that can not be configured using `biblatex` package at all, then consider removing the options related to it, and then add the package and option related to the `bibtex` package. However, this may break down the LaTeX code (not recommended).
+> The `biblatex` package works differently than the older `bibtex` package (which is still available and widely used by many journals). If you have a `bibtex` compatible file, then change the option from `backend=biber` to `backend=bibtex` for the `biblatex` package. But you may get warnings and errors thrown by the LaTeX compiler in this case.
 
 
 - To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).

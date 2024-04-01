@@ -19,92 +19,136 @@
 %% purpose article by making some tweaks or adding more options here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\documentclass[12pt,letterpaper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if possible, please make your formatting changes here through the variables 
-%% go through all the variables and understand what role they play in formatting
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%% ADDITIONAL PATHS and FILES
+\def\FigurePath{figures}                    % subdirectory for the figure files
 \def\BibFileName{references.bib}            % name of BibLaTeX file with all the bibliography
 
 
-\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
-\def\BaseFont{12pt}                         % document font size
-\def\GlobalMargin{1.0in}                    % margin on all sides
+%%%% GlOBAL MARGIN
+\def\GlobalMargin{1.0in}                   
 
 
-\def\MainTextSpacing{\singlespacing}        % single-spaced main text document
-\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
-\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
+%%%% FONT TYPE
+\def\FontPackage{lmodern}                   % Latin Modern font
 
 
-%% font size for title and author information
+
+%%%% font size and typeset for different environments
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-\def\BaseFont{12pt}
+\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\TitleFont{\Large}                      % title font size
 \def\AuthorFont{\normalsize}                % author font size
 \def\AffiliationFont{\itshape\normalsize}   % affiliate font size and style
-
-% font format for section heading and title
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
 \def\CaptionFontSize{small}                 % caption font size
 \def\CaptionFontType{bf}                    % boldface label for captions
-\def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
+\def\CaptionSeparator{colon}                % separates caption label from text. can use 'period' as well
 
-%% if this seems too widespread for you, try changing it locally using
-%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
-\def\GlobalTableSpacing{1.0}                % global spacing parameter for table
 
-\def\GlobalMargin{1.0in}                    % margin on all sides
+%%%% TEXT SPACING
+\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
+\def\MainTextSpacing{\singlespacing}        % single-spaced main text document
+\def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
+\def\BibTextSpacing{\singlespacing}         % single spacing for bib text
+
+
+%%%% MORE SPACING
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
-\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.0}                   % spacing in a fullcite item
-\def\BibItemSpacing{0.4\baselineskip}       % spacing between bibliographic items in reference
+\def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
+\def\LOTItemSpacing{0.75\baselineskip}      % spacing between LOT/LOF items
+\def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items 
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
-\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
+\def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption
+
+\def\GlobalTableSpacing{1.0}                % global spacing parameter for table
+%% if this seems too tight for you, try changing it locally using
+%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+
+
+%%%% TOC APPEARANCE
+\def\NoTocLevel{3}                          % no of levels showed in TOC
+\def\SecTOCSpacing{0.75\baselineskip}       % spacing between sections
+\def\SubsecTOCSpacing{0.5\baselineskip}     % ... between subsections
+\def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
+\def\TocIndent{0 pt}                        % indentation in the list of figs and tables
+\def\AfterLOTTitleSpacing{0.1\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add packages as needed but sometimes the order of the packages matters.
-%% I primarily tried to load the packages in alphabetical order unless or 
-%% based on their functionalities (all math/ table packages) unless there 
-%% is package-dependency, then I included packages in that order.
 %% you may get warnings/ errors for the order in which packages are included
-%% you may have to change the options in the biblatex package for the bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% you may have to change the options in biblatex package for the bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[\BaseFont, letterpaper]{article}% document class (article - 12 pt)
-
-\usepackage[utf8]{inputenc}	                % for encoding input character
-\usepackage[pagewise,mathlines]{lineno}     % linenumbers
-
-
-%% math packages
-\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
-
-\usepackage{authblk}                        % manage authors and affiliations
-\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
-\usepackage[titletoc]{appendix}             % to manage appendix chapters
+%%%% SOME PRE-REQUISITE PACKAGES
+\usepackage[T1]{fontenc}                    % for font encoding
+\usepackage[utf8]{inputenc}                 % for encoding input character (required)
 \usepackage[american]{babel}                % for different language typography
 
-%% bibliographic package (make sure your bib file is in BibLaTeX format)
-%% use Zotero or some other reference manager to generate the BibLaTeX file
-%% change the style or other options if you need to
-\usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
-% \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
+
+%%%% DEFAULT FONT: pick one of the following and comment out the others
+\usepackage{\FontPackage}       
+% \usepackage[sc]{mathpazo}                  % palatino font family
+
+
+
+%%%% COMMON MATH PACKAGES
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,
+    dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
+
+
+
+%%%% BIBLIOGRAPHIC PACKAGE (change the style or other options if you need to)
+%% Nature style bibliography
+\usepackage[backend=biber, defernumbers=true, style=nature, 
+    maxnames=99, date=year, isbn=false, url=false, doi=true]{biblatex}
+
+%% APA style
+% \usepackage[backend=biber, defernumbers=true, style=apa, 
+%   isbn=false, url=false, doi=true]{biblatex}
+
+%% IEEE style
+% \usepackage[backend=biber,style=ieee,defernumbers=true,
+%     maxnames=99, date=year, isbn=false, url=false, doi=true]{biblatex}
+
+
+
+%%%% TABLE-RELATED PACKAGES
+\usepackage{booktabs,longtable,dcolumn,makecell,
+    multicol,multirow,tabularx,xltabular,rotating}
+
+
+
+%%%% package for micro-typography (you can define more settings)
+%% see details here: https://www.khirevich.com/latex/microtype/
+\usepackage[activate={true,nocompatibility}]{microtype}
+
+
+
+%%%% OTHER PACKAGES AND OPTIONS
+\usepackage{authblk}                        % to manage authors
+\usepackage[pagewise,mathlines]{lineno}     % line numbers for drafting
+\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
+\usepackage[titletoc]{appendix}             % to manage appendix chapters
 \usepackage{blindtext}                      % to generate random filler texts
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
-\usepackage[T1]{fontenc}                    % for font encoding
 % footnote environment management
 \usepackage[bottom,multiple,hang,flushmargin]{footmisc}  
 \usepackage{graphicx,wrapfig}               % to manage images
@@ -116,85 +160,71 @@
 \usepackage{ifthen}                         % if-then statement in algorithm
 \usepackage{lscape}                         % landscape mode
 \usepackage{listings,minted}                % to include codes
-\usepackage{csquotes}                       % yet another package for quote
-
-%% table related packages
-\usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular,rotating}
-
-\usepackage{parskip}                        % manage default space around headings
+\usepackage{csquotes}                       % for managing quotes
+\usepackage{tocloft}                        % to manage table of contents
+\usepackage{parskip}                        % default paragraph spacing 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
 \usepackage{titlesec}                       % managing different titles
+\usepackage[absolute]{textpos}              % to position text
 \usepackage{tikz}                           % package for drawing
 \usepackage{subcaption}                     % individual panel and caption
 
-%% add more packages as you need
+%% add more packages and options as you need
 
-%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%% choice a font form (or add something else) for your thesis (uncomment one option)
-\usepackage{\FontPackage}       
-% if you want to use Palatino font, use the following and comment above line
-% \usepackage[sc]{mathpazo}                 % palatino font family
-
-%%%% I use Zotero to generate the BibLaTeX file and include it in the same directory
-\addbibresource{\BibFileName}
-
-%%%% margin settings with geometry package
-\geometry{margin=\GlobalMargin}
+%%%% GEOMETRY (margins)
+\geometry{margin=\GlobalMargin,nomarginpar}
 
 
-%%% settings for the hyperref package
-\hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
-\urlstyle{rm}   % to remove the default URL style (tt format)
+%%%% HYPERREF PACKAGE
+\hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, 
+    citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+\urlstyle{rm}           % removes default \texttt style for hyperlinks
 
 
-%%%% settings for table and figure caption
-\captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
-
-
-%%%% authblk title, author, and affiliation font size
+%%%% AUTHBLK: author, and affiliation font size
 \renewcommand*{\Authfont}{\AuthorFont}
 \renewcommand\Affilfont{\AffiliationFont}
 \setlength{\affilsep}{1em}
-\DefineFNsymbolsTM{otherfnsymbols}{%
-  \textdagger    \dagger             % author name will have a dagger symbol
-}%
-\setfnsymbol{otherfnsymbols}
 
 
-
-%%%% formatting for the section, subsection, subsubsection, etc.
+%%%% TITLESEC: font and style for the section, subsection, subsubsection, heading
 \titleformat{\section}
 {\SectionFont}{\thesection}{1em}{}
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 
 
-%%%% paragraph, footnote, bib item, and table spacing
+%%%% PARSKIP: for paragraph (and not title) spacing
 \setlength{\parskip}{\ParagraphSpacing}     % paragraph spacing
-\setlength{\parindent}{\ParagraphIndent pt} % paragraph indentation
+\setlength{\parindent}{\ParagraphIndent} % paragraph indentation
 \setlength{\footnotesep}{\FootnoteSpacing}  % footnote separation
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}      % spacing in table
 
 
-%%%% bibliography settings
-\DeclareFieldFormat{titlecase}{#1}
-\AtBeginBibliography{\urlstyle{rm}}
+%%%% CAPTION PACKAGE
+\captionsetup{belowskip=\CaptionSpacing, font=\CaptionFontSize, 
+    labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
+    
 
-\DeclareBibliographyCategory{mypapers}
+%%%% BIBLATEX: bibliography package settings
+\addbibresource{\BibFileName}           % name of the bib file 
+\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
+\AtBeginBibliography{\urlstyle{rm}}     % roman font family for URL (DOI)
+
+%% separate category for papers to be not cited in the bibliography
+\DeclareBibliographyCategory{mypapers}             
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
-
-%%%% TikZ library options (add more if you want/ need)
-\usetikzlibrary{positioning,shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
