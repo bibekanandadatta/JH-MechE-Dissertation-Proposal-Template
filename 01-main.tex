@@ -27,7 +27,6 @@
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% ADDITIONAL PATHS and FILES
-\def\FigurePath{figures}                    % subdirectory for the figure files
 \def\BibFileName{references.bib}            % name of BibLaTeX file 
 
 
@@ -195,7 +194,6 @@
 
 %%%% BIBLATEX: bibliography package settings
 \addbibresource{\BibFileName}           % name of the bib file 
-\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
 \AtBeginBibliography{\urlstyle{rm}}     % roman font family for URL (DOI)
 
 %% separate category for papers to be not cited in the bibliography
@@ -315,6 +313,9 @@
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 \DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
 
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+
 %% these are just some examples; add more macros defined by you
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -354,7 +355,7 @@
 \vspace{0.75in}                         % space between author and advisor
 
 \begin{center}
-    \textbf{Primary advisor}
+    \textbf{\large Primary advisor}
     
     Dr. Chuck Darwin \\
     Professor \\
@@ -363,7 +364,7 @@
 \end{center}
 
 \vspace{0.5in}
-\centerline{\textbf{Dissertation proposal committee members}}
+\centerline{\textbf{\large Dissertation proposal committee members}}
 
 \begin{minipage}[t]{0.5\textwidth}
 	\begin{flushleft}
@@ -490,16 +491,21 @@
 
 \section{Research objectives}                   %%% suggested: 1 page limit
 
+\subsection{Open research question}
+
 \blindtext \cite{knuthwebsite}
 
 
+\subsection{Specific research objectives}
 
-\subsect{Objective 1: Some major objective here}
+\subsubsect{Objective 1: Some major objective here}
 
 \blindtext
 
 %% add more objectives 
 
+
+\subsection{Tentative outline of the thesis}
 
 
 
@@ -620,8 +626,10 @@ Col1 & Col2 & Col2 & Col3 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage \phantomsection
+\BibTextSpacing
 \printbibliography[title={Bibliographic references},
     heading=bibintoc,notcategory=mypapers]
+\clearpage
     
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%
