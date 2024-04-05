@@ -77,8 +77,8 @@
 \def\SubsecTOCSpacing{0.5\baselineskip}     % ... between subsections
 \def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
 \def\TocIndent{0 pt}                        % indentation in the list of figs and tables
-\def\AfterTOCTitleSpacing{2\baselineskip}
-\def\AfterLOTTitleSpacing{\baselineskip}
+\def\AfterTOCTitleSpacing{0.2\baselineskip}
+\def\AfterLOTTitleSpacing{0.1\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
@@ -203,8 +203,12 @@
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
 
-
 %%%% TOCLOFT settings
+\renewcommand{\cftaftertoctitle}{\vspace{1ex} \hrule}
+\renewcommand{\cftafterloftitle}{\vspace{1ex} \hrule}
+\renewcommand{\cftafterlottitle}{\vspace{1ex} \hrule}
+
+
 \setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
 \renewcommand{\cfttoctitlefont}{\SectionFont}           % font for ToC title
 \renewcommand{\cftloftitlefont}{\SectionFont}           % font for LoF title
@@ -236,7 +240,7 @@
 
 %%%% TITLESEC: font and style for the section, subsection, subsubsection, heading
 \setcounter{secnumdepth}{\NoSectionLevel}   % section to ... subsubsection ...
-\titleformat{\section}{\SectionFont}{\thesection}{1em}{}[]
+\titleformat{\section}{\SectionFont}{\thesection}{1ex}{}[{\titlerule}]
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 %% delete [{\titlerule}] to remove all the underlines below the section title
@@ -422,8 +426,7 @@
 \pagenumbering{roman}
 \setcounter{page}{2}
 \MainTextSpacing
-\addcontentsline{toc}{section}{Abstract}
-\section*{Abstract}
+\sect{Abstract}
 
 %%%% write your abstract and keywords here
 \blindtext
@@ -436,7 +439,7 @@
 \clearpage
 \microtypesetup{protrusion=false}
 \TOCTextSpacing                         % one-half spacing for the TOC
-\hypersetup{linkcolor=black}            % local hyperref settings for TOC
+\hypersetup{linkcolor=Black}            % local hyperref settings for TOC
 
 
 %%% TABLE OF CONTENTS
