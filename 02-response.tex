@@ -26,7 +26,6 @@
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% ADDITIONAL PATHS and FILES
-\def\FigurePath{figures}                    % subdirectory for the figure files
 \def\BibFileName{references.bib}            % name of BibLaTeX file
 
 
@@ -43,8 +42,8 @@
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\TitleFont{\Large}                      % title font size
-\def\AuthorFont{\normalsize}                % author font size
-\def\AffiliationFont{\itshape\normalsize}   % affiliate font size and style
+\def\AuthorFont{\large}                     % author font size
+\def\AffiliationFont{\itshape\small}        % affiliate font size and style
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
@@ -54,16 +53,13 @@
 
 
 %%%% TEXT SPACING
-\def\TitlePageSpacing{\singlespacing}       % spacing of the title page contents
 \def\MainTextSpacing{\singlespacing}        % single-spaced main text document
-\def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
 \def\BibTextSpacing{\singlespacing}         % single spacing for bib text
 
 
 %%%% MORE SPACING
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
-\def\LOTItemSpacing{0.75\baselineskip}      % spacing between LOT/LOF items
 \def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items 
 \def\FootnoteSpacing{0.5\baselineskip}      % spacing between footnotes
 \def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption
@@ -73,13 +69,6 @@
 %% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
 
 
-%%%% TOC APPEARANCE
-\def\NoTocLevel{3}                          % no of levels showed in TOC
-\def\SecTOCSpacing{0.75\baselineskip}       % spacing between sections
-\def\SubsecTOCSpacing{0.5\baselineskip}     % ... between subsections
-\def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
-\def\TocIndent{0 pt}                        % indentation in the list of figs and tables
-\def\AfterLOTTitleSpacing{0.1\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
@@ -190,7 +179,6 @@
 \setlength{\affilsep}{1em}
 
 
-
 %%%% HYPERREF PACKAGE
 \hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, 
     citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
@@ -205,9 +193,9 @@
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 
 
-%%%% PARSKIP: for paragraph (and not title) spacing
+%%%% TEXT SPACING
 \setlength{\parskip}{\ParagraphSpacing}     % paragraph spacing
-\setlength{\parindent}{\ParagraphIndent} % paragraph indentation
+\setlength{\parindent}{\ParagraphIndent}    % paragraph indentation
 \setlength{\footnotesep}{\FootnoteSpacing}  % footnote separation
 \setlength{\bibitemsep}{\BibItemSpacing}    % bib item separation 
 \def\arraystretch{\GlobalTableSpacing}      % spacing in table
@@ -228,6 +216,11 @@
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
 
+%%% MATH settings
+\allowdisplaybreaks[1]
+\setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
+\numberwithin{equation}{section}        % eqn no begins with section no
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -244,7 +237,6 @@
 
 %%% to add small quotes
 \newcommand{\say}[2]{\hfill\small\enquote{\textit{#1}}{ - \small\textsc{#2}.}}
-
 %% you can use other packages for more complicated review and comment section
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -255,15 +247,17 @@
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% Define math symbols and macros
-\allowdisplaybreaks[1]
-\setcounter{MaxMatrixCols}{20}          % maximum columns in matrix = 20
-\numberwithin{equation}{section}        % eqn no begins with section no
+%%%% define math symbols and macros
 \newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
+\DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
+\DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
+
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
 
 %% these are just some examples; add more macros for your custom symbols
 
@@ -282,22 +276,23 @@
 %%%% add the title and author of the document here
 %%%% format it as you like
 \title{\vspace{-1.5\baselineskip} \TitleFont{Response to the comments of thesis proposal committee members: \\
-tentative thesis title}}
+tentative thesis title (if necessary)}}
 
-\author[]{Author name\footnote{Contact: Author name \texttt{(email)}}} 
+\author[]{Author name\thanks{Contact: Author name \texttt{(email)}} } 
 
 \affil[]{Affiliation goes here}
 
 \date{}
-%
+
 \maketitle 
+
 \vspace{-\baselineskip} \hrule
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESPONSE 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Prof. X's questions and comments}
 
-\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=2.5\baselineskip, itemsep=\baselineskip,parsep=\baselineskip]
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=2.5\baselineskip, itemsep=0.5\baselineskip, parsep=\baselineskip]
 
 \item \question{Question goes here}
 
@@ -319,7 +314,7 @@ The response goes here \cite{dirac}.
 \clearpage
 \section{Prof. Y's questions and comments}
 
-\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=2.5\baselineskip, itemsep=\baselineskip,parsep=\baselineskip]
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=2.5\baselineskip, itemsep=0.5\baselineskip, parsep=\baselineskip]
 
 \item \question{Question goes here}
 
@@ -339,7 +334,7 @@ The response goes here \cite{einstein}.
 \clearpage
 \section{Prof. Z's questions and comments}
 
-\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=2.5\baselineskip, itemsep=\baselineskip,parsep=\baselineskip]
+\begin{enumerate} [label=\textcolor{RoyalBlue}{\arabic*.},leftmargin=2.5\baselineskip, itemsep=0.5\baselineskip, parsep=\baselineskip]
 
 \item \question{Question goes here}
 

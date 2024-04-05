@@ -77,7 +77,8 @@
 \def\SubsecTOCSpacing{0.5\baselineskip}     % ... between subsections
 \def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
 \def\TocIndent{0 pt}                        % indentation in the list of figs and tables
-\def\AfterLOTTitleSpacing{0.1\baselineskip}
+\def\AfterTOCTitleSpacing{2\baselineskip}
+\def\AfterLOTTitleSpacing{\baselineskip}
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
@@ -100,6 +101,7 @@
 %%%% DEFAULT FONT: pick one of the following and comment out the others
 \usepackage{\FontPackage}       
 % \usepackage[sc]{mathpazo}                  % palatino font family
+
 
 
 
@@ -210,6 +212,7 @@
 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}   % dots for sections too
 
+\setlength{\cftaftertoctitleskip}{\AfterTOCTitleSpacing}
 \setlength{\cftbeforesecskip}{\SecTOCSpacing}
 \setlength{\cftbeforesubsecskip}{\SubsecTOCSpacing}
 \setlength{\cftbeforesubsubsecskip}{\SubsubsecTOCSpacing}
@@ -233,7 +236,7 @@
 
 %%%% TITLESEC: font and style for the section, subsection, subsubsection, heading
 \setcounter{secnumdepth}{\NoSectionLevel}   % section to ... subsubsection ...
-\titleformat{\section}{\SectionFont}{\thesection}{1em}{}[{\titlerule}]
+\titleformat{\section}{\SectionFont}{\thesection}{1em}{}[]
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 %% delete [{\titlerule}] to remove all the underlines below the section title
@@ -253,7 +256,6 @@
 \allowdisplaybreaks[1]                  % page break for long equations
 \numberwithin{equation}{section}        % eqn no with section label
 \setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
-
 
 
 %%%% settings for TikZ library (add more if you need them)
@@ -304,7 +306,7 @@
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%% Define math symbols and macros
+%%%% define math symbols and macros
 \newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
@@ -330,7 +332,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% TITLE AND AUTHOR
-\TitlePageSpacing \thispagestyle{empty}
+\begin{titlepage}
+    \TitlePageSpacing \thispagestyle{empty}
 
 \begin{center}
     Doctoral dissertation proposal submitted to the \\
@@ -345,7 +348,6 @@
     
     Author Name                         % author name (student)
 \end{center}
-
 
 
 %%%% COMMITTEE MEMBERS 
@@ -404,6 +406,8 @@
     \end{textblock*}
     \null}
 \end{center}
+\end{titlepage}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -436,13 +440,13 @@
 
 
 %%% TABLE OF CONTENTS
-\renewcommand{\contentsname}{Table of Contents \vspace{3.6pt} \hrule}
+\renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 
 
 %%%% LIST OF TABLES 
 \clearpage \phantomsection
-\renewcommand{\listtablename}{List of Tables \vspace{3.6pt} \hrule}
+\renewcommand{\listtablename}{List of Tables}
 \addcontentsline{toc}{section}{List of Tables}
 \listoftables
 \clearpage
@@ -450,7 +454,7 @@
 
 %%%% LIST OF FIGURES
 \clearpage \phantomsection
-\renewcommand{\listfigurename}{List of Figures \vspace{3.6pt} \hrule}
+\renewcommand{\listfigurename}{List of Figures}
 \addcontentsline{toc}{section}{List of Figures}
 \listoffigures
 \clearpage
