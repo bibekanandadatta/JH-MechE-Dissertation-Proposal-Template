@@ -1,8 +1,10 @@
 # JHU Mechanical Engineering Dissertation Proposal Template
 
-This is an unofficial LaTeX template for the dissertation proposal in PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, however, provides some general guidelines on the sections with a suggested page limit to be included in the proposal. This template is created based on those general guidelines.
+This is an unofficial LaTeX template for the dissertation proposal for PhD in Mechanical Engineering program at Johns Hopkins University. The program does not require any specific formatting, however, provides some general guidelines on the sections with a suggested page limit to be included in the proposal. This template is created based on those general guidelines.
 
 **It is the user's responsibility to discuss with their advisor(s) and committee members about the formatting and styles of the proposal.**
+
+
 
 ## Table of Contents
 
@@ -18,17 +20,18 @@ This is an unofficial LaTeX template for the dissertation proposal in PhD in Mec
 
 
 
+
 ## Description of the repository
 
 | File name   | Description   |
 | :---------  | :-----------  |
 | `01-main.tex` | is the main `.tex` file based on the LaTeX article class in which you will write your proposal. This has all the packages, their settings, customized macros, and the main text section. |
-| `02-response.tex` | is another plain article class-based `.tex` file that you can use to prepare your response to committee members in case they make suggestions for your proposal. I hope you do not have to do this. You can use it for writing response for your journal or conference articles as well. | 
+| `02-response.tex` | is another plain article class-based `.tex` file that you can use to prepare your response to committee members in case they make suggestions for your proposal. I hope you do not have to do this. You can use it for writing responses for your journal or conference articles as well. | 
 | `references.bib` | is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file with all the citations. I suggest adding all the citation files (for the main proposal and subsequent response) to one single file which means updating the same file when writing the response to avoid clutter.
 | `figures.pdf` | is the pdf file that contains all the figures for your proposal. You can also add multiple figure files as well in the main project directory. If you prefer to add a subdirectory for the figures, then you will have to specify `\graphicspath{}` in the preamble of the document. |
 | `01-main.pdf` | is the output template PDF file when for the main proposal document | 
 | `02-response.pdf` | is the output template PDF file for the response document. |
-| `README.md` | is this file containing all the details related to the template. |
+| `README.md` | is this file that contains all the details related to the template. |
 
 Go through both of the `.tex` files to see what packages have been included and what options are invoked to obtain the current formatting. You can tweak the options or add more packages to format the document to your preference or field-specific requirements.
 
@@ -103,7 +106,7 @@ Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/lea
     ```
 
 - The back matter includes the bibliographic references in a single-spaced format with 6 pt (`0.5\baselineskip`) between each bibliographic item.
-  - Default bibliography style is numbered-based `Nature` style citation. Depending on the discipline, you may have to change it; the details are given below.
+  - Default bibliography style is a modified `Nature` style bibliography that prints the full title for the journal instead of an abbreviated title. Depending on the discipline, you may have to change it; the details are given below.
 
 - Currently, no appendix section is available, but you can add it if you need to.
 
@@ -190,7 +193,7 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 >
 > BibLaTeX is a more modern and flexible package (compared to the `natbib` package and `BibTeX` engine) primarily based on the `biber` backend engine. The `.bib` file for `biblatex` is a little different than the one for `bibtex`. Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the `Better BibLaTeX` compatible format.
 
-- To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
+- To change the default form of the bibliography (currently, a modified `Nature` style is activated), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
     ``` latex
     \usepackage[ ... ]{biblatex}
     ```

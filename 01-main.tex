@@ -104,7 +104,6 @@
 
 
 
-
 %%%% COMMON MATH PACKAGES
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,
     dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
@@ -114,7 +113,7 @@
 %%%% BIBLIOGRAPHIC PACKAGE (change the style or other options if you need to)
 %% Nature style bibliography
 \usepackage[backend=biber, defernumbers=true, style=nature, 
-    maxnames=99, date=year, isbn=false, url=false, doi=true]{biblatex}
+    maxnames=19, date=year, isbn=false, url=false, doi=true]{biblatex}
 
 %% APA style
 % \usepackage[backend=biber, defernumbers=true, style=apa, 
@@ -201,6 +200,26 @@
 %% separate category for papers to be not cited in the bibliography
 \DeclareBibliographyCategory{mypapers}             
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
+
+%% the following block ensures articles are sentence case 
+%% but the journal names are title case 
+\DeclareFieldFormat{sentencecase}{\MakeSentenceCase{#1}}
+\renewbibmacro*{title}{%
+  \ifthenelse{\iffieldundef{title}\AND\iffieldundef{subtitle}}
+    {}
+    {\ifthenelse{\ifentrytype{article}\OR\ifentrytype{inbook}%
+      \OR\ifentrytype{incollection}\OR\ifentrytype{inproceedings}%
+      \OR\ifentrytype{inreference}}
+      {\printtext[title]{%
+        \printfield[sentencecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[sentencecase]{subtitle}}}%
+      {\printtext[title]{%
+        \printfield[titlecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[titlecase]{subtitle}}}%
+     \newunit}%
+  \printfield{titleaddon}}
 
 
 %%%% TOCLOFT settings
