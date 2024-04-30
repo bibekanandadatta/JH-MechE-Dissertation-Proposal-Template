@@ -12,10 +12,10 @@
 %% template hosted on the GitHub repository is likely to be the most updated  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% this is an unofficial template for the thesis or dissertation proposal in 
+% This is an unofficial template for the thesis or dissertation proposal in 
 % the Department of Mechanical Engineering at Johns Hopkins University. 
-% this template includes comments on the department-suggested page limits. 
-% it is the user's responsibility to ensure the formatting conforms 
+% This template includes comments on the department-suggested page limits. 
+% It is the user's responsibility to ensure the formatting conforms 
 % with the advisor, proposal committee, and department's requirements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -326,7 +326,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add all your custom math settings and macros in the following section.
-%% this is where LaTeX supremacy becomes a thing. you can customize a lot.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% define math symbols and macros
@@ -481,7 +480,7 @@
 \listoffigures
 \clearpage
 \microtypesetup{protrusion=true}
-
+\hypersetup{linkcolor=blue}                 % revert it back to blue
 %% delete `\vspace{3.6pt} \hrule` if you want to remove the underlines
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -517,7 +516,7 @@
 
 \section{Research objectives}                   %%% suggested: 1 page limit
 
-\subsection{Open research question}
+\subsection{Open research questions}
 
 \blindtext \cite{knuthwebsite}
 
@@ -653,8 +652,7 @@ Col1 & Col2 & Col2 & Col3 \\
 
 \clearpage \phantomsection
 \BibTextSpacing
-\printbibliography[title={Bibliographic references},
-    heading=bibintoc,notcategory=mypapers]
+\printbibliography[title={Bibliographic references},heading=bibintoc,notcategory=mypapers]
 \clearpage
     
 

@@ -13,9 +13,10 @@ This is an unofficial LaTeX template for the dissertation proposal for PhD in Me
 * [Document formatting](#document-formatting)
   + [Main proposal document](#main-proposal-document)
   + [Response document](#response-document)
-* [User guidelines](#user-guidelines)
+* [Basic user guidelines](#basic-user-guidelines)
+  + [Before you begin](#before-you-begin)
   + [Main proposal document](#main-proposal-document)
-  + [Response document](#response-document-1)
+  + [Response document](#response-document)
 * [Contributing to the project](#contributing-to-the-project)
 
 
@@ -49,7 +50,7 @@ Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/lea
 
 > [!NOTE]
 >
-> This template is not available on Overleaf Gallery as it takes time to release any updates made by me and especially does not endorse making small patches or updates. This is also not available as a class on CTAN since it will require the user to have access to the most updated version of LaTeX distribution and frequent updates will be difficult.
+> This template is not available on Overleaf Gallery as it takes time to release any big fix or minor updates (Overleaf also discourages doing such as well). For the same reason, this is also not available as a class on CTAN since it will require the user to have access to the most updated version of LaTeX distribution, and making the updates available will be difficult.
 
 > [!TIP]
 >
@@ -106,10 +107,9 @@ Since Johns Hopkins provides the [Overleaf premium](https://www.overleaf.com/lea
     ```
 
 - The back matter includes the bibliographic references in a single-spaced format with 6 pt (`0.5\baselineskip`) between each bibliographic item.
-  - Default bibliography style is a modified `Nature` style bibliography that prints the full title for the journal instead of an abbreviated title. Depending on the discipline, you may have to change it; the details are given below.
+  The default bibliography style is the `Nature` style bibliography. Depending on the discipline, you may have to change it; the details are given below.
 
 - Currently, no appendix section is available, but you can add it if you need to.
-
 
 
 ### Response document
@@ -122,16 +122,20 @@ The response document is based on the standard LaTeX article class that does not
   - Tables and Figures have the same format as the main document.
 
 - The back matter of the document has a Bibliographic reference section which is of the same format as the main proposal document, i.e., single-spaced bibliographic items with `0.5\baselineskip` between them.
- 
 
 
-## User guidelines
-
-Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. If you would like to do something specific, your best friend is Google; someone on [TeX StackExchange](https://tex.stackexchange.com) has perhaps done it. 
-
-> [!NOTE]
+> [!TIP]
 > 
-> Currently, both of the documents are filled with randomly generated text by the `blindtext` package and some example environments. Remove them to get started with your writing.
+> If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
+``` latex
+\usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
+```
+
+## Basic user guidelines
+
+### Before you begin 
+
+Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. If you would like to do something specific, your best friend is Google; someone on [TeX StackExchange](https://tex.stackexchange.com) has perhaps done it. Currently, both of the documents are filled with randomly generated text by the `blindtext` package and some example environments. Remove them to get started with your writing.
 
 
 
@@ -143,21 +147,9 @@ The preamble section of both of the `.tex` files has been subdivided into multip
     
 - The most common and popular packages for writing your dissertation proposal are added in the `LaTeX CLASS AND PACKAGES` sections. Check the packages; add any additional package you need and/or customize your options there. For some packages, they are already loaded with the options specified in that section. For some other packages, options are specified in the `PACKAGE OPTIONS` section. Based on the declared variables and loaded packages and their options, formatting-related customized settings are available in the `DOCUMENT FORMATTING` section.
 
-> [!TIP]
-> 
-> If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
-
-``` latex
-\usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
-```
-
 - Some essential macros related to different redefined environments are available `OTHER MACROS` (will be discussed below).
 
-- Add your math macros to the `MATH MACROS` section. Some examples of simple math macros are added there in the template. You can add more.
-
-> [!WARNING]
->
-> Finding a different font that offers consistent text and math typography may require you to add customized commands/ macros and options. 
+- Add your math macros to the `MATH MACROS` section. Some examples of simple math macros are added there in the template. You can add more. 
 
 - If you do not like the default font of this template (Latin Modern Roman), you can try a different font or combination of fonts. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this old discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
   - This TUG page lists [fonts that provide math support](https://tug.org/FontCatalogue/mathfonts.html). But Overleaf may not have all of the packages listed there, and some of the packages may raise conflict with other packages that are already loaded. You can try and figure out which works best for you.
@@ -186,14 +178,19 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 - For `enumerate` and `itemize` environments, customize the spacing to ensure it is consistent with the spacing of the document (the default is single-spaced, however, you can change it as mentioned before).
 
+- To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+
+
+- You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
+
+- You may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
+  - Customizing the settings for this package is an involved process and requires some effort. It also depends on the font type being used. Thus I kept it as minimal as possible. But you are welcome to explore more.
+  - It is best not to use the protrusion option from the `microtype` package for the TOC, LOT, and LOF. So they are locally deactivated around these.
 
 - The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name or the file name.
 
-> [!TIP]
->
-> BibLaTeX is a more modern and flexible package (compared to the `natbib` package and `BibTeX` engine) primarily based on the `biber` backend engine. The `.bib` file for `biblatex` is a little different than the one for `bibtex`. Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the `Better BibLaTeX` compatible format.
 
-- To change the default form of the bibliography (currently, a modified `Nature` style is activated), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
+- To change the default form of the bibliography (currently, a `Nature` style is activated), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
     ``` latex
     \usepackage[ ... ]{biblatex}
     ```
@@ -202,30 +199,26 @@ The preamble section of both of the `.tex` files has been subdivided into multip
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexclude{}` command are not printed.
   ``` latex
-  \printbibliography[heading=none,notcategory=mypapers]
+  \clearpage \phantomsection
+  \BibTextSpacing
+  \printbibliography[title={Bibliographic references},heading=bibintoc,notcategory=mypapers]
+  \clearpage
   ```
 
 > [!CAUTION]
 >
-> The `biblatex` package works differently than the older `bibtex` package (which is still available and widely used by many journals). If you have a `bibtex` compatible file, then change the option from `backend=biber` to `backend=bibtex` for the `biblatex` package. But you may get warnings and errors thrown by the LaTeX compiler in this case.
+> BibLaTeX is a more modern and flexible package (compared to the `natbib` package and `BibTeX` engine) primarily based on the `biber` backend engine. The `biblatex` package works differently than the older `bibtex` package (which is still available and widely used by many journals). The `.bib` file for `biblatex` is a little different than the one for `bibtex`. If you have a `bibtex` compatible file, then change the option from `backend=biber` to `backend=bibtex` for the `biblatex` package. But you may get warnings and errors thrown by the LaTeX compiler in this case.
 
-
-- To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
-
-
-- You can use the `\linenumbers` command from the `lineno` (already loaded) package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
-
-
-- Finally, you may consider using the `microtype` package to have a better typography of your document. Check details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
-  - Customizing the settings for this package is an involved process and requires some effort. It also depends on the font type being used. Thus I kept it as minimal as possible. But you are welcome to explore more.
-  - It is best not to use the protrusion option from the `microtype` package for the TOC, LOT, and LOF. So they are locally deactivated around these.
+> [!TIP]
+>
+> Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the `Better BibLaTeX` compatible format.
 
 
 ### Response document
 
 The LaTeX code of the `02-response.tex` file has been arranged in a similar way as the `01-main.tex`. So most of the suggestions given above will apply to this as well.
 
-- Questions or suggestions are written in a different color `(royalblue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+- Questions or suggestions are written in a different color `(RoyalBlue)` than the actual response using the `xcolor` package with the `dvipsnames` option. You can change the color to your preference. You can use this package to add colors in other cases as well; check [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
 - For tables, figures, bibliography, footnotes, and any other special environments, follow the suggested format given above for the main proposal document.
 
@@ -245,4 +238,4 @@ Keep writing ... and good luck with the proposal/ candidacy :tada:!
 
 ## Contributing to the project
 
-This template was kept sufficiently general purpose for with some customization examples for special packages or macros for demonstration purposes. Since there are no specific formatting requirements available, I do not plan on actively maintaining this repository. But if you have questions, I would be happy to help! Also, if any package becomes obsolete or you have better ideas to implement something, you can create a fork and make a `pull request`, or just let me know.
+This template was kept sufficiently general purpose for with some customization examples for special packages or macros for demonstration purposes. Since there are no specific formatting requirements available, I do not plan on actively maintaining this repository. But if you have questions, I would be happy to help! Also, if any package becomes obsolete or you have better ideas to implement something, you can create an `issue` or make a `pull request`.
